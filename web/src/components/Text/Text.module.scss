@@ -17,9 +17,5 @@
     &_sm {
       @include typography.body-sm();
     }
-
-    &_xs {
-      @include typography.body-xs();
-    }
   }
 }
