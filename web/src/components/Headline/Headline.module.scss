@@ -1,0 +1,21 @@
+@use '@styles/mixins/typography.scss' as typography;
+
+.Root {
+  &_size {
+    &_xl {
+      @include typography.headline-xl();
+    }
+
+    &_lg {
+      @include typography.headline-lg();
+    }
+
+    &_md {
+      @include typography.headline-md();
+    }
+
+    &_sm {
+      @include typography.headline-sm();
+    }
+  }
+}
