@@ -33,6 +33,9 @@ export default function Home() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+
+          <br />
+
           <Text element="p" size="lg">
             Testing Text LG <br />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -43,6 +46,9 @@ export default function Home() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+
+          <br />
+          <br />
           <Text element="p" size="md">
             Testing Text MD <br />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -53,6 +59,9 @@ export default function Home() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+
+          <br />
+          <br />
           <Text element="p" size="sm">
             Testing Text SM <br />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -63,6 +72,9 @@ export default function Home() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+
+          <br />
+
           <Text element="p" size="xs">
             Testing Text XS <br />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

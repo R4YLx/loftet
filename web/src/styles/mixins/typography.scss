@@ -4,8 +4,8 @@
 @mixin headline-xl {
   font-size: $font-size-900;
   font-weight: $font-weight-light;
-  line-height: $line-height-300;
-  letter-spacing: $letter-spacing-75;
+  line-height: $line-height-75;
+  letter-spacing: $letter-spacing-100;
 
   @media screen and (min-width: $breakpoint-md) {
   }
@@ -17,8 +17,8 @@
 @mixin headline-lg {
   font-size: $font-size-700;
   font-weight: $font-weight-light;
-  line-height: $line-height-100;
-  letter-spacing: $letter-spacing-75;
+  line-height: $line-height-75;
+  letter-spacing: $letter-spacing-100;
 
   @media screen and (min-width: $breakpoint-md) {
   }
@@ -30,8 +30,8 @@
 @mixin headline-md {
   font-size: $font-size-400;
   font-weight: $font-weight-light;
-  line-height: $line-height-200;
-  letter-spacing: $letter-spacing-75;
+  line-height: $line-height-100;
+  letter-spacing: $letter-spacing-100;
 
   @media screen and (min-width: $breakpoint-md) {
   }
@@ -44,7 +44,7 @@
   font-size: $font-size-100;
   font-weight: $font-weight-light;
   line-height: $line-height-100;
-  letter-spacing: $letter-spacing-25;
+  letter-spacing: $letter-spacing-100;
 
   @media screen and (min-width: $breakpoint-md) {
   }
@@ -57,7 +57,7 @@
 @mixin body-xl {
   font-size: $font-size-400;
   font-weight: $font-weight-regular;
-  line-height: $line-height-200;
+  line-height: $line-height-100;
   letter-spacing: $letter-spacing-75;
 
   @media screen and (min-width: $breakpoint-md) {
@@ -70,8 +70,8 @@
 @mixin body-lg {
   font-size: $font-size-100;
   font-weight: $font-weight-regular;
-  line-height: $line-height-75;
-  letter-spacing: $letter-spacing-25;
+  line-height: $line-height-200;
+  letter-spacing: $letter-spacing-50;
 
   @media screen and (min-width: $breakpoint-md) {
   }
@@ -83,7 +83,7 @@
 @mixin body-md {
   font-size: $font-size-75;
   font-weight: $font-weight-regular;
-  line-height: $line-height-75;
+  line-height: $line-height-200;
   letter-spacing: $letter-spacing-75;
 
   @media screen and (min-width: $breakpoint-md) {
@@ -109,8 +109,8 @@
 @mixin body-xs {
   font-size: $font-size-25;
   font-weight: $font-weight-regular;
-  line-height: $line-height-100;
-  letter-spacing: $letter-spacing-50;
+  line-height: $line-height-200;
+  letter-spacing: $letter-spacing-75;
 
   @media screen and (min-width: $breakpoint-md) {
   }
