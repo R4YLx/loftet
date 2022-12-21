@@ -5,17 +5,18 @@ $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 $breakpoint-xxl: 1536px;
 
-$font-size-25: 0.75rem;
-$font-size-50: 0.875rem;
-$font-size-75: 1rem;
-$font-size-100: 1.125rem;
-$font-size-200: 1.25rem;
-$font-size-300: 1.375rem;
-$font-size-400: 1.75rem;
-$font-size-500: 2rem;
-$font-size-600: 3rem;
-$font-size-700: 4rem;
-$font-size-800: 8rem;
+$font-size-25: 0.625rem; // 10px
+$font-size-50: 0.75rem; // 12px
+$font-size-75: 0.875rem; // 14px
+$font-size-100: 1rem; // 16px
+$font-size-200: 1.125rem; // 18px
+$font-size-300: 1.25rem; // 20px
+$font-size-400: 1.5rem; // 24px
+$font-size-500: 1.625rem; // 26px
+$font-size-600: 1.75; // 28px
+$font-size-700: 2rem; // 32px
+$font-size-800: 2.125rem; // 34px
+$font-size-900: 2.25rem; // 36px
 
 $font-weight-thin: 100;
 $font-weight-extralight: 200;
@@ -81,7 +82,6 @@ $color-neutral-700: #99978d;
 $color-neutral-800: #6e6c65;
 $color-neutral-900: #585651;
 
-$color-semantic-interactive: brightness(0.6);
 $color-background-base: $color-neutral-100;
 $color-background-primary: $color-neutral-500;
 $color-background-secondary: $color-neutral-300;
