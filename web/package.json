@@ -39,6 +39,11 @@
     ]
   },
   "eslintIgnore": [
-    "**/*.scss"
+    "**/*.scss",
+    "**/*.png",
+    "**/*.svg",
+    "**/*.webmanifest",
+    "**/*.xml",
+    "**/*.ico"
   ]
 }
