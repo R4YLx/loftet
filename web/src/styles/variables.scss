@@ -1,0 +1,91 @@
+$breakpoint-xs: 375px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1536px;
+
+$font-size-25: 0.625rem; // 10px
+$font-size-50: 0.75rem; // 12px
+$font-size-75: 0.875rem; // 14px
+$font-size-100: 1rem; // 16px
+$font-size-200: 1.125rem; // 18px
+$font-size-300: 1.25rem; // 20px
+$font-size-400: 1.5rem; // 24px
+$font-size-500: 1.625rem; // 26px
+$font-size-600: 1.75; // 28px
+$font-size-700: 2rem; // 32px
+$font-size-800: 2.125rem; // 34px
+$font-size-900: 2.25rem; // 36px
+
+$font-weight-thin: 100;
+$font-weight-extralight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+$letter-spacing-25: -0.04em;
+$letter-spacing-50: -0.03em;
+$letter-spacing-75: -0.02em;
+$letter-spacing-100: -0.01em;
+$letter-spacing-200: 0em;
+$letter-spacing-300: 0.01em;
+$letter-spacing-400: 0.02em;
+$letter-spacing-500: 0.03em;
+$letter-spacing-600: 0.04em;
+
+$line-height-25: 0.9;
+$line-height-50: 1;
+$line-height-75: 1.1;
+$line-height-100: 1.2;
+$line-height-200: 1.3;
+$line-height-300: 1.4;
+$line-height-400: 1.5;
+$line-height-500: 1.6;
+
+$spacing-25: 0.25rem;
+$spacing-50: 0.5rem;
+$spacing-100: 1rem;
+$spacing-125: 1.25rem;
+$spacing-200: 2rem;
+$spacing-250: 2.5rem;
+$spacing-300: 3.5rem;
+$spacing-400: 4rem;
+$spacing-500: 5rem;
+$spacing-550: 5.5rem;
+$spacing-600: 6rem;
+$spacing-700: 7rem;
+$spacing-750: 7.5rem;
+$spacing-800: 8rem;
+$spacing-900: 9rem;
+$spacing-1000: 10rem;
+$spacing-1100: 11rem;
+$spacing-1200: 12rem;
+$spacing-1300: 13rem;
+$spacing-1400: 14rem;
+
+$color-static-black: #000000;
+$color-static-white: #ffffff;
+$color-static-grey: #dfdfdf;
+
+$color-neutral-100: #f4f3ef;
+$color-neutral-200: #e9e8df;
+$color-neutral-300: #e2e0d5;
+$color-neutral-400: #dfdccf;
+$color-neutral-500: #dbd8ca;
+$color-neutral-600: #c5c2b6;
+$color-neutral-700: #99978d;
+$color-neutral-800: #6e6c65;
+$color-neutral-900: #585651;
+
+$color-background-base: $color-neutral-100;
+$color-background-primary: $color-neutral-500;
+$color-background-secondary: $color-neutral-300;
+$color-text-base: $color-static-black;
+$color-text-light: $color-static-white;
+$color-icon-base: $color-static-black;
+$color-border-subtle: $color-static-grey;
