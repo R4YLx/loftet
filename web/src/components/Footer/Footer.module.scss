@@ -1,11 +1,12 @@
 @use '@styles/variables.scss' as *;
+@use '@styles/mixins/color.scss' as *;
 
 .Root {
   background: $color-background-primary;
-  padding-block: $spacing-200;
-  padding-inline: $spacing-100;
+  padding-top: $spacing-200;
 
-  &__topSection {
+  &__wrapper {
+    padding-inline: $spacing-100;
   }
 
   &__logo {
@@ -16,6 +17,65 @@
   &__socialsContainer {
     display: flex;
     align-items: center;
-    gap: $spacing-25;
+    gap: $spacing-50;
+  }
+
+  &__listWrapper {
+    list-style-type: none;
+    margin-block: $spacing-100;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-75;
+  }
+
+  &__listItem {
+    &:hover {
+      @include on-hover-text-dark();
+    }
+  }
+
+  &__inputWrapper {
+    margin-block: $spacing-200;
+  }
+
+  &__subscribeWrapper {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: $spacing-75;
+  }
+
+  &__inputField {
+    grid-column: span 9 / span 9;
+    text-indent: $spacing-50;
+    border: 1px solid $color-border-dark;
+
+    &::placeholder {
+      font-family: $font-family-sans;
+      text-transform: uppercase;
+      text-indent: $spacing-50;
+    }
+  }
+
+  &__button {
+    grid-column: span 3 / span 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    height: $spacing-250;
+
+    &:hover {
+      @include on-hover-bg-dark();
+    }
+  }
+
+  &__bottomLabel {
+    background: $color-background-dark;
+    color: $color-text-light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

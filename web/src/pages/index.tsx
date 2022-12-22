@@ -78,7 +78,7 @@ export default function Home() {
         <br />
 
         <div>
-          <Button dark>
+          <Button dark block>
             <Text element="p" size="md">
               Shop all jackets
             </Text>
@@ -87,7 +87,7 @@ export default function Home() {
           <br />
           <br />
 
-          <Button light>
+          <Button light block>
             <Text element="p" size="md">
               Shop all denim
             </Text>
@@ -105,7 +105,7 @@ export default function Home() {
           <br />
           <br />
 
-          <Button bgDark>
+          <Button bgDark block>
             <Text element="p" size="md">
               Check out
             </Text>
