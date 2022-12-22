@@ -3,4 +3,5 @@ export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   light?: boolean
   dark?: boolean
   bgDark?: boolean
+  block?: boolean
 }

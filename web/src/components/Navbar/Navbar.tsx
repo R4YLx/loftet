@@ -21,12 +21,12 @@ const Navbar = () => {
         </div>
 
         <div className={styles.Root__logoWrapper}>
-          <img src="logo/logo.svg" alt="logo" className={styles.Root__logo} />
+          <img src="/logo.svg" alt="logo" className={styles.Root__logo} />
         </div>
 
         <div className={styles.Root__icons}>
-          <CiSearch size={30} />
-          <BsBag size={25} />
+          <CiSearch size={27} />
+          <BsBag size={22} />
         </div>
       </nav>
     </div>

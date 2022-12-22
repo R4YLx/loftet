@@ -9,7 +9,6 @@
   background: none;
   cursor: pointer;
   color: inherit;
-  min-width: 15ch;
 
   // Full width on prop isFluid
   &_fullWidth {
@@ -32,5 +31,9 @@
   &_bgDark {
     background-color: $color-background-dark;
     color: $color-text-light;
+  }
+
+  &_block {
+    min-width: 15ch;
   }
 }

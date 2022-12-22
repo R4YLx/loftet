@@ -1,0 +1,10 @@
+@use '@styles/variables.scss' as *;
+
+.Root {
+  border: 1px solid $color-border-dark;
+  margin-block: $spacing-125;
+
+  &_subtle {
+    border: 1px solid $color-border-subtle;
+  }
+}
