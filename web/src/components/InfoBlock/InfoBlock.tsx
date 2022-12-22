@@ -5,7 +5,7 @@ import Text from '@components/Text'
 import styles from './InfoBlock.module.scss'
 import { IInfoBlock } from './InfoBlock.types'
 
-const InfoBlock = ({ buttonText, headline, children }: IInfoBlock) => {
+const InfoBlock = ({ buttonText, headline, text }: IInfoBlock) => {
   return (
     <div className={styles.Root}>
       <div className={styles.Root__wrapper}>
@@ -15,7 +15,11 @@ const InfoBlock = ({ buttonText, headline, children }: IInfoBlock) => {
           </Headline>
         </div>
 
-        <div className={styles.Root__textWrapper}>{children}</div>
+        <div className={styles.Root__textWrapper}>
+          <Text element="p" size="lg">
+            {text}
+          </Text>
+        </div>
 
         <div className={styles.Root__buttonWrapper}>
           <Button dark block>

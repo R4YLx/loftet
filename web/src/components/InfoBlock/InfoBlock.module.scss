@@ -22,14 +22,6 @@
   }
 
   &__textWrapper {
-    > p {
-      margin-top: 0;
-      margin-bottom: $spacing-100;
-    }
-
-    > p:last-of-type {
-      margin: 0;
-    }
   }
 
   &__buttonWrapper {
