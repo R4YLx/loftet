@@ -1,0 +1,9 @@
+@use '@styles/variables.scss' as *;
+
+.Root {
+  &__topLabel {
+    text-align: center;
+    background: $color-background-primary;
+    padding-block: $spacing-50;
+  }
+}
