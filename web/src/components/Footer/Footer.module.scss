@@ -1,0 +1,21 @@
+@use '@styles/variables.scss' as *;
+
+.Root {
+  background: $color-background-primary;
+  padding-block: $spacing-200;
+  padding-inline: $spacing-100;
+
+  &__topSection {
+  }
+
+  &__logo {
+    width: 5rem;
+    margin-bottom: $spacing-50;
+  }
+
+  &__socialsContainer {
+    display: flex;
+    align-items: center;
+    gap: $spacing-25;
+  }
+}
