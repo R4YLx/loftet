@@ -9,7 +9,7 @@ export default function Home() {
     <div className={styles.Root}>
       <main>
         <div>
-          <Headline element="h2" size="xl" className={styles.Root__headline}>
+          <Headline element="h2" size="lg" className={styles.Root__headline}>
             New Arrivals
           </Headline>
         </div>
