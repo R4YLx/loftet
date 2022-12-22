@@ -1,5 +1,6 @@
 import Button from '@components/Button'
 import Headline from '@components/Headline'
+import InfoBlock from '@components/InfoBlock'
 import Text from '@components/Text'
 
 export default function Home() {
@@ -112,6 +113,23 @@ export default function Home() {
           </Button>
         </div>
       </main>
+
+      <InfoBlock headline="Made for the modern man">
+        <Text element="p" size="lg">
+          Lorem ipsum dolor sit amet consectetur. Mi ultricies purus aliquet vel
+          vitae at viverra mattis id. Enim nec condimentum auctor facilisis.
+          Tempor pellentesque eget ultrices elit nullam purus. Est ornare etiam
+          dis lacus cursus cum.
+        </Text>
+
+        <Text element="p" size="lg">
+          Sit ullamcorper elementum vestibulum lacus nisl lectus. Sem ut
+          suspendisse eu arcu vitae integer. Vivamus scelerisque id lectus diam
+          elit ipsum. Metus posuere diam faucibus sit duis ac quis vitae
+          volutpat. Blandit at pellentesque nibh consectetur risus. Mi volutpat
+          tempor volutpat dolor quis ornare mattis non commodo.
+        </Text>
+      </InfoBlock>
     </>
   )
 }
