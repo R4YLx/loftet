@@ -1,3 +1,4 @@
+import Divider from '@components/Divider'
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs'
 
 import styles from './Footer.module.scss'
@@ -14,6 +15,8 @@ const Footer = () => {
           <BsTwitter />
         </div>
       </div>
+
+      <Divider />
     </footer>
   )
 }
