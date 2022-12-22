@@ -2,7 +2,7 @@
 
 .Root {
   background: $color-background-secondary;
-  padding-block: $spacing-200;
+  padding-block: $spacing-100;
 
   &__wrapper {
     display: flex;
@@ -22,11 +22,17 @@
   }
 
   &__textWrapper {
-  }
+    > p {
+      margin-top: 0;
+      margin-bottom: $spacing-100;
+    }
 
-  &__text {
-    p {
+    > p:last-of-type {
       margin: 0;
     }
+  }
+
+  &__buttonWrapper {
+    padding-block: $spacing-125;
   }
 }
