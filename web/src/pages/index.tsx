@@ -1,3 +1,4 @@
+import Button from '@components/Button'
 import Headline from '@components/Headline'
 import Text from '@components/Text'
 
@@ -72,6 +73,43 @@ export default function Home() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+        </div>
+
+        <br />
+
+        <div>
+          <Button dark>
+            <Text element="p" size="md">
+              Shop all jackets
+            </Text>
+          </Button>
+
+          <br />
+          <br />
+
+          <Button light>
+            <Text element="p" size="md">
+              Shop all denim
+            </Text>
+          </Button>
+
+          <br />
+          <br />
+
+          <Button bgDark isFluid>
+            <Text element="p" size="md">
+              Add to cart
+            </Text>
+          </Button>
+
+          <br />
+          <br />
+
+          <Button bgDark>
+            <Text element="p" size="md">
+              Check out
+            </Text>
+          </Button>
         </div>
       </main>
     </>

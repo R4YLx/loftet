@@ -1,0 +1,36 @@
+@use '@styles/variables.scss' as *;
+
+.Root {
+  //    Normalize button
+  border: none;
+  font-family: inherit;
+  font-size: 100%;
+  text-align: center;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  min-width: 15ch;
+
+  // Full width on prop isFluid
+  &_fullWidth {
+    width: 100%;
+  }
+
+  // Light border with light text
+  &_light {
+    border: 1px solid $color-border-light;
+    color: $color-text-light;
+  }
+
+  // Dark border with dark text
+  &_dark {
+    border: 1px solid $color-border-dark;
+    color: $color-text-base;
+  }
+
+  // Filled dark button with light text
+  &_bgDark {
+    background-color: $color-background-dark;
+    color: $color-text-light;
+  }
+}
