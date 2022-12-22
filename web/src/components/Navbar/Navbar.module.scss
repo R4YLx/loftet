@@ -6,4 +6,40 @@
     background: $color-background-primary;
     padding-block: $spacing-50;
   }
+
+  &__navbar {
+    padding-inline: $spacing-100;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    background: $color-background-light;
+    padding-block: $spacing-100;
+  }
+
+  &__hamburger {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logoWrapper {
+    grid-column-start: 3;
+    grid-column-end: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__logo {
+    width: 10rem;
+  }
+
+  &__icons {
+    grid-column-start: 6;
+    display: flex;
+    align-items: center;
+    justify-self: flex-end;
+    gap: $spacing-50;
+  }
 }
