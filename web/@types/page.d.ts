@@ -1,0 +1,3 @@
+interface HomePageProps {
+  categories: Category[]
+}

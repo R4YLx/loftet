@@ -1,9 +1,14 @@
+import { GetServerSideProps } from 'next'
+import { fetchCategories } from 'utils/fetchCategories'
+
 import Headline from '@components/Headline'
 import InfoBlock from '@components/InfoBlock'
 
 import styles from '@styles/page-modules/HomePage.module.scss'
 
-export default function Home() {
+export default function Home({ categories }: HomePageProps) {
+  console.log('categories', categories)
+
   return (
     <div className={styles.Root}>
       <main>
@@ -26,4 +31,17 @@ export default function Home() {
       ></InfoBlock>
     </div>
   )
+}
+
+//* Backend
+export const getServerSideProps: GetServerSideProps<
+  HomePageProps
+> = async () => {
+  const categories = await fetchCategories()
+
+  return {
+    props: {
+      categories
+    }
+  }
 }
