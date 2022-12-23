@@ -1,11 +1,12 @@
 import { groq } from 'next-sanity'
-import { sanityClient } from '../../../sanity.config'
+import { sanityClient } from '@lib/sanity.config'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-const query = groq`*[_type == "category"] {
+const query = groq`*[_type == "category"]{
   _id,
+  title,
   slug,
-  title
+  "subcategory": *[_type == "subcategory" && references(^._id)].title
 }`
 
 export default async function handler(

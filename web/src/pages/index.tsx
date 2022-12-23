@@ -1,13 +1,16 @@
 import { GetServerSideProps } from 'next'
 import { fetchCategories } from 'utils/fetchCategories'
+import { fetchSubcategories } from 'utils/fetchSubcategories'
 
 import Headline from '@components/Headline'
 import InfoBlock from '@components/InfoBlock'
 
 import styles from '@styles/page-modules/HomePage.module.scss'
 
-export default function Home({ categories }: HomePageProps) {
+export default function Home({ categories, subcategories }: HomePageProps) {
   console.log('categories', categories)
+
+  console.log('subcategories', subcategories)
 
   return (
     <div className={styles.Root}>
@@ -38,10 +41,12 @@ export const getServerSideProps: GetServerSideProps<
   HomePageProps
 > = async () => {
   const categories = await fetchCategories()
+  const subcategories = await fetchSubcategories()
 
   return {
     props: {
-      categories
+      categories,
+      subcategories
     }
   }
 }
