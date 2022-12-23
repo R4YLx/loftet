@@ -15,13 +15,11 @@ const InfoBlock = ({ buttonText, headline, text }: IInfoBlock) => {
           </Headline>
         </div>
 
-        <div className={styles.Root__textWrapper}>
+        <div className={styles.Root__textAndButtonWrapper}>
           <Text element="p" size="lg">
             {text}
           </Text>
-        </div>
 
-        <div className={styles.Root__buttonWrapper}>
           <Button dark block>
             <Text element="p" size="lg">
               {buttonText}
