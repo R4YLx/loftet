@@ -11,7 +11,7 @@ interface Product {
   material: string
   measurements: string
   price: number
-  size: Size
+  size: string
   slug: {
     _type: 'slug'
     current: string
@@ -26,11 +26,6 @@ interface Image {
   asset: {
     url: string
   }
-}
-
-interface Size {
-  _ref: string
-  _type: 'reference'
 }
 
 interface ProductData {

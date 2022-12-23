@@ -1,21 +1,14 @@
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { fetchCategories } from 'utils/fetchCategories'
-import { fetchSubcategories } from 'utils/fetchSubcategories'
+import { fetchProducts } from 'utils/fetchProducts'
 
 import Headline from '@components/Headline'
 import InfoBlock from '@components/InfoBlock'
 
 import styles from '@styles/page-modules/HomePage.module.scss'
-import { fetchProducts } from 'utils/fetchProducts'
 
-export default function Home({
-  categories,
-  subcategories,
-  products
-}: HomePageProps) {
+export default function Home({ categories, products }: HomePageProps) {
   console.log('categories', categories)
-
-  console.log('subcategories', subcategories)
 
   console.log('products', products)
 
@@ -25,6 +18,29 @@ export default function Home({
         <Headline element="h2" size="lg" className={styles.Root__headline}>
           New Arrivals
         </Headline>
+
+        {products.map((product) => (
+          <div key={product._id}>
+            <ul>
+              <li>{product.title}</li>
+              <li>{product.size}</li>
+              <li>{product.price}</li>
+              <li>{product.condition}</li>
+              <li>{product.measurements}</li>
+            </ul>
+          </div>
+        ))}
+
+        {categories.map((category) => (
+          <div key={category._id}>
+            <p>
+              <strong>{category.title}</strong>
+            </p>
+            {category.subcategory.map((subcat) => (
+              <p key={subcat._id}>{subcat.title}</p>
+            ))}
+          </div>
+        ))}
       </main>
 
       <InfoBlock
@@ -44,18 +60,14 @@ export default function Home({
 }
 
 //* Backend
-export const getServerSideProps: GetServerSideProps<
-  HomePageProps
-> = async () => {
-  const categories = await fetchCategories()
-  const subcategories = await fetchSubcategories()
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
   const products = await fetchProducts()
+  const categories = await fetchCategories()
 
   return {
     props: {
-      categories,
-      subcategories,
-      products
+      products,
+      categories
     }
   }
 }

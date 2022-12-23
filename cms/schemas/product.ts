@@ -22,8 +22,7 @@ export default defineType({
     defineField({
       name: 'size',
       title: 'Size',
-      type: 'reference',
-      to: [{ type: 'size' }]
+      type: 'string'
     }),
     defineField({
       name: 'price',
