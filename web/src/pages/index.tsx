@@ -6,11 +6,18 @@ import Headline from '@components/Headline'
 import InfoBlock from '@components/InfoBlock'
 
 import styles from '@styles/page-modules/HomePage.module.scss'
+import { fetchProducts } from 'utils/fetchProducts'
 
-export default function Home({ categories, subcategories }: HomePageProps) {
+export default function Home({
+  categories,
+  subcategories,
+  products
+}: HomePageProps) {
   console.log('categories', categories)
 
   console.log('subcategories', subcategories)
+
+  console.log('products', products)
 
   return (
     <div className={styles.Root}>
@@ -42,11 +49,13 @@ export const getServerSideProps: GetServerSideProps<
 > = async () => {
   const categories = await fetchCategories()
   const subcategories = await fetchSubcategories()
+  const products = await fetchProducts()
 
   return {
     props: {
       categories,
-      subcategories
+      subcategories,
+      products
     }
   }
 }

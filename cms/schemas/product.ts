@@ -50,21 +50,29 @@ export default defineType({
       ]
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'blockContent'
+      name: 'item',
+      title: 'Item',
+      type: 'string'
+    }),
+    defineField({
+      name: 'material',
+      title: 'Material',
+      type: 'string'
+    }),
+    defineField({
+      name: 'color',
+      title: 'Color',
+      type: 'string'
+    }),
+    defineField({
+      name: 'condition',
+      title: 'Condition',
+      type: 'string'
+    }),
+    defineField({
+      name: 'measurements',
+      title: 'Measurements',
+      type: 'text'
     })
-  ],
-
-  preview: {
-    select: {
-      title: 'title',
-      author: 'author.name',
-      media: 'image'
-    },
-    prepare(selection) {
-      const { author } = selection
-      return { ...selection, subtitle: author && `by ${author}` }
-    }
-  }
+  ]
 })
