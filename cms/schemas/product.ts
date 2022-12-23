@@ -39,17 +39,6 @@ export default defineType({
       }
     }),
     defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'category' }]
-        }
-      ]
-    }),
-    defineField({
       name: 'subcategory',
       title: 'Subcategory',
       type: 'array',
