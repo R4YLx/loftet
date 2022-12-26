@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'category',
-  title: 'Category',
+  name: 'categories',
+  title: 'Categories',
   type: 'document',
   fields: [
     defineField({
@@ -18,6 +18,17 @@ export default defineType({
         source: 'title',
         maxLength: 96
       }
+    }),
+    defineField({
+      name: 'subcategories',
+      title: 'subcategories',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'subcategories' }]
+        }
+      ]
     })
   ]
 })
