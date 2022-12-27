@@ -1,2 +1,7 @@
 .Root {
+  position: relative;
+
+  &__image {
+    width: 100%;
+  }
 }

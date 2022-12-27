@@ -6,6 +6,7 @@ import Headline from '@components/Headline'
 import InfoBlock from '@components/InfoBlock'
 
 import styles from '@styles/page-modules/HomePage.module.scss'
+import HeroBlock from '@components/HeroBlock'
 
 export default function Home({ categories, subcategories }: HomePageProps) {
   console.log('categories', categories)
@@ -18,6 +19,11 @@ export default function Home({ categories, subcategories }: HomePageProps) {
         <Headline element="h2" size="lg" className={styles.Root__headline}>
           New Arrivals
         </Headline>
+
+        <HeroBlock
+          imageSrc="/images/jackets-hero.webp"
+          btnText="Shop all jackets"
+        />
       </main>
 
       <InfoBlock

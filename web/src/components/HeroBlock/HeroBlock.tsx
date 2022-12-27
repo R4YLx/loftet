@@ -7,13 +7,17 @@ import { IHeroBlock } from './HeroBlock.types'
 const HeroBlock = ({ imageSrc, btnText }: IHeroBlock) => {
   return (
     <div className={styles.Root}>
-      <Image src={imageSrc} className={styles.Root__image} />
+      <div className={styles.Root__imageWrapper}>
+        <Image src={imageSrc} isFluid />
+      </div>
 
-      <Button className={styles.Root__button}>
-        <Text element="p" size="md">
-          {btnText}
-        </Text>
-      </Button>
+      <div className={styles.Root__buttonWrapper}>
+        <Button block light>
+          <Text element="p" size="lg">
+            {btnText}
+          </Text>
+        </Button>
+      </div>
     </div>
   )
 }
