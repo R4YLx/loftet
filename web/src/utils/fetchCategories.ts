@@ -11,7 +11,6 @@ export const fetchCategories = async () => {
       slug,
       title
     }
-    
   }`
 
   const categories: Category[] = await sanityClient.fetch(query)

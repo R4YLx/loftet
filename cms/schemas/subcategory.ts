@@ -18,6 +18,17 @@ export default defineType({
         source: 'title',
         maxLength: 96
       }
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'categories' }]
+        }
+      ]
     })
   ]
 })
