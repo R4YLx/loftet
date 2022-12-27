@@ -34,7 +34,7 @@ export default function Home({ categories, products }: HomePageProps) {
           New Arrivals
         </Headline>
 
-        {products.map((product) => (
+        {/* {products.map((product) => (
           <div key={product._id}>
             <ul>
               <li>{product.title}</li>
@@ -55,7 +55,7 @@ export default function Home({ categories, products }: HomePageProps) {
               <p key={subcat._id}>{subcat.title}</p>
             ))}
           </div>
-        ))}
+        ))} */}
       </main>
 
       <InfoBlock
