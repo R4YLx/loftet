@@ -7,6 +7,8 @@ import InfoBlock from '@components/InfoBlock'
 
 import styles from '@styles/page-modules/HomePage.module.scss'
 import HeroBlock from '@components/HeroBlock'
+import ProductCard from '@components/ProductCard'
+import ProductsGrid from '@components/ProductsGrid'
 
 export default function Home({ categories, products }: HomePageProps) {
   console.log('categories', categories)
@@ -34,28 +36,18 @@ export default function Home({ categories, products }: HomePageProps) {
           New Arrivals
         </Headline>
 
-        {/* {products.map((product) => (
-          <div key={product._id}>
-            <ul>
-              <li>{product.title}</li>
-              <li>{product.size}</li>
-              <li>{product.price}</li>
-              <li>{product.condition}</li>
-              <li>{product.measurements}</li>
-            </ul>
-          </div>
-        ))}
-
-        {categories.map((category) => (
-          <div key={category._id}>
-            <p>
-              <strong>{category.title}</strong>
-            </p>
-            {category.subcategory.map((subcat) => (
-              <p key={subcat._id}>{subcat.title}</p>
-            ))}
-          </div>
-        ))} */}
+        <ProductsGrid>
+          {products.map((product) => (
+            <ProductCard
+              key={product._id}
+              image={product.image}
+              item={product.item}
+              size={product.size}
+              price={product.price}
+              onClick={() => null} //* Click event for product page
+            />
+          ))}
+        </ProductsGrid>
       </main>
 
       <InfoBlock
