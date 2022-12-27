@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'product',
-  title: 'Product',
+  name: 'products',
+  title: 'Products',
   type: 'document',
   fields: [
     defineField({
@@ -22,8 +22,7 @@ export default defineType({
     defineField({
       name: 'size',
       title: 'Size',
-      type: 'reference',
-      to: [{ type: 'size' }]
+      type: 'string'
     }),
     defineField({
       name: 'price',
@@ -39,43 +38,35 @@ export default defineType({
       }
     }),
     defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'category' }]
-        }
-      ]
-    }),
-    defineField({
       name: 'subcategory',
       title: 'Subcategory',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'subcategory' }]
-        }
-      ]
+      type: 'reference',
+      to: [{ type: 'subcategories' }]
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'blockContent'
+      name: 'item',
+      title: 'Item',
+      type: 'string'
+    }),
+    defineField({
+      name: 'material',
+      title: 'Material',
+      type: 'string'
+    }),
+    defineField({
+      name: 'color',
+      title: 'Color',
+      type: 'string'
+    }),
+    defineField({
+      name: 'condition',
+      title: 'Condition',
+      type: 'string'
+    }),
+    defineField({
+      name: 'measurements',
+      title: 'Measurements',
+      type: 'text'
     })
-  ],
-
-  preview: {
-    select: {
-      title: 'title',
-      author: 'author.name',
-      media: 'image'
-    },
-    prepare(selection) {
-      const { author } = selection
-      return { ...selection, subtitle: author && `by ${author}` }
-    }
-  }
+  ]
 })

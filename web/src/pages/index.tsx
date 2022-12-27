@@ -1,6 +1,6 @@
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { fetchCategories } from 'utils/fetchCategories'
-import { fetchSubcategories } from 'utils/fetchSubcategories'
+import { fetchProducts } from 'utils/fetchProducts'
 
 import Headline from '@components/Headline'
 import InfoBlock from '@components/InfoBlock'
@@ -8,10 +8,10 @@ import InfoBlock from '@components/InfoBlock'
 import styles from '@styles/page-modules/HomePage.module.scss'
 import HeroBlock from '@components/HeroBlock'
 
-export default function Home({ categories, subcategories }: HomePageProps) {
+export default function Home({ categories, products }: HomePageProps) {
   console.log('categories', categories)
 
-  console.log('subcategories', subcategories)
+  console.log('products', products)
 
   return (
     <div className={styles.Root}>
@@ -33,6 +33,29 @@ export default function Home({ categories, subcategories }: HomePageProps) {
         <Headline element="h2" size="lg" className={styles.Root__headline}>
           New Arrivals
         </Headline>
+
+        {/* {products.map((product) => (
+          <div key={product._id}>
+            <ul>
+              <li>{product.title}</li>
+              <li>{product.size}</li>
+              <li>{product.price}</li>
+              <li>{product.condition}</li>
+              <li>{product.measurements}</li>
+            </ul>
+          </div>
+        ))}
+
+        {categories.map((category) => (
+          <div key={category._id}>
+            <p>
+              <strong>{category.title}</strong>
+            </p>
+            {category.subcategory.map((subcat) => (
+              <p key={subcat._id}>{subcat.title}</p>
+            ))}
+          </div>
+        ))} */}
       </main>
 
       <InfoBlock
@@ -52,16 +75,14 @@ export default function Home({ categories, subcategories }: HomePageProps) {
 }
 
 //* Backend
-export const getServerSideProps: GetServerSideProps<
-  HomePageProps
-> = async () => {
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+  const products = await fetchProducts()
   const categories = await fetchCategories()
-  const subcategories = await fetchSubcategories()
 
   return {
     props: {
-      categories,
-      subcategories
+      products,
+      categories
     }
   }
 }
