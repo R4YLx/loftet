@@ -6,7 +6,7 @@ const Image = ({ isFluid, src, ...rest }: IImage) => {
   const imageStyles = clsx(
     styles.Root,
     rest.className,
-    isFluid && [styles.Root__isFluid]
+    isFluid && styles.Root_isFullWidth
   )
 
   return <img className={imageStyles} src={src} {...rest} />
