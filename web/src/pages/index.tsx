@@ -44,22 +44,10 @@ export default function Home({ categories, products }: HomePageProps) {
               item={product.item}
               size={product.size}
               price={product.price}
-              onClick={() => null}
+              onClick={() => null} //* Click event for product page
             />
           ))}
         </ProductsGrid>
-
-        {/* 
-        {categories.map((category) => (
-          <div key={category._id}>
-            <p>
-              <strong>{category.title}</strong>
-            </p>
-            {category.subcategory.map((subcat) => (
-              <p key={subcat._id}>{subcat.title}</p>
-            ))}
-          </div>
-        ))} */}
       </main>
 
       <InfoBlock

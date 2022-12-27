@@ -11,7 +11,12 @@ const HeroBlock = ({ imageSrc, btnText, ...rest }: IHeroBlock) => {
         <Image src={imageSrc} className={styles.Root__image} />
 
         <div className={styles.Root__buttonWrapper}>
-          <Button block light className={styles.Root__button}>
+          <Button
+            block
+            light
+            className={styles.Root__button}
+            onClick={() => null} //* Click event to page
+          >
             <Text element="p" size="lg">
               {btnText}
             </Text>
