@@ -1,7 +1,35 @@
+@use '@styles/variables.scss' as *;
+
 .Root {
   position: relative;
 
+  &__imageWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &__image {
+    height: 40vh;
     width: 100%;
+    object-fit: cover;
+
+    @media screen and (min-width: $breakpoint-md) {
+      height: 50vh;
+    }
+
+    @media screen and (min-width: $breakpoint-lg) {
+      height: 60vh;
+    }
+  }
+
+  &__buttonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: $spacing-300;
   }
 }
