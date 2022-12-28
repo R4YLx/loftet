@@ -25,10 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
       {menuOpen && (
         <HamburgerModal setIsOpen={() => setMenuOpen(!menuOpen)}>
-          <>
-            <CategoryAccordion />
-            <Footer />
-          </>
+          <CategoryAccordion />
         </HamburgerModal>
       )}
 
