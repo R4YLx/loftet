@@ -3,10 +3,11 @@
 
 .Root {
   background: $color-background-primary;
-  padding-top: $spacing-200;
+  padding-top: $spacing-300;
 
   &__wrapper {
     padding-inline: $spacing-100;
+    padding-bottom: $spacing-100;
   }
 
   &__logo {
