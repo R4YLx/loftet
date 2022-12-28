@@ -24,6 +24,10 @@
   &__hamburger {
     display: flex;
     align-items: center;
+
+    &__button {
+      padding: 0;
+    }
   }
 
   &__logoWrapper {
