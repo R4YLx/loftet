@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="LOFTET - Vintage clothing for men" />
       </Head>
 
-      <Navbar />
+      <Navbar menuOpen={menuOpen} setMenuOpen={() => setMenuOpen(!menuOpen)} />
 
       <Component {...pageProps} />
 
