@@ -6,6 +6,7 @@ import Footer from '@components/Footer'
 import Navbar from '@components/Navbar'
 import HamburgerModal from '@components/HamburgerModal'
 import '@styles/global.scss'
+import CategoryAccordion from '@components/CategoryAccordion'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -25,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
       {menuOpen && (
         <HamburgerModal setIsOpen={() => setMenuOpen(!menuOpen)}>
           <>
-            ADSASDADDADASDA
+            <CategoryAccordion />
             <Footer />
           </>
         </HamburgerModal>
