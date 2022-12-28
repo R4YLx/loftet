@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 import Footer from '@components/Footer'
 import Navbar from '@components/Navbar'
+import HamburgerModal from '@components/HamburgerModal'
 import '@styles/global.scss'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -21,9 +22,22 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <Navbar menuOpen={menuOpen} setMenuOpen={() => setMenuOpen(!menuOpen)} />
 
-      <Component {...pageProps} />
+      {menuOpen && (
+        <HamburgerModal setIsOpen={() => setMenuOpen(!menuOpen)}>
+          <>
+            ADSASDADDADASDA
+            <Footer />
+          </>
+        </HamburgerModal>
+      )}
 
-      <Footer />
+      {!menuOpen && (
+        <>
+          <Component {...pageProps} />
+
+          <Footer />
+        </>
+      )}
     </>
   )
 }

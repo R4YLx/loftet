@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { useEffect } from 'react'
 
 import { IHamburgerModal } from './HamburgerModal.types'
-import styles from './Modal.module.scss'
+import styles from './HamburgerModal.module.scss'
 
 const HamburgerModal = ({
   isOpen,

@@ -1,16 +1,17 @@
 @use '@styles/variables.scss' as *;
 
 .Root {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  width: 100%;
   border: none;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: $color-background-light;
+
+  width: 100%;
 
   display: flex;
-  position: relative;
-  overflow: hidden;
-
+  flex-direction: column;
   justify-content: center;
 
   &__wrapper {
