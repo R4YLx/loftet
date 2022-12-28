@@ -1,0 +1,63 @@
+export const categories = [
+  {
+    id: 1,
+    title: 'Jackets',
+    value: 'category-1',
+    subcategories: [
+      { id: 1, title: 'All jackets', slug: '/jackets' },
+      { id: 2, title: 'Military jackets', slug: '/military-jackets' },
+      { id: 3, title: 'Sports jackets', slug: '/sports-jackets' },
+      { id: 4, title: 'Workwear jackets', slug: '/workwear-jackets' },
+      { id: 5, title: 'Denim jackets', slug: '/denim-jackets' }
+    ]
+  },
+  {
+    id: 2,
+    title: 'Shirts',
+    value: 'category-2',
+    subcategories: [
+      { id: 1, title: 'All shirts', slug: '/shirts' },
+      { id: 2, title: 'Military shirts', slug: '/military-shirts' },
+      { id: 3, title: 'Casual shirts', slug: '/casual-shirts' },
+      { id: 4, title: 'Workwear shirts', slug: '/workwear-shirts' }
+    ]
+  },
+  {
+    id: 3,
+    title: 'Tops',
+    value: 'category-3',
+    subcategories: [
+      { id: 1, title: 'All tops', slug: '/tops' },
+      { id: 2, title: 'T-shirts', slug: '/t-shirts' },
+      {
+        id: 3,
+        title: 'Sweatshirts & Hoodies',
+        slug: '/sweatshirts-and-hoodies'
+      },
+      { id: 4, title: 'Knitwear', slug: '/knitwear/' },
+      { id: 5, title: 'Military tops', slug: '/military-tops' },
+      { id: 6, title: 'Sports tops', slug: '/sports-tops' }
+    ]
+  },
+  {
+    id: 4,
+    title: 'Trousers',
+    value: 'category-4',
+    subcategories: [
+      { id: 1, title: 'All trousers', slug: '/trousers' },
+      { id: 2, title: 'Military trousers', slug: '/military-trousers' },
+      { id: 3, title: 'Shorts', slug: '/shorts' },
+      { id: 4, title: 'Denim trousers', slug: '/denim-trousers' }
+    ]
+  },
+  {
+    id: 5,
+    title: 'Denim',
+    value: 'category-5',
+    subcategories: [
+      { id: 1, title: 'All denim', slug: '/denim' },
+      { id: 2, title: 'Denim trousers', slug: '/denim-trousers' },
+      { id: 3, title: 'Denim jackets', slug: '/denim-jackets' }
+    ]
+  }
+]
