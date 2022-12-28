@@ -1,0 +1,20 @@
+@use '@styles/variables.scss' as *;
+
+.Root {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+
+  display: flex;
+  position: relative;
+  overflow: hidden;
+
+  justify-content: center;
+
+  &__wrapper {
+    display: block;
+    width: 100%;
+  }
+}
