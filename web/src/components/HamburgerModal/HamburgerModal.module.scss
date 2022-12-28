@@ -2,17 +2,16 @@
 
 .Root {
   border: none;
-  left: 0;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background: $color-background-light;
 
   width: 100%;
+  height: calc(100vh - 6.5rem);
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   &__wrapper {
     display: block;

@@ -1,0 +1,56 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins/color' as *;
+
+.Root {
+  margin-inline: $spacing-100;
+  padding-bottom: $spacing-300;
+
+  &__item {
+    cursor: pointer;
+    border-bottom: 1px solid $color-border-subtle;
+  }
+
+  &__button {
+    //    Normalize button
+    border: none;
+    font-family: inherit;
+    font-size: 100%;
+    text-align: center;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__chevron {
+      transition: transform 200ms;
+    }
+
+    &[data-state='open'] > &__chevron {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__contentWrapper {
+    padding-bottom: $spacing-75;
+  }
+
+  &__list {
+    list-style-type: none;
+    margin-block: 0;
+    padding-left: $spacing-125;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__listItem {
+    :hover {
+      @include on-hover-text-dark();
+    }
+  }
+}
