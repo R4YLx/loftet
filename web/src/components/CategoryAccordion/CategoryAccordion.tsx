@@ -28,7 +28,10 @@ const CategoryAccordion = () => {
           <Accordion.Content className={styles.Root__contentWrapper}>
             <ul className={styles.Root__list}>
               {category.subcategories.map((subcategory) => (
-                <Link key={subcategory.id} href={subcategory.slug}>
+                <Link
+                  key={subcategory.id}
+                  href={`/collection/${subcategory.slug}`}
+                >
                   <a>
                     <li className={styles.Root__listItem}>
                       <Text

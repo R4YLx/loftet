@@ -6,4 +6,5 @@ export interface IProductCard
   price: number
   size: string
   image?: Image[]
+  slug: string
 }

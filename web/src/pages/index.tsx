@@ -16,14 +16,14 @@ export default function Home({ products }: PageProps) {
         <HeroBlock
           btnText="Shop all jackets"
           imageSrc="/images/jackets-hero.webp"
-          slug={'/jackets'}
+          slug={'collection/jackets'}
           className={styles.Root__heroBlockOne}
         />
 
         <HeroBlock
           btnText="Shop all denim"
           imageSrc="/images/denim-hero.webp"
-          slug={'/denim'}
+          slug={'collection/denim'}
           className={styles.Root__heroBlockTwo}
         />
       </div>
@@ -40,6 +40,7 @@ export default function Home({ products }: PageProps) {
               image={product.image}
               item={product.item}
               size={product.size}
+              slug={product.slug.current}
               price={product.price}
               onClick={() => null} //* Click event for product page
             />

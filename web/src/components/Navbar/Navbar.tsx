@@ -40,7 +40,7 @@ const Navbar = ({ menuOpen, setMenuOpen }: INavbar) => {
 
         <ul className={styles.Root__menuList}>
           {categories.map((category) => (
-            <Link key={category.id} href={category.slug}>
+            <Link key={category.id} href={`/collection/${category.slug}`}>
               <a>
                 <li>{category.title}</li>
               </a>
