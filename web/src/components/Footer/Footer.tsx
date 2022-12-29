@@ -25,12 +25,30 @@ const Footer = () => {
       <div className={styles.Root__wrapper}>
         {/* Wraps logo and socials */}
         <div className={styles.Root__topSection}>
-          <img src="/logo.svg" alt="logo" className={styles.Root__logo} />
+          <Link href={'/'}>
+            <a>
+              <img src="/logo.svg" alt="logo" className={styles.Root__logo} />
+            </a>
+          </Link>
 
           <div className={styles.Root__socialsContainer}>
-            <BsFacebook />
-            <BsInstagram />
-            <BsTwitter />
+            <Link href={'/'}>
+              <a>
+                <BsFacebook />
+              </a>
+            </Link>
+
+            <Link href={'/'}>
+              <a>
+                <BsInstagram />
+              </a>
+            </Link>
+
+            <Link href={'/'}>
+              <a>
+                <BsTwitter />
+              </a>
+            </Link>
           </div>
 
           <Divider />
@@ -41,11 +59,13 @@ const Footer = () => {
           <ul className={styles.Root__listWrapper}>
             {listItems.map((item, i) => (
               <Link key={i} href={'#'}>
-                <li className={styles.Root__listItem}>
-                  <Text element="span" size="lg">
-                    {item.toLocaleUpperCase()}
-                  </Text>
-                </li>
+                <a>
+                  <li className={styles.Root__listItem}>
+                    <Text element="span" size="lg">
+                      {item.toLocaleUpperCase()}
+                    </Text>
+                  </li>
+                </a>
               </Link>
             ))}
           </ul>

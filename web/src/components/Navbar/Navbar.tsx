@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { RxHamburgerMenu, RxCross2 } from 'react-icons/rx'
 import { CiSearch } from 'react-icons/ci'
 import { BsBag } from 'react-icons/bs'
@@ -6,7 +7,6 @@ import Button from '@components/Button'
 import { INavbar } from './Navbar.types'
 import { categories } from 'utils/categories'
 import styles from './Navbar.module.scss'
-import Link from 'next/link'
 
 const Navbar = ({ menuOpen, setMenuOpen }: INavbar) => {
   return (
@@ -31,7 +31,11 @@ const Navbar = ({ menuOpen, setMenuOpen }: INavbar) => {
         </div>
 
         <div className={styles.Root__logoWrapper}>
-          <img src="/logo.svg" alt="logo" className={styles.Root__logo} />
+          <Link href={'/'}>
+            <a>
+              <img src="/logo.svg" alt="logo" className={styles.Root__logo} />
+            </a>
+          </Link>
         </div>
 
         <ul className={styles.Root__menuList}>
@@ -45,8 +49,17 @@ const Navbar = ({ menuOpen, setMenuOpen }: INavbar) => {
         </ul>
 
         <div className={styles.Root__icons}>
-          <CiSearch size={27} />
-          <BsBag size={22} />
+          <Link href={'/'}>
+            <a>
+              <CiSearch size={27} />
+            </a>
+          </Link>
+
+          <Link href={'/cart'}>
+            <a>
+              <BsBag size={22} />
+            </a>
+          </Link>
         </div>
       </nav>
     </div>

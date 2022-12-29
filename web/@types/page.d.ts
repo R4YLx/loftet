@@ -1,4 +1,4 @@
-interface HomePageProps {
-  categories: Category[]
+interface PageProps {
+  categories?: Category[]
   products: Product[]
 }

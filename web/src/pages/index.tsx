@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next'
-import { fetchCategories } from 'utils/fetchCategories'
 import { fetchProducts } from 'utils/fetchProducts'
 
 import Headline from '@components/Headline'
@@ -10,11 +9,7 @@ import HeroBlock from '@components/HeroBlock'
 import ProductCard from '@components/ProductCard'
 import ProductsGrid from '@components/ProductsGrid'
 
-export default function Home({ categories, products }: HomePageProps) {
-  console.log('categories', categories)
-
-  console.log('products', products)
-
+export default function Home({ products }: PageProps) {
   return (
     <div className={styles.Root}>
       <div className={styles.Root__heroBlockContainer}>
@@ -69,14 +64,12 @@ export default function Home({ categories, products }: HomePageProps) {
 }
 
 //* Backend
-export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const products = await fetchProducts()
-  const categories = await fetchCategories()
 
   return {
     props: {
-      products,
-      categories
+      products
     }
   }
 }

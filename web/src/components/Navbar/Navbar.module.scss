@@ -72,11 +72,6 @@
       grid-column-start: 2;
       grid-column: span 3 / span 3;
 
-      & > * {
-        text-decoration: none;
-        color: inherit;
-      }
-
       & > :hover {
         @include on-hover-text-dark();
       }

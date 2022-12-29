@@ -29,7 +29,7 @@ const CategoryAccordion = () => {
             <ul className={styles.Root__list}>
               {category.subcategories.map((subcategory) => (
                 <Link key={subcategory.id} href={subcategory.slug}>
-                  <a className={styles.Root__anchor}>
+                  <a>
                     <li className={styles.Root__listItem}>
                       <Text
                         element="p"
