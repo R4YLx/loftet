@@ -3,11 +3,11 @@ import { fetchProducts } from 'utils/fetchProducts'
 
 import Headline from '@components/Headline'
 import InfoBlock from '@components/InfoBlock'
-
-import styles from '@styles/page-modules/HomePage.module.scss'
 import HeroBlock from '@components/HeroBlock'
 import ProductCard from '@components/ProductCard'
 import ProductsGrid from '@components/ProductsGrid'
+
+import styles from '@styles/HomePage.module.scss'
 
 export default function Home({ products }: PageProps) {
   return (
@@ -34,17 +34,18 @@ export default function Home({ products }: PageProps) {
         </Headline>
 
         <ProductsGrid>
-          {products.map((product) => (
-            <ProductCard
-              key={product._id}
-              image={product.image}
-              item={product.item}
-              size={product.size}
-              slug={product.slug.current}
-              price={product.price}
-              onClick={() => null} //* Click event for product page
-            />
-          ))}
+          {products &&
+            products.map((product) => (
+              <ProductCard
+                key={product._id}
+                image={product.image}
+                item={product.item}
+                size={product.size}
+                slug={product.slug.current}
+                price={product.price}
+                onClick={() => null} //* Click event for product page
+              />
+            ))}
         </ProductsGrid>
       </main>
 

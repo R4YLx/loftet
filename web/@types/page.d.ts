@@ -1,4 +1,5 @@
 interface PageProps {
   categories?: Category[]
-  products: Product[]
+  products?: Product[]
+  product?: Product
 }
