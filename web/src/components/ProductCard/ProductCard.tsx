@@ -13,13 +13,13 @@ const ProductCard = ({ image, item, size, price, ...rest }: IProductCard) => {
       <Image src={builtImg} className={styles.Root__image} />
 
       <header className={styles.Root__header}>
-        <Text element="p" size="xl" className={styles.Root__item}>
+        <Text element="p" size="lg" className={styles.Root__item}>
           {item} - ({size})
         </Text>
       </header>
 
       <footer className={styles.Root__footer}>
-        <Text element="p" size="xl" className={styles.Root__price}>
+        <Text element="p" size="lg" className={styles.Root__price}>
           {price} SEK
         </Text>
       </footer>
