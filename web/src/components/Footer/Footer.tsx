@@ -36,42 +36,44 @@ const Footer = () => {
           <Divider />
         </div>
 
-        {/* List of pages */}
-        <ul className={styles.Root__listWrapper}>
-          {listItems.map((item, i) => (
-            <Link key={i} href={'#'}>
-              <li className={styles.Root__listItem}>
-                <Text element="span" size="lg">
-                  {item.toLocaleUpperCase()}
+        <div className={styles.Root__midSection}>
+          {/* List of pages */}
+          <ul className={styles.Root__listWrapper}>
+            {listItems.map((item, i) => (
+              <Link key={i} href={'#'}>
+                <li className={styles.Root__listItem}>
+                  <Text element="span" size="lg">
+                    {item.toLocaleUpperCase()}
+                  </Text>
+                </li>
+              </Link>
+            ))}
+          </ul>
+
+          {/* Subscribe section */}
+          <div className={styles.Root__inputWrapper}>
+            <Text element="p" size="sm">
+              Subscribe to get special offers, free giveaways, and
+              once-in-a-lifetime deals.
+            </Text>
+
+            {/* Wrapper for input and button */}
+            <div className={styles.Root__subscribeWrapper}>
+              <input
+                placeholder="Your email address"
+                className={styles.Root__inputField}
+              />
+
+              <Button bgDark className={styles.Root__button}>
+                <Text
+                  element="span"
+                  size="md"
+                  className={styles.Root__button__text}
+                >
+                  subscribe
                 </Text>
-              </li>
-            </Link>
-          ))}
-        </ul>
-
-        {/* Subscribe section */}
-        <div className={styles.Root__inputWrapper}>
-          <Text element="p" size="sm">
-            Subscribe to get special offers, free giveaways, and
-            once-in-a-lifetime deals.
-          </Text>
-
-          {/* Wrapper for input and button */}
-          <div className={styles.Root__subscribeWrapper}>
-            <input
-              placeholder="Your email address"
-              className={styles.Root__inputField}
-            />
-
-            <Button bgDark className={styles.Root__button}>
-              <Text
-                element="span"
-                size="md"
-                className={styles.Root__button__text}
-              >
-                subscribe
-              </Text>
-            </Button>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

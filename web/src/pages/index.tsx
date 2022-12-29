@@ -19,19 +19,21 @@ export default function Home({ categories, products }: HomePageProps) {
     <div className={styles.Root}>
       <div className={styles.Root__heroBlockContainer}>
         <HeroBlock
-          imageSrc="/images/jackets-hero.webp"
           btnText="Shop all jackets"
+          imageSrc="/images/jackets-hero.webp"
+          slug={'/jackets'}
           className={styles.Root__heroBlockOne}
         />
 
         <HeroBlock
-          imageSrc="/images/denim-hero.webp"
           btnText="Shop all denim"
+          imageSrc="/images/denim-hero.webp"
+          slug={'/denim'}
           className={styles.Root__heroBlockTwo}
         />
       </div>
 
-      <main>
+      <main className={styles.Root__main}>
         <Headline element="h2" size="lg" className={styles.Root__headline}>
           New Arrivals
         </Headline>

@@ -2,19 +2,42 @@
 
 .Root {
   background: $color-background-secondary;
-  padding-top: $spacing-100;
-  padding-bottom: $spacing-200;
+  padding-top: $spacing-200;
+  padding-bottom: $spacing-250;
 
   &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-inline: $spacing-250;
+
+    @media screen and (min-width: $breakpoint-md) {
+      margin-inline: $spacing-100;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      align-items: flex-start;
+    }
+
+    @media screen and (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: $spacing-200;
+      margin-inline: 20%;
+    }
   }
 
   &__headlineWrapper {
     margin-inline: $spacing-200;
     text-align: center;
+
+    @media screen and (min-width: $breakpoint-md) {
+      text-align: left;
+      margin-inline: 0;
+      grid-column: span 2 / span 2;
+    }
+
+    @media screen and (min-width: $breakpoint-lg) {
+      grid-column: span 1 / span 1;
+    }
   }
 
   &__headline {
@@ -27,5 +50,15 @@
     flex-direction: column;
     align-items: center;
     gap: $spacing-100;
+
+    @media screen and (min-width: $breakpoint-md) {
+      grid-column-start: 4;
+      grid-column-end: 7;
+      align-items: flex-start;
+    }
+
+    @media screen and (min-width: $breakpoint-lg) {
+      grid-column-start: 3;
+    }
   }
 }

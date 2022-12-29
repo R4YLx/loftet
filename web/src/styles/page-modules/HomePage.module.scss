@@ -4,6 +4,7 @@
   &__headline {
     text-transform: uppercase;
     text-align: center;
+    padding-block: $spacing-50;
   }
 
   &__heroBlockContainer {
@@ -34,5 +35,10 @@
     @media screen and (min-width: $breakpoint-lg) {
       grid-column: span 8 / span 8;
     }
+  }
+
+  &__main {
+    padding-bottom: $spacing-200;
+    margin-inline: 10%;
   }
 }

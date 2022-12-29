@@ -1,9 +1,11 @@
 @use '@styles/variables.scss' as *;
+@use '@styles/mixins/color.scss' as *;
 
 .Root {
   position: sticky;
   top: 0;
   z-index: 1;
+  background: $color-background-light;
 
   &__topLabel {
     text-align: center;
@@ -19,11 +21,19 @@
 
     background: $color-background-light;
     padding-block: $spacing-100;
+
+    @media screen and (min-width: $breakpoint-lg) {
+      margin-inline: 10%;
+    }
   }
 
   &__hamburger {
     display: flex;
     align-items: center;
+
+    @media screen and (min-width: $breakpoint-lg) {
+      display: none;
+    }
 
     &__button {
       padding: 0;
@@ -37,10 +47,40 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (min-width: $breakpoint-lg) {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      justify-content: flex-start;
+    }
   }
 
   &__logo {
     width: 8rem;
+  }
+
+  &__menuList {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-lg) {
+      display: flex;
+      justify-content: space-around;
+
+      list-style: none;
+      cursor: pointer;
+
+      grid-column-start: 2;
+      grid-column: span 3 / span 3;
+
+      & > * {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      & > :hover {
+        @include on-hover-text-dark();
+      }
+    }
   }
 
   &__icons {
