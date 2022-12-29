@@ -3,7 +3,7 @@
 .Root {
   background: $color-background-secondary;
   padding-top: $spacing-200;
-  padding-bottom: $spacing-300;
+  padding-bottom: $spacing-250;
 
   &__wrapper {
     display: flex;
@@ -17,6 +17,12 @@
       grid-template-columns: repeat(6, minmax(0, 1fr));
       align-items: flex-start;
     }
+
+    @media screen and (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: $spacing-200;
+      margin-inline: 20%;
+    }
   }
 
   &__headlineWrapper {
@@ -27,6 +33,10 @@
       text-align: left;
       margin-inline: 0;
       grid-column: span 2 / span 2;
+    }
+
+    @media screen and (min-width: $breakpoint-lg) {
+      grid-column: span 1 / span 1;
     }
   }
 
@@ -44,7 +54,11 @@
     @media screen and (min-width: $breakpoint-md) {
       grid-column-start: 4;
       grid-column-end: 7;
-      display: block;
+      align-items: flex-start;
+    }
+
+    @media screen and (min-width: $breakpoint-lg) {
+      grid-column-start: 3;
     }
   }
 }
