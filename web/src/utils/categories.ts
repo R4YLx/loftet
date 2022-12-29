@@ -2,6 +2,7 @@ export const categories = [
   {
     id: 1,
     title: 'Jackets',
+    slug: '/jackets',
     value: 'category-1',
     subcategories: [
       { id: 1, title: 'All jackets', slug: '/jackets' },
@@ -14,6 +15,7 @@ export const categories = [
   {
     id: 2,
     title: 'Shirts',
+    slug: '/shirts',
     value: 'category-2',
     subcategories: [
       { id: 1, title: 'All shirts', slug: '/shirts' },
@@ -25,6 +27,7 @@ export const categories = [
   {
     id: 3,
     title: 'Tops',
+    slug: '/tops',
     value: 'category-3',
     subcategories: [
       { id: 1, title: 'All tops', slug: '/tops' },
@@ -42,6 +45,7 @@ export const categories = [
   {
     id: 4,
     title: 'Trousers',
+    slug: '/trousers',
     value: 'category-4',
     subcategories: [
       { id: 1, title: 'All trousers', slug: '/trousers' },
@@ -53,6 +57,7 @@ export const categories = [
   {
     id: 5,
     title: 'Denim',
+    slug: '/denim',
     value: 'category-5',
     subcategories: [
       { id: 1, title: 'All denim', slug: '/denim' },
