@@ -63,49 +63,49 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
           <div className={styles.Root__listWrapper}>
             <div className={styles.Root__listWrapper__item}>
-              <Text element="p" size="xl">
+              <Text element="p" size="lg">
                 Item:
               </Text>
-              <Text element="p" size="xl">
+              <Text element="p" size="lg">
                 {product.item}
               </Text>
             </div>
 
             <div className={styles.Root__listWrapper__item}>
-              <Text element="p" size="xl">
+              <Text element="p" size="lg">
                 Material:
               </Text>
-              <Text element="p" size="xl">
+              <Text element="p" size="lg">
                 {product.material}
               </Text>
             </div>
 
             <div className={styles.Root__listWrapper__item}>
-              <Text element="p" size="xl">
+              <Text element="p" size="lg">
                 Color:
               </Text>
-              <Text element="p" size="xl">
+              <Text element="p" size="lg">
                 {product.color}
               </Text>
             </div>
 
             <div className={styles.Root__listWrapper__item}>
-              <Text element="p" size="xl">
+              <Text element="p" size="lg">
                 Condition:
               </Text>
-              <Text element="p" size="xl">
+              <Text element="p" size="lg">
                 {product.condition}
               </Text>
             </div>
 
             {product.measurements && (
               <div className={styles.Root__listWrapper__item}>
-                <Text element="p" size="xl">
+                <Text element="p" size="lg">
                   Measurements:
                 </Text>
 
                 {textToArray(product.measurements).map((length, i) => (
-                  <Text element="p" size="xl" key={i}>
+                  <Text element="p" size="lg" key={i}>
                     {length}
                   </Text>
                 ))}
