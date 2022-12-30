@@ -1,0 +1,19 @@
+@use '@styles/variables.scss' as *;
+
+.Root {
+  margin-block: $spacing-100;
+
+  &__select {
+    cursor: pointer;
+    width: 100%;
+    height: $spacing-250;
+    background-color: $color-background-light;
+    padding-inline: $spacing-100;
+
+    appearance: none;
+    background-image: url('https://static.thenounproject.com/png/761854-200.png');
+    background-repeat: no-repeat;
+    background-position: right $spacing-125 top 50%;
+    background-size: $spacing-125 auto;
+  }
+}

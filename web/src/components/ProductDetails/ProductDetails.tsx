@@ -4,10 +4,10 @@ import Divider from '@components/Divider'
 import Headline from '@components/Headline'
 import Image from '@components/Image'
 import Text from '@components/Text'
+import SelectMenu from '@components/SelectMenu'
 
 import { ProductDetailsProps } from './ProductDetails.types'
 import styles from './ProductDetails.module.scss'
-import DropdownMenu from '@components/DropdownMenu/DropdownMenu'
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   return (
@@ -29,7 +29,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           </Headline>
         </div>
 
-        <DropdownMenu />
+        <SelectMenu />
 
         <Button block bgDark isFluid>
           <Text element="p" size="xl">
