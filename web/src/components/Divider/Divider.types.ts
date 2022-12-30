@@ -1,3 +1,3 @@
-export interface IDivider {
+export interface DividerProps {
   subtle?: boolean
 }

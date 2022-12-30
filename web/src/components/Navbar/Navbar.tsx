@@ -2,13 +2,13 @@ import Link from 'next/link'
 import { RxHamburgerMenu, RxCross2 } from 'react-icons/rx'
 import { CiSearch } from 'react-icons/ci'
 import { BsBag } from 'react-icons/bs'
+import { categories } from 'utils/categories'
 import Text from '@components/Text'
 import Button from '@components/Button'
-import { INavbar } from './Navbar.types'
-import { categories } from 'utils/categories'
+import { NavbarProps } from './Navbar.types'
 import styles from './Navbar.module.scss'
 
-const Navbar = ({ menuOpen, setMenuOpen }: INavbar) => {
+const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
   return (
     <div className={styles.Root}>
       {/* Top label */}

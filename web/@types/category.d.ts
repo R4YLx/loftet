@@ -1,4 +1,4 @@
-interface Category {
+interface ICategory {
   _id: string
   _createdAt: string
   _updatedAt: string
@@ -8,10 +8,6 @@ interface Category {
     _type: 'slug'
     current: string
   }
-  subcategory: Subcategory[]
+  subcategory: ISubcategory[]
   title: string
-}
-
-interface CategoryData {
-  categories: Category[]
 }

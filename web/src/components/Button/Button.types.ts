@@ -1,4 +1,5 @@
-export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isFluid?: boolean
   light?: boolean
   dark?: boolean

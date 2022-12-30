@@ -1,4 +1,4 @@
-export interface IText extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   className?: string
   element: 'p' | 'span'
   size: 'sm' | 'md' | 'lg' | 'xl'

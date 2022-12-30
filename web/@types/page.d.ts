@@ -1,5 +1,5 @@
 interface PageProps {
-  categories?: Category[]
-  products?: Product[]
-  product?: Product
+  categories?: ICategory[]
+  products?: IProduct[]
+  product?: IProduct
 }

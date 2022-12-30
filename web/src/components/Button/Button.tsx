@@ -1,8 +1,15 @@
 import clsx from 'clsx'
-import { IButton } from './Button.types'
+import { ButtonProps } from './Button.types'
 import styles from './Button.module.scss'
 
-const Button = ({ isFluid, light, dark, bgDark, block, ...rest }: IButton) => {
+const Button = ({
+  isFluid,
+  light,
+  dark,
+  bgDark,
+  block,
+  ...rest
+}: ButtonProps) => {
   const btnStyles = clsx(
     styles.Root,
     rest.className,

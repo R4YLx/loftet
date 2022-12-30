@@ -1,10 +1,9 @@
+import Link from 'next/link'
 import { urlFor } from '@lib/sanity.config'
-import { IProductCard } from './ProductCard.types'
-
 import Image from '@components/Image'
 import Text from '@components/Text'
+import { ProductCardProps } from './ProductCard.types'
 import styles from './ProductCard.module.scss'
-import Link from 'next/link'
 
 const ProductCard = ({
   slug,
@@ -13,7 +12,7 @@ const ProductCard = ({
   size,
   price,
   ...rest
-}: IProductCard) => {
+}: ProductCardProps) => {
   const builtImg = urlFor(image).url()
 
   return (

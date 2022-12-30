@@ -1,4 +1,4 @@
-interface Product {
+interface IProduct {
   _createdAt: string
   _id: string
   _rev: string
@@ -16,11 +16,11 @@ interface Product {
     _type: 'slug'
     current: string
   }
-  subcategory: Subcategory[]
+  subcategory: ISubcategory[]
   title: string
 }
 
-interface Image {
+interface IImage {
   _key: string
   _type: 'image'
   asset: {

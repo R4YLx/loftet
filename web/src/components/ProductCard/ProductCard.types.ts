@@ -1,10 +1,8 @@
-import React from 'react'
-
-export interface IProductCard
+export interface ProductCardProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
   item: string
   price: number
   size: string
-  image?: Image[]
+  image?: IImage[]
   slug: string
 }
