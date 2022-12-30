@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { fetchProducts } from 'utils/fetchProducts'
 
 import Headline from '@components/Headline'
@@ -66,7 +66,7 @@ export default function Home({ products }: PageProps) {
 }
 
 //* Backend
-export const getStaticProps: GetStaticProps<PageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
   const products = await fetchProducts()
 
   return {

@@ -1,12 +1,11 @@
-import { groq } from 'next-sanity'
-import { sanityClient } from '@lib/sanity.config'
-
-export const fetchProducts = async () => {
-  const query = groq`*[_type == "products"] | order(_createdAt desc){
-   ...
-  }`
-
-  const products: Product[] = await sanityClient.fetch(query)
+export const fetchProducts = async (): Promise<Product[]> => {
+  const query =
+    encodeURIComponent(`*[_type == "products"] | order(_createdAt desc){
+    ...
+   }`)
+  const url = `${process.env.SANITY_API_URL}query=${query}`
+  const data = await fetch(url).then((res) => res.json())
+  const products: Product[] = data.result
 
   return products
 }
