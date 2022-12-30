@@ -13,7 +13,7 @@ import styles from './ProductDetails.module.scss'
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   return (
     <div className={styles.Root}>
-      <Image src={urlFor(product.image).url()} isFluid />
+      <Image src={urlFor(product.image).url()} className={styles.Root__image} />
 
       <div className={styles.Root__wrapper}>
         <div className={styles.Root__titleAndPriceWrapper}>
@@ -30,11 +30,11 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           </Headline>
         </div>
 
+        <Text element="p" size="xl" className={styles.Root__sizeText}>
+          Size
+        </Text>
         <div className={styles.Root__actionsWrapper}>
           <div className={styles.Root__selectWrapper}>
-            <Text element="p" size="xl">
-              Size
-            </Text>
             <SelectMenu
               value={product.size.toUpperCase()}
               className={styles.Root__selectMenu}
@@ -42,14 +42,14 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           </div>
 
           <Button block bgDark isFluid>
-            <Text element="p" size="xl">
+            <Text element="p" size="xl" className={styles.Root__addText}>
               Add to cart
             </Text>
           </Button>
         </div>
 
         <div className={styles.Root__detailsWrapper}>
-          <Divider />
+          <Divider className={styles.Root__mobileDivider} />
 
           <Headline
             element="h4"
@@ -58,6 +58,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           >
             Product details
           </Headline>
+
+          <Divider className={styles.Root__mdScreenDivider} />
 
           <div className={styles.Root__listWrapper}>
             <div className={styles.Root__listWrapper__item}>
@@ -111,7 +113,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             )}
           </div>
 
-          <Divider />
+          <Divider className={styles.Root__mobileDivider} />
         </div>
       </div>
     </div>
