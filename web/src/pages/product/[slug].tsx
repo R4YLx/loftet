@@ -15,8 +15,6 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
 ) => {
   const pageSlug = String(context.query.slug)
 
-  console.log('pageSlug', pageSlug)
-
   if (!pageSlug) {
     return {
       notFound: true

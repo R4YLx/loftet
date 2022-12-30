@@ -1,4 +1,4 @@
-export const fetchProducts = async () => {
+export const fetchProducts = async (): Promise<Product[]> => {
   const query =
     encodeURIComponent(`*[_type == "products"] | order(_createdAt desc){
     ...

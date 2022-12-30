@@ -1,4 +1,4 @@
-export const fetchProductById = async (slug: string) => {
+export const fetchProductById = async (slug: string): Promise<Product> => {
   const query = encodeURIComponent(
     `*[_type == "products" && _id == "${slug}"][0]`
   )
