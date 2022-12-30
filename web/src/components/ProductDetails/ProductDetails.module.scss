@@ -69,38 +69,4 @@
       margin: 0;
     }
   }
-
-  &__detailsWrapper {
-    margin-top: $spacing-250;
-  }
-
-  &__detailsHeadline {
-    text-transform: uppercase;
-  }
-
-  &__listWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-100;
-
-    &__item {
-      & > * {
-        margin-block: 0;
-      }
-    }
-  }
-
-  &__mobileDivider {
-    @media screen and (min-width: $breakpoint-md) {
-      display: none;
-    }
-  }
-
-  &__mdScreenDivider {
-    display: none;
-
-    @media screen and (min-width: $breakpoint-md) {
-      display: block;
-    }
-  }
 }
