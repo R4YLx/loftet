@@ -27,7 +27,3 @@ interface Image {
     url: string
   }
 }
-
-interface ProductData {
-  products: Product[]
-}
