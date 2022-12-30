@@ -4,12 +4,12 @@ import { fetchProductById } from 'utils/fetchProductById'
 import styles from './ProductPage.module.scss'
 
 const ProductPage = ({ product }: PageProps) => {
-  console.log('product', product)
+  if (!product) return
 
   return (
     <div className={styles.Root}>
       <div className={styles.Root__wrapper}>
-        <ProductDetails></ProductDetails>
+        <ProductDetails product={product}></ProductDetails>
       </div>
     </div>
   )

@@ -1,3 +1,4 @@
-export interface ProductDetailsProps {
-  product: Product
+export interface ProductDetailsProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  product: IProduct
 }
