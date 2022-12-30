@@ -1,9 +1,8 @@
-import * as Accordion from '@radix-ui/react-accordion'
 import Link from 'next/link'
 import { RxChevronDown } from 'react-icons/rx'
 import { categories } from 'utils/categories'
+import * as Accordion from '@radix-ui/react-accordion'
 import Text from '@components/Text'
-
 import styles from './CategoryAccordion.module.scss'
 
 const CategoryAccordion = () => {
@@ -28,8 +27,11 @@ const CategoryAccordion = () => {
           <Accordion.Content className={styles.Root__contentWrapper}>
             <ul className={styles.Root__list}>
               {category.subcategories.map((subcategory) => (
-                <Link key={subcategory.id} href={subcategory.slug}>
-                  <a className={styles.Root__anchor}>
+                <Link
+                  key={subcategory.id}
+                  href={`/collection/${subcategory.slug}`}
+                >
+                  <a>
                     <li className={styles.Root__listItem}>
                       <Text
                         element="p"

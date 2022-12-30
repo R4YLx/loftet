@@ -48,11 +48,6 @@
     flex-direction: column;
   }
 
-  &__anchor {
-    text-decoration: none;
-    color: inherit;
-  }
-
   &__listItem {
     :hover {
       @include on-hover-text-dark();

@@ -1,8 +1,7 @@
-import clsx from 'clsx'
 import ReactDOM from 'react-dom'
 import { useEffect } from 'react'
-
-import { IHamburgerModal } from './HamburgerModal.types'
+import clsx from 'clsx'
+import { HamburgerModalProps } from './HamburgerModal.types'
 import styles from './HamburgerModal.module.scss'
 
 const HamburgerModal = ({
@@ -10,7 +9,7 @@ const HamburgerModal = ({
   setIsOpen,
   children,
   className
-}: IHamburgerModal) => {
+}: HamburgerModalProps) => {
   // Closes modal on `Escape`
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape' && !isOpen) {

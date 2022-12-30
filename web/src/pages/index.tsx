@@ -1,34 +1,29 @@
-import { GetStaticProps } from 'next'
-import { fetchCategories } from 'utils/fetchCategories'
+import { GetServerSideProps } from 'next'
 import { fetchProducts } from 'utils/fetchProducts'
 
 import Headline from '@components/Headline'
 import InfoBlock from '@components/InfoBlock'
-
-import styles from '@styles/page-modules/HomePage.module.scss'
 import HeroBlock from '@components/HeroBlock'
 import ProductCard from '@components/ProductCard'
 import ProductsGrid from '@components/ProductsGrid'
 
-export default function Home({ categories, products }: HomePageProps) {
-  console.log('categories', categories)
+import styles from '@styles/HomePage.module.scss'
 
-  console.log('products', products)
-
+export default function Home({ products }: PageProps) {
   return (
     <div className={styles.Root}>
       <div className={styles.Root__heroBlockContainer}>
         <HeroBlock
           btnText="Shop all jackets"
           imageSrc="/images/jackets-hero.webp"
-          slug={'/jackets'}
+          slug={'collection/jackets'}
           className={styles.Root__heroBlockOne}
         />
 
         <HeroBlock
           btnText="Shop all denim"
           imageSrc="/images/denim-hero.webp"
-          slug={'/denim'}
+          slug={'collection/denim'}
           className={styles.Root__heroBlockTwo}
         />
       </div>
@@ -39,16 +34,18 @@ export default function Home({ categories, products }: HomePageProps) {
         </Headline>
 
         <ProductsGrid>
-          {products.map((product) => (
-            <ProductCard
-              key={product._id}
-              image={product.image}
-              item={product.item}
-              size={product.size}
-              price={product.price}
-              onClick={() => null} //* Click event for product page
-            />
-          ))}
+          {products &&
+            products.map((product) => (
+              <ProductCard
+                key={product._id}
+                image={product.image}
+                item={product.item}
+                size={product.size}
+                slug={product.slug.current}
+                price={product.price}
+                onClick={() => null} //* Click event for product page
+              />
+            ))}
         </ProductsGrid>
       </main>
 
@@ -69,14 +66,12 @@ export default function Home({ categories, products }: HomePageProps) {
 }
 
 //* Backend
-export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
   const products = await fetchProducts()
-  const categories = await fetchCategories()
 
   return {
     props: {
-      products,
-      categories
+      products
     }
   }
 }

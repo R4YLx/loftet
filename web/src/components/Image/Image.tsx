@@ -1,8 +1,8 @@
-import { IImage } from './Image.types'
-import styles from './Image.module.scss'
 import clsx from 'clsx'
+import { ImageProps } from './Image.types'
+import styles from './Image.module.scss'
 
-const Image = ({ isFluid, src, ...rest }: IImage) => {
+const Image = ({ isFluid, src, ...rest }: ImageProps) => {
   const imageStyles = clsx(
     styles.Root,
     rest.className,

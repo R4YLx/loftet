@@ -1,0 +1,26 @@
+@use '@styles/variables.scss' as *;
+
+.Root {
+  @media screen and (min-width: $breakpoint-md) {
+    margin-inline: $spacing-100;
+  }
+
+  @media screen and (min-width: $breakpoint-lg) {
+    margin-inline: 10%;
+  }
+
+  &__backButton {
+    display: flex;
+    align-items: center;
+    margin-inline: $spacing-25;
+  }
+
+  &__chevronWrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__wrapper {
+    margin-bottom: $spacing-600;
+  }
+}

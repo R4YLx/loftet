@@ -1,8 +1,8 @@
 import clsx from 'clsx'
-import { IText } from './Text.types'
+import { TextProps } from './Text.types'
 import styles from './Text.module.scss'
 
-const Text = ({ children, className, element, size }: IText) => {
+const Text = ({ children, className, element, size }: TextProps) => {
   const Element = element
 
   const textStyles = clsx(styles.Root, styles[`Root_size_${size}`], className)

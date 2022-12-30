@@ -1,4 +1,4 @@
-interface Subcategory {
+interface ISubcategory {
   _id: string
   _createdAt: string
   _updatedAt: string
@@ -9,8 +9,4 @@ interface Subcategory {
     current: string
   }
   title: string
-}
-
-interface SubcategoryData {
-  subcategories: Subcategory[]
 }

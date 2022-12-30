@@ -23,8 +23,8 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "**/**/*.ts",
+    "**/**/*.tsx",
     "src/lib/sanity.config.js"
   ],
   "exclude": ["node_modules"]

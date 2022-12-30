@@ -1,11 +1,11 @@
 import Button from '@components/Button'
 import Headline from '@components/Headline'
 import Text from '@components/Text'
+import { InfoBlockProps } from './InfoBlock.types'
 
 import styles from './InfoBlock.module.scss'
-import { IInfoBlock } from './InfoBlock.types'
 
-const InfoBlock = ({ buttonText, headline, text }: IInfoBlock) => {
+const InfoBlock = ({ buttonText, headline, text }: InfoBlockProps) => {
   return (
     <div className={styles.Root}>
       <div className={styles.Root__wrapper}>
