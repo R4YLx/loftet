@@ -3,11 +3,9 @@ import { SelectMenuProps } from './SelectMenu.types'
 
 const SelectMenu = ({ value }: SelectMenuProps) => {
   return (
-    <div className={styles.Root}>
-      <select className={styles.Root__select}>
-        <option value={value}>{value}</option>
-      </select>
-    </div>
+    <select className={styles.Root}>
+      <option value={value}>{value}</option>
+    </select>
   )
 }
 

@@ -2,16 +2,29 @@
 
 .Root {
   &__wrapper {
+    margin-inline: $spacing-100;
   }
 
   &__titleAndPriceWrapper {
+    margin-block: $spacing-50;
   }
 
   &__productTitle {
     text-transform: uppercase;
   }
 
+  &__selectWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-block: $spacing-125;
+
+    & > p {
+      margin-bottom: $spacing-50;
+    }
+  }
+
   &__detailsWrapper {
+    margin-block: $spacing-250;
   }
 
   &__detailsHeadline {

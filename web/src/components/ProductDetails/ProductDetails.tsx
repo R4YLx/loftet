@@ -1,4 +1,5 @@
 import { urlFor } from '@lib/sanity.config'
+import { textToArray } from 'helpers/textToArray'
 import Button from '@components/Button'
 import Divider from '@components/Divider'
 import Headline from '@components/Headline'
@@ -29,13 +30,23 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           </Headline>
         </div>
 
-        <SelectMenu />
+        <div className={styles.Root__actionsWrapper}>
+          <div className={styles.Root__selectWrapper}>
+            <Text element="p" size="xl">
+              Size
+            </Text>
+            <SelectMenu
+              value={product.size.toUpperCase()}
+              className={styles.Root__selectMenu}
+            />
+          </div>
 
-        <Button block bgDark isFluid>
-          <Text element="p" size="xl">
-            Add to cart
-          </Text>
-        </Button>
+          <Button block bgDark isFluid>
+            <Text element="p" size="xl">
+              Add to cart
+            </Text>
+          </Button>
+        </div>
 
         <div className={styles.Root__detailsWrapper}>
           <Divider />
@@ -84,6 +95,20 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                 {product.condition}
               </Text>
             </div>
+
+            {product.measurements && (
+              <div className={styles.Root__listWrapper__item}>
+                <Text element="p" size="xl">
+                  Measurements:
+                </Text>
+
+                {textToArray(product.measurements).map((length, i) => (
+                  <Text element="p" size="xl" key={i}>
+                    {length}
+                  </Text>
+                ))}
+              </div>
+            )}
           </div>
 
           <Divider />

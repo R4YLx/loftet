@@ -1,2 +1,14 @@
+@use '@styles/variables.scss' as *;
+
 .Root {
+  &__backButton {
+    display: flex;
+    align-items: center;
+    margin-inline: $spacing-25;
+  }
+
+  &__chevronWrapper {
+    display: flex;
+    align-items: center;
+  }
 }

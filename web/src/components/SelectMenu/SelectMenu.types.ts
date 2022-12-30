@@ -1,3 +1,6 @@
-export interface SelectMenuProps {
-  value?: string
+import React from 'react'
+
+export interface SelectMenuProps
+  extends React.HTMLAttributes<HTMLSelectElement> {
+  value: string
 }
