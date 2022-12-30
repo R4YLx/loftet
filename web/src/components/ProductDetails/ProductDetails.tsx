@@ -1,12 +1,13 @@
+import { urlFor } from '@lib/sanity.config'
 import Button from '@components/Button'
 import Divider from '@components/Divider'
 import Headline from '@components/Headline'
 import Image from '@components/Image'
 import Text from '@components/Text'
+import SelectMenu from '@components/SelectMenu'
 
-import { urlFor } from '@lib/sanity.config'
-import styles from './ProductDetails.module.scss'
 import { ProductDetailsProps } from './ProductDetails.types'
+import styles from './ProductDetails.module.scss'
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   return (
@@ -27,6 +28,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             {product.price} SEK
           </Headline>
         </div>
+
+        <SelectMenu />
 
         <Button block bgDark isFluid>
           <Text element="p" size="xl">
