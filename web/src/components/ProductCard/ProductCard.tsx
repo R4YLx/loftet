@@ -16,25 +16,20 @@ const ProductCard = ({
   const builtImg = urlFor(image).url()
 
   return (
-    <div className={styles.Root} {...rest}>
-      <Link href={`/product/${slug}`}>
-        <a>
+    <Link href={`/product/${slug}`}>
+      <a>
+        <div className={styles.Root} {...rest}>
           <Image src={builtImg} className={styles.Root__image} />
+          <Text element="p" size="lg" className={styles.Root__item}>
+            {item} - ({size})
+          </Text>
 
-          <header className={styles.Root__header}>
-            <Text element="p" size="lg" className={styles.Root__item}>
-              {item} - ({size})
-            </Text>
-          </header>
-
-          <footer className={styles.Root__footer}>
-            <Text element="p" size="lg" className={styles.Root__price}>
-              {price} SEK
-            </Text>
-          </footer>
-        </a>
-      </Link>
-    </div>
+          <Text element="p" size="lg" className={styles.Root__price}>
+            {price} SEK
+          </Text>
+        </div>
+      </a>
+    </Link>
   )
 }
 
