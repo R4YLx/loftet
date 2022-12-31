@@ -1,10 +1,18 @@
 @use '@styles/variables.scss' as *;
 
 .Root {
-  margin-top: $spacing-250;
+  margin-top: $spacing-300;
+
+  @media screen and (min-width: $breakpoint-md) {
+    margin-top: $spacing-200;
+  }
 
   &__detailsHeadline {
     text-transform: uppercase;
+
+    @media screen and (min-width: $breakpoint-md) {
+      margin-block: $spacing-100;
+    }
   }
 
   &__listWrapper {
@@ -30,6 +38,7 @@
 
     @media screen and (min-width: $breakpoint-md) {
       display: block;
+      margin-block: $spacing-100;
     }
   }
 }
