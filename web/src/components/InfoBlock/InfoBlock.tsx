@@ -2,7 +2,6 @@ import Button from '@components/Button'
 import Headline from '@components/Headline'
 import Text from '@components/Text'
 import { InfoBlockProps } from './InfoBlock.types'
-
 import styles from './InfoBlock.module.scss'
 
 const InfoBlock = ({ buttonText, headline, text }: InfoBlockProps) => {

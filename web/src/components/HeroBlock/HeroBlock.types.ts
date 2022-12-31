@@ -1,5 +1,6 @@
-export interface HeroBlockProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface HeroBlockProps {
   btnText: string
+  className: string
   imageSrc: string
   slug: string
 }
