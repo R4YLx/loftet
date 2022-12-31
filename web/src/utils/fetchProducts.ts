@@ -1,6 +1,6 @@
 export const fetchProducts = async (): Promise<IProduct[]> => {
   const query =
-    encodeURIComponent(`*[_type == "products"] | order(_createdAt desc){
+    encodeURIComponent(`*[_type == "products"] | order(_createdAt desc)[0..11]{
     ...
    }`)
   const url = `${process.env.SANITY_API_URL}query=${query}`

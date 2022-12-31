@@ -6,7 +6,7 @@ export const fetchSimilarProducts = async (
     `*[_type == "products" 
     && _id != "${productId}"
     && references(*[_type=="subcategories" 
-    && slug.current == "${subcategory}"]._id)][0...10]`
+    && slug.current == "${subcategory}"]._id)][0...9]`
   )
   const url = `${process.env.SANITY_API_URL}query=${query}`
   const data = await fetch(url).then((res) => res.json())

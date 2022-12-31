@@ -30,7 +30,7 @@ export default function Home({ products }: PageProps) {
 
       <main className={styles.Root__main}>
         <Headline element="h2" size="lg" className={styles.Root__headline}>
-          New Arrivals
+          Newest Arrivals
         </Headline>
 
         <ProductsGrid>
@@ -39,7 +39,7 @@ export default function Home({ products }: PageProps) {
               <ProductCard
                 key={product._id}
                 image={product.image}
-                item={product.item}
+                title={product.title}
                 size={product.size}
                 slug={product.slug.current}
                 price={product.price}

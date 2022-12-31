@@ -8,7 +8,7 @@ import styles from './ProductCard.module.scss'
 const ProductCard = ({
   slug,
   image,
-  item,
+  title,
   size,
   price,
   ...rest
@@ -21,7 +21,7 @@ const ProductCard = ({
         <div className={styles.Root} {...rest}>
           <Image src={builtImg} className={styles.Root__image} />
           <Text element="p" size="lg" className={styles.Root__item}>
-            {item} - ({size})
+            {title} - ({size})
           </Text>
 
           <Text element="p" size="lg" className={styles.Root__price}>

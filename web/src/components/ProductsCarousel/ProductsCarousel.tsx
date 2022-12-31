@@ -16,7 +16,7 @@ const ProductsCarousel = ({ products }: ProductsCarouselProps) => {
               key={product._id}
               slug={product.slug.current}
               image={product.image}
-              item={product.item}
+              title={product.title}
               size={product.size}
               price={product.price}
             />

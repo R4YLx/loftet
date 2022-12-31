@@ -1,6 +1,6 @@
 export interface ProductCardProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
-  item: string
+  title: string
   price: number
   size: string
   image?: IImage[]
