@@ -53,7 +53,10 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
 
   const productSubcategory = product.subcategory.slug.current
 
-  const similarProducts = await fetchSimilarProducts(productSubcategory)
+  const similarProducts = await fetchSimilarProducts(
+    pageSlug,
+    productSubcategory
+  )
 
   return {
     props: {
