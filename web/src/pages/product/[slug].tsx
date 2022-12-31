@@ -6,6 +6,7 @@ import ProductDetails from '@components/ProductDetails'
 import Button from '@components/Button'
 import Text from '@components/Text'
 import styles from './ProductPage.module.scss'
+import ProductsCarousel from '@components/ProductsCarousel'
 
 const ProductPage = ({ product }: PageProps) => {
   if (!product) return
@@ -25,6 +26,7 @@ const ProductPage = ({ product }: PageProps) => {
 
       <div className={styles.Root__wrapper}>
         <ProductDetails product={product}></ProductDetails>
+        <ProductsCarousel />
       </div>
     </div>
   )
