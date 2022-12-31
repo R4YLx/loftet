@@ -3,4 +3,26 @@
 .Root {
   margin-inline: $spacing-100;
   margin-block: $spacing-300;
+
+  @media screen and (min-width: $breakpoint-md) {
+    margin-block: $spacing-500;
+  }
+
+  &__wrapper {
+    overflow-x: scroll;
+    display: flex;
+    gap: $spacing-100;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $color-static-grey;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-neutral-700;
+    }
+  }
 }

@@ -2,15 +2,14 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { RxChevronLeft } from 'react-icons/rx'
 import { fetchProductById } from 'utils/fetchProductById'
+import { fetchSimilarProducts } from 'utils/fetchSimiliarProducts'
 import ProductDetails from '@components/ProductDetails'
 import Button from '@components/Button'
 import Text from '@components/Text'
-import styles from './ProductPage.module.scss'
 import ProductsCarousel from '@components/ProductsCarousel'
+import styles from './ProductPage.module.scss'
 
-const ProductPage = ({ product }: PageProps) => {
-  if (!product) return
-
+const ProductPage = ({ product, similarProducts }: PageProps) => {
   const router = useRouter()
 
   return (
@@ -25,8 +24,13 @@ const ProductPage = ({ product }: PageProps) => {
       </Button>
 
       <div className={styles.Root__wrapper}>
-        <ProductDetails product={product}></ProductDetails>
-        <ProductsCarousel />
+        {product && (
+          <>
+            <ProductDetails product={product}></ProductDetails>
+
+            <ProductsCarousel products={similarProducts} />
+          </>
+        )}
       </div>
     </div>
   )
@@ -47,9 +51,14 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
 
   const product = await fetchProductById(pageSlug)
 
+  const productSubcategory = product.subcategory.slug.current
+
+  const similarProducts = await fetchSimilarProducts(productSubcategory)
+
   return {
     props: {
-      product
+      product,
+      similarProducts
     }
   }
 }
