@@ -25,6 +25,11 @@ export default defineType({
       type: 'string'
     }),
     defineField({
+      name: 'quantity',
+      title: 'Quantity',
+      type: 'number'
+    }),
+    defineField({
       name: 'price',
       title: 'Price',
       type: 'number'

@@ -1,9 +1,9 @@
+import { textToArray } from 'helpers/textToArray'
 import Divider from '@components/Divider'
 import Headline from '@components/Headline'
 import Text from '@components/Text'
-import { textToArray } from 'helpers/textToArray'
-import styles from './ProductDetailsList.module.scss'
 import { ProductDetailsListProps } from './ProductDetailsList.types'
+import styles from './ProductDetailsList.module.scss'
 
 const ProductDetailsList = ({ product }: ProductDetailsListProps) => {
   return (
