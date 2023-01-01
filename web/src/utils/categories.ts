@@ -37,9 +37,7 @@ export const categories = [
         title: 'Sweatshirts & Hoodies',
         slug: 'sweatshirts-and-hoodies'
       },
-      { id: 4, title: 'Knitwear', slug: 'knitwear' },
-      { id: 5, title: 'Military tops', slug: 'military-tops' },
-      { id: 6, title: 'Sports tops', slug: 'sports-tops' }
+      { id: 4, title: 'Knitwear', slug: 'knitwear' }
     ]
   },
   {
