@@ -4,8 +4,9 @@ import { RxChevronDown } from 'react-icons/rx'
 import * as Accordion from '@radix-ui/react-accordion'
 import Text from '@components/Text'
 import styles from './CategoryAccordion.module.scss'
+import { CategoryAccordionProps } from './CategoryAccordion.types'
 
-const CategoryAccordion = () => {
+const CategoryAccordion = ({ isOpen, setIsOpen }: CategoryAccordionProps) => {
   return (
     <Accordion.Root className={styles.Root}>
       {categories.map((category) => (
@@ -32,7 +33,10 @@ const CategoryAccordion = () => {
                   href={`/collection/${subcategory.slug}`}
                 >
                   <a>
-                    <li className={styles.Root__listItem}>
+                    <li
+                      className={styles.Root__listItem}
+                      onClick={() => setIsOpen(!isOpen)}
+                    >
                       <Text
                         element="p"
                         size="lg"

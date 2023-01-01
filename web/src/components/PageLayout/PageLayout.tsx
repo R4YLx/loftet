@@ -14,7 +14,7 @@ const PageLayout = ({ children }: PageLayoutProps) => {
 
       {menuOpen && (
         <HamburgerModal setIsOpen={() => setMenuOpen(!menuOpen)}>
-          <CategoryAccordion />
+          <CategoryAccordion setIsOpen={setMenuOpen} isOpen={menuOpen} />
         </HamburgerModal>
       )}
 
