@@ -2,8 +2,8 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useState } from 'react'
 
-import '@styles/global.scss'
 import PageLayout from '@components/PageLayout'
+import '@styles/global.scss'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
