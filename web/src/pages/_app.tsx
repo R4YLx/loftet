@@ -2,15 +2,10 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useState } from 'react'
 
-import Footer from '@components/Footer'
-import Navbar from '@components/Navbar'
-import HamburgerModal from '@components/HamburgerModal'
 import '@styles/global.scss'
-import CategoryAccordion from '@components/CategoryAccordion'
+import PageLayout from '@components/PageLayout'
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [menuOpen, setMenuOpen] = useState(false)
-
   return (
     <>
       <Head>
@@ -21,21 +16,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="LOFTET - Vintage clothing for men" />
       </Head>
 
-      <Navbar menuOpen={menuOpen} setMenuOpen={() => setMenuOpen(!menuOpen)} />
-
-      {menuOpen && (
-        <HamburgerModal setIsOpen={() => setMenuOpen(!menuOpen)}>
-          <CategoryAccordion />
-        </HamburgerModal>
-      )}
-
-      {!menuOpen && (
-        <>
-          <Component {...pageProps} />
-
-          <Footer />
-        </>
-      )}
+      <PageLayout>
+        <Component {...pageProps} />
+      </PageLayout>
     </>
   )
 }
