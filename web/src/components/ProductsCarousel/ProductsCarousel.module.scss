@@ -6,6 +6,7 @@
 
   @media screen and (min-width: $breakpoint-md) {
     margin-block: $spacing-500;
+    margin-inline: 0;
   }
 
   &__wrapper {

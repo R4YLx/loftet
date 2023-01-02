@@ -2,9 +2,10 @@
 
 .Root {
   margin-inline: $spacing-100;
-  padding: $spacing-100;
+  padding-bottom: $spacing-200;
 
   @media screen and (min-width: $breakpoint-lg) {
+    padding-inline: $spacing-100;
     margin-inline: 10%;
   }
 
@@ -30,5 +31,35 @@
     @media screen and (min-width: $breakpoint-xl) {
       margin-block: 15vh;
     }
+
+    @media screen and (min-width: $breakpoint-xxl) {
+      margin-block: 21vh;
+    }
+  }
+
+  &__summaryWrapper {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: $breakpoint-md) {
+      margin-left: auto;
+      max-width: $breakpoint-xs;
+    }
+
+    @media screen and (min-width: $breakpoint-xl) {
+      max-width: $breakpoint-sm;
+    }
+  }
+
+  &__textContainer {
+    display: flex;
+    justify-content: space-between;
+    & > * {
+      margin-block: $spacing-50;
+    }
+  }
+
+  &__checkOutBtn {
+    margin-block: $spacing-200;
   }
 }

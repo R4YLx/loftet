@@ -1,18 +1,25 @@
+import { useDispatch } from 'react-redux'
+import { removeFromCart } from '@redux/cartSlice'
 import { urlFor } from '@lib/sanity.config'
 import { RxTrash } from 'react-icons/rx'
 import Headline from '@components/Headline'
 import Image from '@components/Image'
 import Text from '@components/Text'
+import Button from '@components/Button'
 import { CheckoutProductCardProps } from './CheckoutProductCard.types'
 import styles from './CheckoutProductCard.module.scss'
-import Button from '@components/Button'
+import { toast } from 'react-toastify'
 
 const CheckoutProductCard = ({ products }: CheckoutProductCardProps) => {
   const product = products[0]
-
   const builtImg = urlFor(product.image).url()
+  const dispatch = useDispatch()
 
-  console.log('product', products)
+  const removeItemFromCart = () => {
+    dispatch(removeFromCart({ id: product._id }))
+
+    toast.error(`${product.title} was removed from your cart`)
+  }
 
   return (
     <div className={styles.Root}>
@@ -35,7 +42,7 @@ const CheckoutProductCard = ({ products }: CheckoutProductCardProps) => {
           </Text>
         </div>
       </div>
-      <Button className={styles.Root__deleteBtn}>
+      <Button className={styles.Root__deleteBtn} onClick={removeItemFromCart}>
         <RxTrash size={25} />
       </Button>
     </div>
