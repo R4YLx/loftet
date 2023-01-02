@@ -1,0 +1,44 @@
+@use '@styles/variables.scss' as *;
+@use '@styles/mixins/color' as *;
+
+.Root {
+  display: flex;
+  gap: $spacing-100;
+  padding-block: $spacing-100;
+
+  @media screen and (min-width: $breakpoint-sm) {
+    padding-block: 0;
+    margin-block: $spacing-100;
+  }
+
+  &__image {
+    max-width: $spacing-900;
+    object-fit: cover;
+  }
+
+  &__detailsContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    gap: $spacing-100;
+  }
+
+  &__headline {
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+
+  &__infoWrapper {
+    & > * {
+      margin-block: $spacing-50;
+    }
+  }
+
+  &__deleteBtn {
+    display: flex;
+
+    &:hover {
+      @include on-hover-text-dark();
+    }
+  }
+}
