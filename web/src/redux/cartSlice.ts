@@ -18,6 +18,7 @@ export const cartSlice = createSlice({
 
 export const { addToCart } = cartSlice.actions
 
+// Fetching items in state
 export const selectCartItems = (state: RootState) => state.cart.items
 
 export default cartSlice.reducer
