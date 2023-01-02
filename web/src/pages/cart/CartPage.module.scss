@@ -40,6 +40,15 @@
   &__summaryWrapper {
     display: flex;
     flex-direction: column;
+
+    @media screen and (min-width: $breakpoint-md) {
+      margin-left: auto;
+      max-width: $breakpoint-xs;
+    }
+
+    @media screen and (min-width: $breakpoint-xl) {
+      max-width: $breakpoint-sm;
+    }
   }
 
   &__textContainer {

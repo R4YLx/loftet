@@ -54,7 +54,7 @@ const CartPage = () => {
       )}
 
       {itemsInCart.length > 0 && (
-        <div className={styles.Root__wrapper}>
+        <div className={styles.Root__contentWrapper}>
           <section className={styles.Root__productsWrapper}>
             {Object.entries(groupedItemsInCart).map(([key, items]) => (
               <CheckoutProductCard key={key} products={items} />
