@@ -31,4 +31,9 @@
       margin-block: 15vh;
     }
   }
+
+  &__textContainer {
+    display: flex;
+    justify-content: space-between;
+  }
 }

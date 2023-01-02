@@ -60,7 +60,31 @@ const CartPage = () => {
             ))}
           </div>
 
-          <div className={styles.Root__summaryWrapper}></div>
+          <Divider subtle />
+
+          <div className={styles.Root__summaryWrapper}>
+            <div className={styles.Root__textContainer}>
+              <Text element="p" size="lg">
+                Subtotal:
+              </Text>
+            </div>
+
+            <div className={styles.Root__textContainer}>
+              <Text element="p" size="lg">
+                Shipping:
+              </Text>
+
+              <Text element="p" size="lg">
+                Free
+              </Text>
+            </div>
+
+            <div className={styles.Root__textContainer}>
+              <Text element="p" size="lg">
+                Grand total:
+              </Text>
+            </div>
+          </div>
         </div>
       )}
     </div>
