@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { useState } from 'react'
 
 import PageLayout from '@components/PageLayout'
+import { Provider } from 'react-redux'
+import { store } from '@redux/store'
 import '@styles/global.scss'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -16,9 +18,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="LOFTET - Vintage clothing for men" />
       </Head>
 
-      <PageLayout>
-        <Component {...pageProps} />
-      </PageLayout>
+      <Provider store={store}>
+        <PageLayout>
+          <Component {...pageProps} />
+        </PageLayout>
+      </Provider>
     </>
   )
 }
