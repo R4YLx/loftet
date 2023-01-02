@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+import { addToCart } from '@redux/cartSlice'
 import { urlFor } from '@lib/sanity.config'
 import Button from '@components/Button'
 import Headline from '@components/Headline'
@@ -9,6 +11,12 @@ import { ProductDetailsProps } from './ProductDetails.types'
 import styles from './ProductDetails.module.scss'
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
+  const dispatch = useDispatch()
+
+  const addItemToCart = () => {
+    dispatch(addToCart(product))
+  }
+
   return (
     <div className={styles.Root}>
       <Image src={urlFor(product.image).url()} className={styles.Root__image} />
@@ -39,7 +47,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             />
           </div>
 
-          <Button block bgDark isFluid>
+          <Button block bgDark isFluid onClick={addItemToCart}>
             <Text element="p" size="xl" className={styles.Root__addText}>
               Add to cart
             </Text>
