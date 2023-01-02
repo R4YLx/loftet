@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { selectCartItems } from '@redux/cartSlice'
+import { selectCartItems, selectCartTotal } from '@redux/cartSlice'
 import Divider from '@components/Divider'
 import Headline from '@components/Headline'
 import styles from './CartPage.module.scss'
@@ -12,6 +12,7 @@ import CheckoutProductCard from '@components/CheckoutProductCard'
 const CartPage = () => {
   const router = useRouter()
   const itemsInCart = useSelector(selectCartItems)
+  const cartTotalSum = useSelector(selectCartTotal)
 
   const [groupedItemsInCart, setGroupedItemsInCart] = useState(
     {} as { [key: string]: IProduct[] }
@@ -54,18 +55,21 @@ const CartPage = () => {
 
       {itemsInCart.length > 0 && (
         <div className={styles.Root__wrapper}>
-          <div className={styles.Root__productsWrapper}>
+          <section className={styles.Root__productsWrapper}>
             {Object.entries(groupedItemsInCart).map(([key, items]) => (
               <CheckoutProductCard key={key} products={items} />
             ))}
-          </div>
+          </section>
 
           <Divider subtle />
 
-          <div className={styles.Root__summaryWrapper}>
+          <section className={styles.Root__summaryWrapper}>
             <div className={styles.Root__textContainer}>
               <Text element="p" size="lg">
                 Subtotal:
+              </Text>
+              <Text element="p" size="lg">
+                {cartTotalSum} SEK
               </Text>
             </div>
 
@@ -83,8 +87,18 @@ const CartPage = () => {
               <Text element="p" size="lg">
                 Grand total:
               </Text>
+
+              <Text element="p" size="lg">
+                {cartTotalSum} SEK
+              </Text>
             </div>
-          </div>
+
+            <Button block bgDark className={styles.Root__checkOutBtn}>
+              <Text element="p" size="lg">
+                Check out
+              </Text>
+            </Button>
+          </section>
         </div>
       )}
     </div>

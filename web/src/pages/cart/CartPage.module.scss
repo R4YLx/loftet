@@ -2,9 +2,10 @@
 
 .Root {
   margin-inline: $spacing-100;
-  padding: $spacing-100;
+  padding-bottom: $spacing-200;
 
   @media screen and (min-width: $breakpoint-lg) {
+    padding-inline: $spacing-100;
     margin-inline: 10%;
   }
 
@@ -32,8 +33,20 @@
     }
   }
 
+  &__summaryWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__textContainer {
     display: flex;
     justify-content: space-between;
+    & > * {
+      margin-block: $spacing-50;
+    }
+  }
+
+  &__checkOutBtn {
+    margin-block: $spacing-200;
   }
 }

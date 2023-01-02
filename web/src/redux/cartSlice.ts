@@ -34,4 +34,11 @@ export const { addToCart } = cartSlice.actions
 // Fetching items in state
 export const selectCartItems = (state: RootState) => state.cart.items
 
+// Sums up total price of items in cart
+export const selectCartTotal = (state: RootState) =>
+  state.cart.items.reduce(
+    (total: number, item: IProduct) => (total += item.price),
+    0
+  )
+
 export default cartSlice.reducer
