@@ -43,7 +43,6 @@ export default function Home({ products }: PageProps) {
                 size={product.size}
                 slug={product.slug.current}
                 price={product.price}
-                onClick={() => null} //* Click event for product page
               />
             ))}
         </ProductsGrid>

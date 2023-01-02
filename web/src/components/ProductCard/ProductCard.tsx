@@ -21,7 +21,7 @@ const ProductCard = ({
         <div className={styles.Root} {...rest}>
           <Image src={builtImg} className={styles.Root__image} />
           <Text element="p" size="lg" className={styles.Root__item}>
-            {title} - ({size})
+            {title} ({size})
           </Text>
 
           <Text element="p" size="lg" className={styles.Root__price}>

@@ -18,6 +18,7 @@ interface IProduct {
   }
   subcategory: ISubcategory
   title: string
+  quantity: number
 }
 
 interface IImage {

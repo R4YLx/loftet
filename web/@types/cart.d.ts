@@ -1,0 +1,3 @@
+interface ICart {
+  items: IProduct[]
+}

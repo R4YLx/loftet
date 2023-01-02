@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
+import { selectCartItems } from '@redux/cartSlice'
 import { RxHamburgerMenu, RxCross2 } from 'react-icons/rx'
 import { CiSearch } from 'react-icons/ci'
 import { BsBag } from 'react-icons/bs'
@@ -9,6 +11,8 @@ import { NavbarProps } from './Navbar.types'
 import styles from './Navbar.module.scss'
 
 const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
+  const itemsInCart = useSelector(selectCartItems)
+
   return (
     <div className={styles.Root}>
       {/* Top label */}
@@ -57,7 +61,18 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
 
           <Link href={'/cart'}>
             <a>
-              <BsBag size={22} />
+              <div className={styles.Root__cartContainer}>
+                {itemsInCart.length > 0 && (
+                  <Text
+                    element="span"
+                    size="sm"
+                    className={styles.Root__itemsInCart}
+                  >
+                    {itemsInCart.length}
+                  </Text>
+                )}
+                <BsBag size={22} />
+              </div>
             </a>
           </Link>
         </div>
