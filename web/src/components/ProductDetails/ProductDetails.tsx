@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { addToCart } from '@redux/cartSlice'
+import { toast } from 'react-toastify'
 import { urlFor } from '@lib/sanity.config'
 import Button from '@components/Button'
 import Headline from '@components/Headline'
@@ -15,6 +16,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   const addItemToCart = () => {
     dispatch(addToCart(product))
+
+    toast.success(`${product.title} has been added to your cart!`)
   }
 
   return (
