@@ -19,17 +19,17 @@ export const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, quantity: 1 })
       }
+    },
+    removeFromCart: (state: ICart, action: PayloadAction<{ id: string }>) => {
+      const removeItem = state.items.filter(
+        (item) => item._id !== action.payload.id
+      )
+      state.items = removeItem
     }
-    // removeFromCart: (state: ICart, action: PayloadAction<{ id: string }>) => {
-    //   const removeItem = state.items.filter(
-    //     (item) => item._id !== action.payload.id
-    //   )
-    //   state.items = removeItem
-    // }
   }
 })
 
-export const { addToCart } = cartSlice.actions
+export const { addToCart, removeFromCart } = cartSlice.actions
 
 // Fetching items in state
 export const selectCartItems = (state: RootState) => state.cart.items

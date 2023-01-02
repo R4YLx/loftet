@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
         newestOnTop
         pauseOnFocusLoss={false}
         pauseOnHover={false}
-        position="bottom-center"
+        position="bottom-left"
         role="alert"
         rtl={false}
         theme="light"

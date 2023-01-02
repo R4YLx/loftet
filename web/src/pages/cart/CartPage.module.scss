@@ -31,6 +31,10 @@
     @media screen and (min-width: $breakpoint-xl) {
       margin-block: 15vh;
     }
+
+    @media screen and (min-width: $breakpoint-xxl) {
+      margin-block: 21vh;
+    }
   }
 
   &__summaryWrapper {
