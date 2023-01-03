@@ -13,6 +13,11 @@ const CartPage = () => {
   const router = useRouter()
   const itemsInCart = useSelector(selectCartItems)
   const cartTotalSum = useSelector(selectCartTotal)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const createCheckoutSession = async () => {
+    setIsLoading(true)
+  }
 
   const [groupedItemsInCart, setGroupedItemsInCart] = useState(
     {} as { [key: string]: IProduct[] }
