@@ -1,4 +1,4 @@
-import { textToArray } from 'helpers/textToArray'
+import { textToArray } from '@utils/helpers'
 import Divider from '@components/Divider'
 import Headline from '@components/Headline'
 import Text from '@components/Text'

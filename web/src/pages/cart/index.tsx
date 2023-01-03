@@ -23,7 +23,7 @@ const CartPage = () => {
     setIsLoading(true)
 
     const checkoutSession: Stripe.Checkout.Session = await fetchPostJSON(
-      '/api/checkout_sessions',
+      '/api/checkoutSessions',
       { items: itemsInCart }
     )
 
