@@ -1,0 +1,15 @@
+@use '@styles/variables.scss' as *;
+
+.Root {
+  margin-inline: $spacing-100;
+  padding-bottom: $spacing-200;
+
+  @media screen and (min-width: $breakpoint-lg) {
+    padding-inline: $spacing-100;
+    margin-inline: 10%;
+  }
+
+  &__header {
+    text-align: center;
+  }
+}

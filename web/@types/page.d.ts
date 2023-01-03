@@ -3,4 +3,6 @@ interface PageProps {
   products?: IProduct[]
   product?: IProduct
   similarProducts?: IProduct[]
+  lineItems?: IStripeProduct[]
+  customer?: IStripeCustomer
 }
