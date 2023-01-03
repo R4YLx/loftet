@@ -12,13 +12,12 @@ export default async function handler(
   if (req.method === 'POST') {
     const items: IProduct[] = req.body.items
 
-    // This is the shape in which stripe expects the data to be
     const transformedItems = items.map((item) => ({
       price_data: {
         currency: 'sek',
         product_data: {
           name: item.title,
-          images: [urlFor(item.image[0]).url()]
+          images: [urlFor(item.image).url()]
         },
         unit_amount: item.price * 100
       },
@@ -50,9 +49,9 @@ export default async function handler(
         payment_intent_data: {},
         mode: 'payment',
         success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${req.headers.origin}/checkout`,
+        cancel_url: `${req.headers.origin}/cart`,
         metadata: {
-          images: JSON.stringify(items.map((item) => item.image[0].asset.url))
+          images: JSON.stringify(items.map((item) => item.image.asset.url))
         }
       }
       const checkoutSession: Stripe.Checkout.Session =

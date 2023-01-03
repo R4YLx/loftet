@@ -6,7 +6,7 @@ interface IProduct {
   _updatedAt: string
   color: string
   condition: string
-  image: Image[]
+  image: IImage
   item: string
   material: string
   measurements: string
