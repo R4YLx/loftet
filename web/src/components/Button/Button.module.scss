@@ -36,4 +36,11 @@
   &_block {
     min-width: 15ch;
   }
+
+  &_isLoading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: $spacing-75;
+  }
 }

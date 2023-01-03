@@ -1,18 +1,45 @@
+import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { selectCartItems, selectCartTotal } from '@redux/cartSlice'
+import { Stripe } from 'stripe'
+import getStripe from 'utils/getStripe'
+import { fetchPostJSON } from 'helpers/fetchPostJSON'
 import Divider from '@components/Divider'
 import Headline from '@components/Headline'
-import styles from './CartPage.module.scss'
 import Button from '@components/Button'
 import Text from '@components/Text'
-import { useRouter } from 'next/router'
 import CheckoutProductCard from '@components/CheckoutProductCard'
+import styles from './CartPage.module.scss'
 
 const CartPage = () => {
   const router = useRouter()
   const itemsInCart = useSelector(selectCartItems)
   const cartTotalSum = useSelector(selectCartTotal)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const createCheckoutSession = async () => {
+    setIsLoading(true)
+
+    const checkoutSession: Stripe.Checkout.Session = await fetchPostJSON(
+      '/api/checkout_sessions',
+      { items: itemsInCart }
+    )
+
+    if ((checkoutSession as any).statusCode === 500) {
+      console.error((checkoutSession as any).message)
+      return
+    }
+
+    const stripe = await getStripe()
+    const { error } = await stripe!.redirectToCheckout({
+      sessionId: checkoutSession.id
+    })
+
+    toast.error(error.message)
+    setIsLoading(false)
+  }
 
   const [groupedItemsInCart, setGroupedItemsInCart] = useState(
     {} as { [key: string]: IProduct[] }
@@ -93,7 +120,13 @@ const CartPage = () => {
               </Text>
             </div>
 
-            <Button block bgDark className={styles.Root__checkOutBtn}>
+            <Button
+              block
+              bgDark
+              className={styles.Root__checkOutBtn}
+              onClick={createCheckoutSession}
+              isLoading={isLoading}
+            >
               <Text element="p" size="lg">
                 Check out
               </Text>
