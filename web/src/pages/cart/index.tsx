@@ -125,6 +125,7 @@ const CartPage = () => {
               bgDark
               className={styles.Root__checkOutBtn}
               onClick={createCheckoutSession}
+              isLoading={isLoading}
             >
               <Text element="p" size="lg">
                 Check out
