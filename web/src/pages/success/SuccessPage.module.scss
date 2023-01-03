@@ -1,0 +1,90 @@
+@use '@styles/variables.scss' as *;
+
+.Root {
+  margin-top: $spacing-300;
+  margin-inline: $spacing-100;
+  padding-bottom: $spacing-200;
+
+  @media screen and (min-width: $breakpoint-md) {
+    margin-inline: 20%;
+  }
+
+  @media screen and (min-width: $breakpoint-lg) {
+    padding-inline: $spacing-100;
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__headline {
+    text-transform: uppercase;
+  }
+
+  &__wrapper {
+    margin-top: $spacing-200;
+
+    @media screen and (min-width: $breakpoint-md) {
+      margin-top: $spacing-400;
+    }
+  }
+
+  &__orderSection {
+    text-align: center;
+
+    & > * {
+      margin-block: $spacing-100;
+    }
+  }
+
+  &__productSection {
+    background: $color-background-light;
+    border-radius: $spacing-25;
+    margin-block: $spacing-200;
+
+    @media screen and (min-width: $breakpoint-md) {
+      margin-block: $spacing-300;
+    }
+  }
+
+  &__deliverySection {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: $breakpoint-md) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: $spacing-200;
+    }
+  }
+
+  &__textContainer {
+    & > * {
+      margin-block: $spacing-100;
+    }
+  }
+
+  &__customerDetails {
+    & > * {
+      margin-block: $spacing-25;
+    }
+  }
+
+  &__ctaWrapper {
+    margin-block: $spacing-200;
+
+    @media screen and (min-width: $breakpoint-md) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__CTA {
+    margin-top: $spacing-200;
+
+    @media screen and (min-width: $breakpoint-lg) {
+      max-width: $breakpoint-xs;
+    }
+  }
+}
