@@ -1,5 +1,6 @@
 interface IStripeCustomer {
   address: {
+    country: string
     city: string
     line1: string
     line2: string | null
