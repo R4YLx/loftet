@@ -1,14 +1,19 @@
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
 import ProductsGrid from '@components/ProductsGrid'
 import ProductCard from '@components/ProductCard'
 import Headline from '@components/Headline'
 import styles from './CollectionPage.module.scss'
+import { useProductsByCategory } from 'hooks/useProductsByCategory'
 
 const CollectionPage = () => {
   const router = useRouter()
-  const pageSlug = String(router.query.slug)
-  const [data, setData] = useState<IProduct[]>()
+  const slug = String(router.query.slug)
+
+  // console.log('slug', slug)
+
+  const { data } = useProductsByCategory(slug)
+
+  // console.log('data', data)
 
   return (
     <div className={styles.Root}>
@@ -16,7 +21,7 @@ const CollectionPage = () => {
 
       <main className={styles.Root__main}>
         <Headline element="h2" size="lg" className={styles.Root__headline}>
-          {pageSlug.replace('-', ' ')}
+          {slug.replace('-', ' ')}
         </Headline>
 
         <ProductsGrid>

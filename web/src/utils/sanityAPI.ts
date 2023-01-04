@@ -13,7 +13,7 @@ export const fetchProducts = async (lastest?: string): Promise<IProduct[]> => {
         }
       }`
   )
-  const url = `${process.env.SANITY_API_URL}query=${query}`
+  const url = `${process.env.NEXT_PUBLIC_SANITY_API_URL}query=${query}`
   const data = await fetch(url).then((res) => res.json())
   const products: IProduct[] = data.result
 
@@ -29,7 +29,7 @@ export const fetchProductById = async (slug: string): Promise<IProduct> => {
         }
       }`
   )
-  const url = `${process.env.SANITY_API_URL}query=${query}`
+  const url = `${process.env.NEXT_PUBLIC_SANITY_API_URL}query=${query}`
   const data = await fetch(url).then((res) => res.json())
   const product: IProduct = data.result
 
@@ -46,7 +46,7 @@ export const fetchSimilarProducts = async (
       && references(*[_type=="categories" 
       && slug.current == "${category}"]._id)][0...9]`
   )
-  const url = `${process.env.SANITY_API_URL}query=${query}`
+  const url = `${process.env.NEXT_PUBLIC_SANITY_API_URL}query=${query}`
   const data = await fetch(url).then((res) => res.json())
   const products: IProduct[] = data.result
 
@@ -55,16 +55,20 @@ export const fetchSimilarProducts = async (
 
 export const fetchProductsByCategory = async (
   slug: string
-): Promise<IProduct> => {
+): Promise<IProduct[]> => {
   const query = encodeURIComponent(
     `*[_type == "products" 
       && references(*[_type=="categories" 
       && slug.current == "${slug}"]._id)]
   `
   )
-  const url = `${process.env.SANITY_API_URL}query=${query}`
-  const data = await fetch(url).then((res) => res.json())
-  const product: IProduct = data.result
 
-  return product
+  const url = `${process.env.NEXT_PUBLIC_SANITY_API_URL}query=${query}`
+
+  console.log('url', url)
+  const data = await fetch(url).then((res) => res.json())
+
+  const products: IProduct[] = data.result
+
+  return products
 }
