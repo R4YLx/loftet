@@ -28,8 +28,7 @@ const CartPage = () => {
     )
 
     if ((checkoutSession as any).statusCode === 500) {
-      console.error((checkoutSession as any).message)
-      return
+      toast.error((checkoutSession as any).message)
     }
 
     const stripe = await getStripe()

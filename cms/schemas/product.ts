@@ -54,12 +54,6 @@ export default defineType({
       ]
     }),
     defineField({
-      name: 'subcategory',
-      title: 'Subcategory',
-      type: 'reference',
-      to: [{ type: 'subcategories' }]
-    }),
-    defineField({
       name: 'item',
       title: 'Item',
       type: 'string'

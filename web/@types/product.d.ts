@@ -17,7 +17,6 @@ interface IProduct {
     _type: 'slug'
     current: string
   }
-  subcategory: ISubcategory
   title: string
   quantity: number
 }
