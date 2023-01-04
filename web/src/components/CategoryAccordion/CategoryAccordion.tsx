@@ -1,4 +1,4 @@
-import { categories } from 'utils/categories'
+import { categories } from 'utils/helpers'
 import Link from 'next/link'
 import { RxChevronDown } from 'react-icons/rx'
 import * as Accordion from '@radix-ui/react-accordion'

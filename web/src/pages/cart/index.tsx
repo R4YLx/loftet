@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { selectCartItems, selectCartTotal } from '@redux/cartSlice'
 import { Stripe } from 'stripe'
-import getStripe from '@utils/getStripe'
+import { getStripe } from '@utils/stripeAPI'
 import { fetchPostJSON } from '@utils/fetchPostJSON'
 import Divider from '@components/Divider'
 import Headline from '@components/Headline'
@@ -28,8 +28,7 @@ const CartPage = () => {
     )
 
     if ((checkoutSession as any).statusCode === 500) {
-      console.error((checkoutSession as any).message)
-      return
+      toast.error((checkoutSession as any).message)
     }
 
     const stripe = await getStripe()

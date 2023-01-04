@@ -1,0 +1,16 @@
+@use '@styles/variables.scss' as *;
+
+.Root {
+  &__sidebar {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-md) {
+      display: block;
+    }
+  }
+
+  &__headline {
+    text-transform: uppercase;
+    text-align: center;
+  }
+}

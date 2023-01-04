@@ -8,6 +8,5 @@ interface ICategory {
     _type: 'slug'
     current: string
   }
-  subcategory: ISubcategory[]
   title: string
 }

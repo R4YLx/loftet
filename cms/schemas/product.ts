@@ -43,10 +43,15 @@ export default defineType({
       }
     }),
     defineField({
-      name: 'subcategory',
-      title: 'Subcategory',
-      type: 'reference',
-      to: [{ type: 'subcategories' }]
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'categories' }]
+        }
+      ]
     }),
     defineField({
       name: 'item',

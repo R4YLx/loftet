@@ -12,14 +12,7 @@ const ProductsCarousel = ({ products }: ProductsCarouselProps) => {
       <div className={styles.Root__wrapper}>
         {products &&
           products.map((product) => (
-            <ProductCard
-              key={product._id}
-              slug={product.slug.current}
-              image={product.image}
-              title={product.title}
-              size={product.size}
-              price={product.price}
-            />
+            <ProductCard key={product._id} product={product} />
           ))}
       </div>
     </div>

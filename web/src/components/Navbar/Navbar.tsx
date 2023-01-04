@@ -4,7 +4,7 @@ import { selectCartItems } from '@redux/cartSlice'
 import { RxHamburgerMenu, RxCross2 } from 'react-icons/rx'
 import { CiSearch } from 'react-icons/ci'
 import { BsBag } from 'react-icons/bs'
-import { categories } from 'utils/categories'
+import { categories } from 'utils/helpers'
 import Text from '@components/Text'
 import Button from '@components/Button'
 import { NavbarProps } from './Navbar.types'
@@ -28,7 +28,7 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
           <Button
             aria-label="hamburger button"
             className={styles.Root__hamburger__button}
-            onClick={setMenuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             {!menuOpen ? <RxHamburgerMenu size={30} /> : <RxCross2 size={30} />}
           </Button>
@@ -37,7 +37,12 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
         <div className={styles.Root__logoWrapper}>
           <Link href={'/'}>
             <a>
-              <img src="/logo.svg" alt="logo" className={styles.Root__logo} />
+              <img
+                src="/logo.svg"
+                alt="logo"
+                className={styles.Root__logo}
+                onClick={() => setMenuOpen(false)}
+              />
             </a>
           </Link>
         </div>
