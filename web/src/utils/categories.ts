@@ -62,5 +62,17 @@ export const categories = [
       { id: 2, title: 'Denim trousers', slug: 'denim-trousers' },
       { id: 3, title: 'Denim jackets', slug: 'denim-jackets' }
     ]
+  },
+  {
+    id: 6,
+    title: 'Military',
+    slug: 'military',
+    value: 'category-6',
+    subcategories: [
+      { id: 1, title: 'All military', slug: 'military' },
+      { id: 2, title: 'Military jackets', slug: 'military-jackets' },
+      { id: 3, title: 'Military shirts', slug: 'military-shirts' },
+      { id: 4, title: 'Military trousers', slug: 'military-trousers' }
+    ]
   }
 ]

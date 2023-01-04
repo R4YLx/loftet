@@ -1,4 +1,6 @@
+import { Dispatch, SetStateAction } from 'react'
+
 export interface NavbarProps {
   menuOpen: boolean
-  setMenuOpen: () => void
+  setMenuOpen: Dispatch<SetStateAction<boolean>>
 }

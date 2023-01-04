@@ -1,11 +1,12 @@
-import { useRouter } from 'next/router'
-import styles from './CollectionPage.module.scss'
-import { useEffect, useState } from 'react'
-import { fetchProducts } from '@utils/fetchProducts'
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { filterBySubcategory } from '@utils/helpers'
+import { fetchProducts } from '@utils/fetchProducts'
 import ProductsGrid from '@components/ProductsGrid'
 import ProductCard from '@components/ProductCard'
 import Headline from '@components/Headline'
+import styles from './CollectionPage.module.scss'
 
 const CollectionPage = ({ products }: PageProps) => {
   const router = useRouter()
@@ -13,11 +14,11 @@ const CollectionPage = ({ products }: PageProps) => {
   const [data, setData] = useState<IProduct[]>()
 
   useEffect(() => {
-    const filteredProducts = products?.filter(
-      (product) => product.subcategory.slug.current === pageSlug
-    )
+    if (!products) return
 
-    setData(filteredProducts)
+    const filtered = filterBySubcategory(products, pageSlug)
+
+    setData(filtered)
   }, [products, router])
 
   return (

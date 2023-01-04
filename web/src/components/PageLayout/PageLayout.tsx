@@ -10,7 +10,7 @@ const PageLayout = ({ children }: PageLayoutProps) => {
 
   return (
     <>
-      <Navbar menuOpen={menuOpen} setMenuOpen={() => setMenuOpen(!menuOpen)} />
+      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
       {menuOpen && (
         <HamburgerModal setIsOpen={() => setMenuOpen(!menuOpen)}>
