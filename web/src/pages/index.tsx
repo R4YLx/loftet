@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import { fetchProducts } from 'utils/fetchProducts'
+import { fetchProducts } from 'utils/sanityAPI'
 
 import Headline from '@components/Headline'
 import InfoBlock from '@components/InfoBlock'
