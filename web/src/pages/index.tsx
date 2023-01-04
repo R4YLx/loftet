@@ -36,14 +36,7 @@ export default function Home({ products }: PageProps) {
         <ProductsGrid>
           {products &&
             products.map((product) => (
-              <ProductCard
-                key={product._id}
-                image={product.image}
-                title={product.title}
-                size={product.size}
-                slug={product.slug.current}
-                price={product.price}
-              />
+              <ProductCard key={product._id} product={product} />
             ))}
         </ProductsGrid>
       </main>
@@ -64,9 +57,8 @@ export default function Home({ products }: PageProps) {
   )
 }
 
-//* Backend
 export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
-  const products = await fetchProducts()
+  const products = await fetchProducts('latest')
 
   return {
     props: {
