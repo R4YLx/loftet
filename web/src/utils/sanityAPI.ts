@@ -65,7 +65,6 @@ export const fetchProductsByCategory = async (
 
   const url = `${process.env.NEXT_PUBLIC_SANITY_API_URL}query=${query}`
 
-  console.log('url', url)
   const data = await fetch(url).then((res) => res.json())
 
   const products: IProduct[] = data.result

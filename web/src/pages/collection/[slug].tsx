@@ -9,11 +9,7 @@ const CollectionPage = () => {
   const router = useRouter()
   const slug = String(router.query.slug)
 
-  // console.log('slug', slug)
-
   const { data } = useProductsByCategory(slug)
-
-  // console.log('data', data)
 
   return (
     <div className={styles.Root}>
@@ -25,9 +21,10 @@ const CollectionPage = () => {
         </Headline>
 
         <ProductsGrid>
-          {data?.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
+          {data &&
+            data.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
         </ProductsGrid>
       </main>
     </div>
