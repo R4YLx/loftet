@@ -4,6 +4,7 @@ interface IProduct {
   _rev: string
   _type: 'product'
   _updatedAt: string
+  categories: ICategory[]
   color: string
   condition: string
   image: IImage

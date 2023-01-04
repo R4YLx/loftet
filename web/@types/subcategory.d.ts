@@ -4,6 +4,7 @@ interface ISubcategory {
   _updatedAt: string
   _rev: string
   _type: 'subcategory'
+  category: ICategory[]
   slug: {
     _type: 'slug'
     current: string
