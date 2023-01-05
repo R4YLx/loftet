@@ -4,10 +4,19 @@
   margin-top: $spacing-200;
   margin-bottom: $spacing-400;
 
+  &__wrapper {
+    @media screen and (min-width: $breakpoint-lg) {
+      display: grid;
+      grid-template-columns: minmax($spacing-1400, 20%) 1fr;
+      gap: $spacing-200;
+      margin-inline: 10%;
+    }
+  }
+
   &__sidebar {
     display: none;
 
-    @media screen and (min-width: $breakpoint-md) {
+    @media screen and (min-width: $breakpoint-lg) {
       display: block;
     }
   }
@@ -16,6 +25,7 @@
   }
 
   &__headline {
+    margin-top: 0;
     text-transform: uppercase;
     text-align: center;
   }
@@ -26,7 +36,11 @@
     justify-content: flex-end;
     gap: $spacing-75;
     margin-inline: $spacing-100;
-    padding-bottom: $spacing-75;
+    padding-bottom: $spacing-100;
+
+    @media screen and (min-width: $breakpoint-lg) {
+      padding-bottom: $spacing-25;
+    }
   }
 
   &__selectLabel {
