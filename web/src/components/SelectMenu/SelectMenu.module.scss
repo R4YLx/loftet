@@ -6,16 +6,24 @@
   @include body-lg();
 
   cursor: pointer;
-  width: 100%;
-  height: $spacing-250;
-  background-color: $color-background-light;
-  padding-inline: $spacing-100;
+  background: transparent;
+  border: none;
 
-  appearance: none;
-  background-image: url('/icons/chevronDown.png');
-  background-repeat: no-repeat;
-  background-position: right $spacing-125 top 50%;
-  background-size: $spacing-125 auto;
+  &_isFluid {
+    width: 100%;
+  }
+
+  &_sizeSelection {
+    height: $spacing-250;
+    background-color: $color-background-light;
+    padding-inline: $spacing-100;
+
+    appearance: none;
+    background-image: url('/icons/chevronDown.png');
+    background-repeat: no-repeat;
+    background-position: right $spacing-125 top 50%;
+    background-size: $spacing-125 auto;
+  }
 
   @media screen and (min-width: $breakpoint-md) {
     background-position: right $spacing-75 top 50%;
