@@ -2,5 +2,10 @@ import React from 'react'
 
 export interface SelectMenuProps
   extends React.HTMLAttributes<HTMLSelectElement> {
-  value: string
+  option?: string
+  options?: {
+    value: string
+    label: string
+  }[]
+  handleOptions?: (option: string) => void
 }

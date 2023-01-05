@@ -59,14 +59,11 @@ export const fetchProductsByCategory = async (
   const query = encodeURIComponent(
     `*[_type == "products" 
       && references(*[_type=="categories" 
-      && slug.current == "${slug}"]._id)]
-  `
+      && slug.current == "${slug}"]._id)] | order(_updatedAt asc)`
   )
 
   const url = `${process.env.NEXT_PUBLIC_SANITY_API_URL}query=${query}`
-
   const data = await fetch(url).then((res) => res.json())
-
   const products: IProduct[] = data.result
 
   return products
