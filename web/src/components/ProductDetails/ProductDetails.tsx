@@ -45,7 +45,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
         <div className={styles.Root__actionsWrapper}>
           <div className={styles.Root__selectWrapper}>
             <SelectMenu
-              value={product.size.toUpperCase()}
+              option={product.size.toUpperCase()}
               className={styles.Root__selectMenu}
             />
           </div>
