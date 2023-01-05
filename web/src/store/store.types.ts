@@ -1,5 +1,5 @@
 export interface CartStore {
   itemsInCart: IProduct[]
-  totalAmount: number
+  cartTotalSum: number
   addToCart: (product: IProduct) => void
 }

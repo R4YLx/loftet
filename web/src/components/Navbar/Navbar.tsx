@@ -12,10 +12,10 @@ import { useEffect, useState } from 'react'
 
 const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
   const { itemsInCart } = useCartStore()
-  const [show, setShow] = useState(false)
+  const [loadLS, setLoadLS] = useState(false)
 
   useEffect(() => {
-    setShow(true)
+    setLoadLS(true)
   }, [])
 
   return (
@@ -72,7 +72,7 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
           <Link href={'/cart'}>
             <a>
               <div className={styles.Root__cartContainer}>
-                {show && itemsInCart.length > 0 && (
+                {loadLS && itemsInCart.length > 0 && (
                   <Text
                     element="span"
                     size="sm"

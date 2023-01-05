@@ -6,7 +6,7 @@ export const useCartStore = create<CartStore>()(
   persist(
     (set) => ({
       itemsInCart: [],
-      totalAmount: 0,
+      cartTotalSum: 0,
       addToCart: (product) => {
         set((state) => {
           const alreadyAdded = state.itemsInCart.some(
@@ -20,7 +20,7 @@ export const useCartStore = create<CartStore>()(
           return {
             ...state,
             itemsInCart: [...state.itemsInCart, product],
-            totalAmount: state.totalAmount + product.price
+            cartTotalSum: state.cartTotalSum + product.price
           }
         })
       }
