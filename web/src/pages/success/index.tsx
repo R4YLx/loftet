@@ -6,8 +6,8 @@ import Headline from '@components/Headline'
 import Divider from '@components/Divider'
 import Text from '@components/Text'
 import Table from '@components/Table'
-import styles from './SuccessPage.module.scss'
 import Button from '@components/Button'
+import styles from './SuccessPage.module.scss'
 
 const SuccessPage = ({ lineItems, customer }: PageProps) => {
   const router = useRouter()

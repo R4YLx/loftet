@@ -1,17 +1,17 @@
-import { useRouter } from 'next/router'
-import ProductsGrid from '@components/ProductsGrid'
-import ProductCard from '@components/ProductCard'
-import Headline from '@components/Headline'
-import styles from './CollectionPage.module.scss'
-import { useProductsByCategory } from 'hooks/useProductsByCategory'
 import { useEffect, useState } from 'react'
-import SelectMenu from '@components/SelectMenu'
+import { useRouter } from 'next/router'
+import { useProductsByCategory } from 'hooks/useProductsByCategory'
 import {
   setDefault,
   sortHighToLow,
   sortLowToHigh,
   sortNewToOld
 } from '@utils/helpers'
+import ProductsGrid from '@components/ProductsGrid'
+import ProductCard from '@components/ProductCard'
+import Headline from '@components/Headline'
+import SelectMenu from '@components/SelectMenu'
+import styles from './CollectionPage.module.scss'
 
 const CollectionPage = () => {
   const router = useRouter()

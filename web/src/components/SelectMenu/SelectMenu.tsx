@@ -1,5 +1,5 @@
-import styles from './SelectMenu.module.scss'
 import { SelectMenuProps } from './SelectMenu.types'
+import styles from './SelectMenu.module.scss'
 
 const SelectMenu = ({ option, options, handleOptions }: SelectMenuProps) => {
   if (options && handleOptions) {
