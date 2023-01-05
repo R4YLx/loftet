@@ -1,22 +1,21 @@
-import { useDispatch } from 'react-redux'
-import { removeFromCart } from '@redux/cartSlice'
+import { toast } from 'react-toastify'
 import { urlFor } from '@lib/sanity.config'
 import { RxTrash } from 'react-icons/rx'
+import { useCartStore } from '@store/store'
 import Headline from '@components/Headline'
 import Image from '@components/Image'
 import Text from '@components/Text'
 import Button from '@components/Button'
 import { CheckoutProductCardProps } from './CheckoutProductCard.types'
 import styles from './CheckoutProductCard.module.scss'
-import { toast } from 'react-toastify'
 
 const CheckoutProductCard = ({ products }: CheckoutProductCardProps) => {
   const product = products[0]
   const builtImg = urlFor(product.image).url()
-  const dispatch = useDispatch()
+  const { removeFromCart } = useCartStore()
 
   const removeItemFromCart = () => {
-    dispatch(removeFromCart({ id: product._id }))
+    removeFromCart(product)
 
     toast.error(`${product.title} was removed from your cart`)
   }

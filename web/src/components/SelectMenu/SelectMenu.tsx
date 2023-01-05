@@ -1,6 +1,6 @@
+import clsx from 'clsx'
 import { SelectMenuProps } from './SelectMenu.types'
 import styles from './SelectMenu.module.scss'
-import clsx from 'clsx'
 
 const SelectMenu = ({
   option,
@@ -23,7 +23,7 @@ const SelectMenu = ({
     }
 
     return (
-      <select className={selectStyles} onChange={orderBy}>
+      <select className={selectStyles} onChange={orderBy} value={option}>
         {options.map((option, i) => (
           <option key={i} value={option.value}>
             {option.label}

@@ -1,8 +1,6 @@
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { selectCartItems, selectCartTotal } from '@redux/cartSlice'
 import { Stripe } from 'stripe'
 import { getStripe } from '@utils/stripeAPI'
 import { fetchPostJSON } from '@utils/fetchPostJSON'
@@ -12,12 +10,14 @@ import Button from '@components/Button'
 import Text from '@components/Text'
 import CheckoutProductCard from '@components/CheckoutProductCard'
 import styles from './CartPage.module.scss'
+import { useCartStore } from '@store/store'
 
 const CartPage = () => {
   const router = useRouter()
-  const itemsInCart = useSelector(selectCartItems)
-  const cartTotalSum = useSelector(selectCartTotal)
+  const { itemsInCart, cartTotalSum } = useCartStore()
+
   const [isLoading, setIsLoading] = useState(false)
+  const [loadLS, setLoadLS] = useState(false)
 
   const createCheckoutSession = async () => {
     setIsLoading(true)
@@ -45,6 +45,8 @@ const CartPage = () => {
   )
 
   useEffect(() => {
+    setLoadLS(true)
+
     const groupedItems = itemsInCart.reduce((results, item) => {
       ;(results[item._id] = results[item._id] || []).push(item)
       return results
@@ -61,7 +63,7 @@ const CartPage = () => {
 
       <Divider subtle />
 
-      {itemsInCart.length <= 0 && (
+      {loadLS && itemsInCart.length <= 0 && (
         <div className={styles.Root__emptyCartContainer}>
           <Headline element="h3" size="lg">
             Oh no! It&apos;s empty...
@@ -79,7 +81,7 @@ const CartPage = () => {
         </div>
       )}
 
-      {itemsInCart.length > 0 && (
+      {loadLS && itemsInCart.length > 0 && (
         <div className={styles.Root__contentWrapper}>
           <section className={styles.Root__productsWrapper}>
             {Object.entries(groupedItemsInCart).map(([key, items]) => (
@@ -95,7 +97,7 @@ const CartPage = () => {
                 Subtotal:
               </Text>
               <Text element="p" size="lg">
-                {cartTotalSum} SEK
+                {loadLS && cartTotalSum} SEK
               </Text>
             </div>
 
@@ -115,7 +117,7 @@ const CartPage = () => {
               </Text>
 
               <Text element="p" size="lg">
-                {cartTotalSum} SEK
+                {loadLS && cartTotalSum} SEK
               </Text>
             </div>
 

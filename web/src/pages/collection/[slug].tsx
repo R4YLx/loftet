@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { useProductsByCategory } from 'hooks/useProductsByCategory'
 import {
@@ -15,58 +15,54 @@ import Text from '@components/Text'
 import CategoryAccordion from '@components/CategoryAccordion'
 import styles from './CollectionPage.module.scss'
 
+const options = [
+  { value: '', label: '' },
+  { value: 'low', label: 'Lowest to highest price' },
+  { value: 'high', label: 'Highest to lowest price' },
+  { value: 'new', label: 'Newest arrivals' }
+]
+
 const CollectionPage = () => {
   const router = useRouter()
   const slug = String(router.query.slug)
-  const [option, setOption] = useState<string>()
-  const { data } = useProductsByCategory(slug)
-  const [products, setProducts] = useState<IProduct[]>()
+  const option = router.query.filter
+  const { data: products } = useProductsByCategory(slug)
 
-  const options = [
-    { value: '', label: '' },
-    { value: 'low', label: 'Lowest to highest price' },
-    { value: 'high', label: 'Highest to lowest price' },
-    { value: 'new', label: 'Newest arrivals' }
-  ]
-
-  const handleOrderBy = (option: string) => {
-    setOption(option)
-  }
-
-  useEffect(() => {
-    setProducts(data)
-
+  const sortedProducts = useMemo(() => {
     if (!products) return
 
     switch (option) {
-      case 'low':
-        {
-          const copy = sortLowToHigh(products)
-          setProducts(copy)
-        }
-        break
-      case 'high':
-        {
-          const copy = sortHighToLow(products)
-          setProducts(copy)
-        }
-        break
+      default: {
+        const copy = setDefault(products)
+        return copy
+      }
+      case 'low': {
+        const copy = sortLowToHigh(products)
+        return copy
+      }
+      case 'high': {
+        const copy = sortHighToLow(products)
+        return copy
+      }
 
-      case 'new':
-        {
-          const copy = sortNewToOld(products)
-          setProducts(copy)
-        }
-        break
-
-      case '':
-        {
-          const copy = setDefault(products)
-          setProducts(copy)
-        }
-        break
+      case 'new': {
+        const copy = sortNewToOld(products)
+        return copy
+      }
     }
-  }, [option, data])
+  }, [option, products, router.query.slug])
+
+  const handleOrderBy = (option: string) => {
+    router.push(
+      { pathname: `/collection/${slug}`, query: { filter: option } },
+      undefined,
+      { shallow: true }
+    )
+  }
+
+  useEffect(() => {
+    console.log('option', option)
+  }, [option])
 
   return (
     <div className={styles.Root}>
@@ -86,13 +82,17 @@ const CollectionPage = () => {
             </Text>
 
             <div className={styles.Root__selectWrapper}>
-              <SelectMenu options={options} handleOptions={handleOrderBy} />
+              <SelectMenu
+                options={options}
+                option={String(option)}
+                handleOptions={handleOrderBy}
+              />
             </div>
           </div>
 
           <ProductsGrid>
-            {products &&
-              products.map((product) => (
+            {sortedProducts &&
+              sortedProducts.map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}
           </ProductsGrid>
