@@ -12,11 +12,10 @@ import styles from './CheckoutProductCard.module.scss'
 const CheckoutProductCard = ({ products }: CheckoutProductCardProps) => {
   const product = products[0]
   const builtImg = urlFor(product.image).url()
-  // const dispatch = useDispatch()
-  // const {} = useCartStore()
+  const { removeFromCart } = useCartStore()
 
   const removeItemFromCart = () => {
-    // dispatch(removeFromCart({ id: product._id }))
+    removeFromCart(product)
 
     toast.error(`${product.title} was removed from your cart`)
   }

@@ -1,5 +1,7 @@
+import { useEffect } from 'react'
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
+import { useCartStore } from '@store/store'
 import { fetchStripeLineItems } from '@utils/stripeAPI'
 import { fetchStripeCustomerDetails } from '@utils/stripeAPI'
 import Headline from '@components/Headline'
@@ -13,6 +15,11 @@ const SuccessPage = ({ lineItems, customer }: PageProps) => {
   const router = useRouter()
   const { session_id } = router.query
   const orderNumber = session_id?.slice(-10)
+  const { cleanCart } = useCartStore()
+
+  useEffect(() => {
+    cleanCart()
+  }, [])
 
   return (
     <div className={styles.Root}>
