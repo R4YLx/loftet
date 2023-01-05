@@ -1,7 +1,5 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { Provider } from 'react-redux'
-import { store } from '@redux/store'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { ToastContainer } from 'react-toastify'
 import PageLayout from '@components/PageLayout'
@@ -36,13 +34,11 @@ export default function App({ Component, pageProps }: AppProps) {
         theme="light"
       />
 
-      <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
-          <PageLayout>
-            <Component {...pageProps} />
-          </PageLayout>
-        </QueryClientProvider>
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <PageLayout>
+          <Component {...pageProps} />
+        </PageLayout>
+      </QueryClientProvider>
     </>
   )
 }

@@ -1,6 +1,4 @@
 import Link from 'next/link'
-import { useSelector } from 'react-redux'
-import { selectCartItems } from '@redux/cartSlice'
 import { RxHamburgerMenu, RxCross2 } from 'react-icons/rx'
 import { CiSearch } from 'react-icons/ci'
 import { BsBag } from 'react-icons/bs'
@@ -9,9 +7,16 @@ import Text from '@components/Text'
 import Button from '@components/Button'
 import { NavbarProps } from './Navbar.types'
 import styles from './Navbar.module.scss'
+import { useCartStore } from '@store/store'
+import { useEffect, useState } from 'react'
 
 const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
-  const itemsInCart = useSelector(selectCartItems)
+  const { itemsInCart } = useCartStore()
+  const [show, setShow] = useState(false)
+
+  useEffect(() => {
+    setShow(true)
+  }, [])
 
   return (
     <div className={styles.Root}>
@@ -67,7 +72,7 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
           <Link href={'/cart'}>
             <a>
               <div className={styles.Root__cartContainer}>
-                {itemsInCart.length > 0 && (
+                {show && itemsInCart.length > 0 && (
                   <Text
                     element="span"
                     size="sm"

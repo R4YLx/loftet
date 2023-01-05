@@ -20,7 +20,7 @@
       "@styles/*": ["styles/*"],
       "@lib/*": ["lib/*"],
       "@utils/*": ["utils/*"],
-      "@redux/*": ["redux/*"]
+      "@store/*": ["store/*"]
     }
   },
   "include": [

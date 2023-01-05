@@ -1,5 +1,3 @@
-import { useDispatch } from 'react-redux'
-import { addToCart } from '@redux/cartSlice'
 import { toast } from 'react-toastify'
 import { urlFor } from '@lib/sanity.config'
 import Button from '@components/Button'
@@ -10,13 +8,13 @@ import SelectMenu from '@components/SelectMenu'
 import ProductDetailsList from '@components/ProductDetailsList'
 import { ProductDetailsProps } from './ProductDetails.types'
 import styles from './ProductDetails.module.scss'
+import { useCartStore } from '@store/store'
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
-  const dispatch = useDispatch()
+  const { addToCart } = useCartStore()
 
   const addItemToCart = () => {
-    dispatch(addToCart(product))
-
+    addToCart(product)
     toast.success(`${product.title} has been added to your cart!`)
   }
 
