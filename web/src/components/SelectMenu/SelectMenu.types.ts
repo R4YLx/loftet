@@ -8,4 +8,6 @@ export interface SelectMenuProps
     label: string
   }[]
   handleOptions?: (option: string) => void
+  isFluid?: boolean
+  sizeSelection?: boolean
 }

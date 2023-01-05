@@ -1,4 +1,4 @@
-import { categories } from 'utils/helpers'
+import { categories } from '@lib/categories'
 import Link from 'next/link'
 import { RxChevronDown } from 'react-icons/rx'
 import * as Accordion from '@radix-ui/react-accordion'
@@ -35,7 +35,7 @@ const CategoryAccordion = ({ isOpen, setIsOpen }: CategoryAccordionProps) => {
                   <a>
                     <li
                       className={styles.Root__listItem}
-                      onClick={() => setIsOpen(!isOpen)}
+                      onClick={() => (setIsOpen ? setIsOpen(!isOpen) : null)}
                     >
                       <Text
                         element="p"

@@ -1,17 +1,19 @@
-import { useRouter } from 'next/router'
-import ProductsGrid from '@components/ProductsGrid'
-import ProductCard from '@components/ProductCard'
-import Headline from '@components/Headline'
-import styles from './CollectionPage.module.scss'
-import { useProductsByCategory } from 'hooks/useProductsByCategory'
 import { useEffect, useState } from 'react'
-import SelectMenu from '@components/SelectMenu'
+import { useRouter } from 'next/router'
+import { useProductsByCategory } from 'hooks/useProductsByCategory'
 import {
   setDefault,
   sortHighToLow,
   sortLowToHigh,
   sortNewToOld
 } from '@utils/helpers'
+import ProductsGrid from '@components/ProductsGrid'
+import ProductCard from '@components/ProductCard'
+import Headline from '@components/Headline'
+import SelectMenu from '@components/SelectMenu'
+import Text from '@components/Text'
+import CategoryAccordion from '@components/CategoryAccordion'
+import styles from './CollectionPage.module.scss'
 
 const CollectionPage = () => {
   const router = useRouter()
@@ -68,24 +70,34 @@ const CollectionPage = () => {
 
   return (
     <div className={styles.Root}>
-      <aside className={styles.Root__sidebar}></aside>
+      <Headline element="h2" size="lg" className={styles.Root__headline}>
+        {slug.replace('-', ' ')}
+      </Headline>
 
-      <main className={styles.Root__main}>
-        <div>
-          <Headline element="h2" size="lg" className={styles.Root__headline}>
-            {slug.replace('-', ' ')}
-          </Headline>
+      <div className={styles.Root__wrapper}>
+        <aside className={styles.Root__sidebar}>
+          <CategoryAccordion />
+        </aside>
 
-          <SelectMenu options={options} handleOptions={handleOrderBy} />
-        </div>
+        <main className={styles.Root__main}>
+          <div className={styles.Root__selectContainer}>
+            <Text element="p" size="md" className={styles.Root__selectLabel}>
+              Sort by:
+            </Text>
 
-        <ProductsGrid>
-          {products &&
-            products.map((product) => (
-              <ProductCard key={product._id} product={product} />
-            ))}
-        </ProductsGrid>
-      </main>
+            <div className={styles.Root__selectWrapper}>
+              <SelectMenu options={options} handleOptions={handleOrderBy} />
+            </div>
+          </div>
+
+          <ProductsGrid>
+            {products &&
+              products.map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))}
+          </ProductsGrid>
+        </main>
+      </div>
     </div>
   )
 }
