@@ -1,6 +1,9 @@
 @use '@styles/variables.scss' as *;
 
 .Root {
+  margin-top: $spacing-200;
+  margin-bottom: $spacing-400;
+
   &__sidebar {
     display: none;
 
@@ -9,8 +12,34 @@
     }
   }
 
+  &__main {
+  }
+
   &__headline {
     text-transform: uppercase;
     text-align: center;
+  }
+
+  &__selectContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: $spacing-75;
+    margin-inline: $spacing-100;
+    padding-bottom: $spacing-75;
+  }
+
+  &__selectLabel {
+    display: none;
+    padding-bottom: $spacing-25;
+
+    @media screen and (min-width: $breakpoint-md) {
+      display: block;
+    }
+  }
+
+  &__selectWrapper {
+    padding-bottom: $spacing-25;
+    border-bottom: 2px solid $color-border-dark;
   }
 }

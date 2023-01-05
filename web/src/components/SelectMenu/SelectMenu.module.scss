@@ -3,7 +3,7 @@
 
 .Root {
   font-family: $font-family-sans;
-  @include body-lg();
+  @include body-md();
 
   cursor: pointer;
   background: transparent;
@@ -14,6 +14,7 @@
   }
 
   &_sizeSelection {
+    @include body-lg();
     height: $spacing-250;
     background-color: $color-background-light;
     padding-inline: $spacing-100;

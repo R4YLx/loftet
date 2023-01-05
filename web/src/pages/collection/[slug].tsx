@@ -12,6 +12,8 @@ import ProductCard from '@components/ProductCard'
 import Headline from '@components/Headline'
 import SelectMenu from '@components/SelectMenu'
 import styles from './CollectionPage.module.scss'
+import Text from '@components/Text'
+import CategoryAccordion from '@components/CategoryAccordion'
 
 const CollectionPage = () => {
   const router = useRouter()
@@ -76,7 +78,15 @@ const CollectionPage = () => {
             {slug.replace('-', ' ')}
           </Headline>
 
-          <SelectMenu options={options} handleOptions={handleOrderBy} />
+          <div className={styles.Root__selectContainer}>
+            <Text element="p" size="md" className={styles.Root__selectLabel}>
+              Sort by:
+            </Text>
+
+            <div className={styles.Root__selectWrapper}>
+              <SelectMenu options={options} handleOptions={handleOrderBy} />
+            </div>
+          </div>
         </div>
 
         <ProductsGrid>
