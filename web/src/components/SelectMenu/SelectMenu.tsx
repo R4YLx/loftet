@@ -2,7 +2,7 @@ import styles from './SelectMenu.module.scss'
 import { SelectMenuProps } from './SelectMenu.types'
 
 const SelectMenu = ({ option, options, handleOptions }: SelectMenuProps) => {
-  if (options) {
+  if (options && handleOptions) {
     const orderBy = (e: React.ChangeEvent<HTMLSelectElement>) => {
       handleOptions(e.target.value)
     }

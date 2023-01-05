@@ -7,5 +7,5 @@ export interface SelectMenuProps
     value: string
     label: string
   }[]
-  handleOptions: (option: string) => void
+  handleOptions?: (option: string) => void
 }
