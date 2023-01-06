@@ -12,7 +12,7 @@
     margin-inline: $spacing-250;
 
     @media screen and (min-width: $breakpoint-md) {
-      margin-inline: $spacing-100;
+      margin-inline: $spacing-400;
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
       align-items: flex-start;
@@ -21,7 +21,15 @@
     @media screen and (min-width: $breakpoint-lg) {
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: $spacing-200;
-      margin-inline: 20%;
+      margin-inline: $spacing-1100;
+    }
+
+    @media screen and (min-width: $breakpoint-xl) {
+      margin-inline: $spacing-1400;
+    }
+
+    @media screen and (min-width: $breakpoint-xxl) {
+      margin-inline: 25%;
     }
   }
 
