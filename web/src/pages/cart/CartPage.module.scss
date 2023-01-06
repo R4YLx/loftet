@@ -2,11 +2,14 @@
 
 .Root {
   margin-inline: $spacing-100;
-  padding-bottom: $spacing-200;
+  height: 100%;
 
   @media screen and (min-width: $breakpoint-lg) {
-    padding-inline: $spacing-100;
     margin-inline: 10%;
+  }
+
+  @media screen and (min-width: $breakpoint-xxl) {
+    margin-inline: 20%;
   }
 
   &__headline {
@@ -14,27 +17,11 @@
   }
 
   &__emptyCartContainer {
-    margin-block: $spacing-400;
+    margin-block: $spacing-500;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    @media screen and (min-width: $breakpoint-md) {
-      margin-block: 20vh;
-    }
-
-    @media screen and (min-width: $breakpoint-lg) {
-      margin-block: 25vh;
-    }
-
-    @media screen and (min-width: $breakpoint-xl) {
-      margin-block: 15vh;
-    }
-
-    @media screen and (min-width: $breakpoint-xxl) {
-      margin-block: 21vh;
-    }
   }
 
   &__summaryWrapper {
@@ -44,10 +31,6 @@
     @media screen and (min-width: $breakpoint-md) {
       margin-left: auto;
       max-width: $breakpoint-xs;
-    }
-
-    @media screen and (min-width: $breakpoint-xl) {
-      max-width: $breakpoint-sm;
     }
   }
 

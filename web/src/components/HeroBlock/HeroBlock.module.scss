@@ -15,12 +15,8 @@
     width: 100%;
     object-fit: cover;
 
-    @media screen and (min-width: $breakpoint-md) {
-      height: 50vh;
-    }
-
-    @media screen and (min-width: $breakpoint-lg) {
-      height: 60vh;
+    @media screen and (min-width: $breakpoint-xxl) {
+      height: 45vh;
     }
   }
 

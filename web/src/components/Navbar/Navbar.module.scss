@@ -20,10 +20,15 @@
     grid-template-columns: repeat(6, minmax(0, 1fr));
 
     background: $color-background-light;
-    padding-block: $spacing-100;
+    padding-block: $spacing-75;
 
     @media screen and (min-width: $breakpoint-lg) {
+      padding-inline: 0;
       margin-inline: 10%;
+    }
+
+    @media screen and (min-width: $breakpoint-xxl) {
+      margin-inline: 20%;
     }
   }
 
