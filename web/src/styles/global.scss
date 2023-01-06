@@ -11,9 +11,18 @@ body {
   font-family: $font-family-sans;
   background-color: $color-background-base;
   color: $color-text-base;
+  height: 100dvh;
+
+  @media screen and (min-width: $breakpoint-lg) {
+    height: 100vh;
+  }
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+#__next {
+  height: 100%;
 }
