@@ -1,0 +1,49 @@
+@use '../variables.scss' as *;
+
+.Root {
+  margin-block: $spacing-300;
+  margin-inline: $spacing-100;
+
+  @media screen and (min-width: $breakpoint-md) {
+    padding-inline: $spacing-100;
+    margin-inline: 10%;
+    margin-block: $spacing-900;
+  }
+
+  @media screen and (min-width: $breakpoint-lg) {
+    display: flex;
+    align-items: center;
+  }
+
+  &__textContainer {
+    margin-bottom: $spacing-200;
+
+    @media screen and (min-width: $breakpoint-lg) {
+      flex: 0 0 40%;
+    }
+
+    @media screen and (min-width: $breakpoint-xxl) {
+      flex: 0 0 40%;
+    }
+  }
+
+  &__headlineXL {
+    margin-block: $spacing-75;
+    font-weight: $font-weight-regular;
+  }
+
+  &__imageWrapper {
+    @media screen and (min-width: $breakpoint-lg) {
+      flex: 0 0 60%;
+    }
+
+    @media screen and (min-width: $breakpoint-xxl) {
+      flex: 0 0 40%;
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    object-fit: fill;
+  }
+}

@@ -5,7 +5,7 @@ import InfoBlock from '@components/InfoBlock'
 import HeroBlock from '@components/HeroBlock'
 import ProductCard from '@components/ProductCard'
 import ProductsGrid from '@components/ProductsGrid'
-import styles from '@styles/HomePage.module.scss'
+import styles from '@styles/modules/HomePage.module.scss'
 
 export default function Home({ products }: PageProps) {
   return (
