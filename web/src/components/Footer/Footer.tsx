@@ -58,7 +58,7 @@ const Footer = () => {
           {/* List of pages */}
           <ul className={styles.Root__listWrapper}>
             {listItems.map((item, i) => (
-              <Link key={i} href={'#'}>
+              <Link key={i} href={'/'}>
                 <a>
                   <li className={styles.Root__listItem}>
                     <Text element="span" size="lg">
