@@ -9,6 +9,10 @@
     margin-inline: 10%;
   }
 
+  @media screen and (min-width: $breakpoint-xxl) {
+    margin-inline: 20%;
+  }
+
   &__backButton {
     display: flex;
     align-items: center;
