@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify'
 import { urlFor } from '@lib/sanity.config'
+import { useCartStore } from '@store/store'
 import Button from '@components/Button'
 import Headline from '@components/Headline'
 import Image from '@components/Image'
@@ -8,7 +9,6 @@ import SelectMenu from '@components/SelectMenu'
 import ProductDetailsList from '@components/ProductDetailsList'
 import { ProductDetailsProps } from './ProductDetails.types'
 import styles from './ProductDetails.module.scss'
-import { useCartStore } from '@store/store'
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   const { addToCart } = useCartStore()
@@ -32,9 +32,15 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             {product.title}
           </Headline>
 
-          <Headline element="h3" size="md">
-            {product.price} SEK
-          </Headline>
+          {product.quantity <= 0 ? (
+            <Headline element="h3" size="md">
+              SOLD OUT
+            </Headline>
+          ) : (
+            <Headline element="h3" size="md">
+              {product.price} SEK
+            </Headline>
+          )}
         </div>
 
         <Text element="p" size="xl" className={styles.Root__sizeText}>
@@ -49,10 +55,22 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             />
           </div>
 
-          <Button block bgDark isFluid onClick={addItemToCart}>
-            <Text element="p" size="xl" className={styles.Root__addText}>
-              Add to cart
-            </Text>
+          <Button
+            block
+            bgDark
+            isFluid
+            disabled={product.quantity <= 0}
+            onClick={addItemToCart}
+          >
+            {product.quantity <= 0 ? (
+              <Text element="p" size="xl" className={styles.Root__addText}>
+                Sold out
+              </Text>
+            ) : (
+              <Text element="p" size="xl" className={styles.Root__addText}>
+                Add to cart
+              </Text>
+            )}
           </Button>
         </div>
 

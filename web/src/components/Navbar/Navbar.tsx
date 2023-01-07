@@ -52,6 +52,7 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
           </Link>
         </div>
 
+        {/* List with collections */}
         <ul className={styles.Root__menuList}>
           {categories.map((category) => (
             <Link key={category.id} href={`/collection/${category.slug}`}>
@@ -62,6 +63,7 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
           ))}
         </ul>
 
+        {/* Search and cart icon*/}
         <div className={styles.Root__icons}>
           <Link href={'/'}>
             <a>

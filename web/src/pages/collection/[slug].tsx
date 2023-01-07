@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { useProductsByCategory } from 'hooks/useProductsByCategory'
 import {
@@ -25,9 +25,10 @@ const options = [
 const CollectionPage = () => {
   const router = useRouter()
   const slug = String(router.query.slug)
-  const option = router.query.filter
+  const option = router.query.sort
   const { data: products } = useProductsByCategory(slug)
 
+  // Sorting collection
   const sortedProducts = useMemo(() => {
     if (!products) return
 
@@ -52,17 +53,14 @@ const CollectionPage = () => {
     }
   }, [option, products, router.query.slug])
 
+  // Handler for sorting
   const handleOrderBy = (option: string) => {
     router.push(
-      { pathname: `/collection/${slug}`, query: { filter: option } },
+      { pathname: `/collection/${slug}`, query: { sort: option } },
       undefined,
       { shallow: true }
     )
   }
-
-  useEffect(() => {
-    console.log('option', option)
-  }, [option])
 
   return (
     <div className={styles.Root}>

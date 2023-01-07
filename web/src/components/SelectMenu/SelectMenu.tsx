@@ -15,6 +15,7 @@ const SelectMenu = ({
     sizeSelection && styles.Root_sizeSelection
   )
 
+  // Renders if there is an array of options
   if (options && handleOptions) {
     const orderBy = (e: React.ChangeEvent<HTMLSelectElement>) => {
       handleOptions(e.target.value)
@@ -31,6 +32,7 @@ const SelectMenu = ({
     )
   }
 
+  // Renders if there's only string as option
   return (
     <select className={selectStyles}>
       <option value={option}>{option}</option>

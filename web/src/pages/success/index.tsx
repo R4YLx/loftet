@@ -2,22 +2,27 @@ import { useEffect } from 'react'
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { useCartStore } from '@store/store'
-import { fetchStripeLineItems } from '@utils/stripeAPI'
-import { fetchStripeCustomerDetails } from '@utils/stripeAPI'
+import {
+  fetchStripeLineItems,
+  fetchStripeCustomerDetails
+} from '@utils/stripeAPI'
 import Headline from '@components/Headline'
 import Divider from '@components/Divider'
 import Text from '@components/Text'
 import Table from '@components/Table'
 import Button from '@components/Button'
 import styles from './SuccessPage.module.scss'
+import { patchProductQuantity } from '@utils/sanityAPI'
 
 const SuccessPage = ({ lineItems, customer }: PageProps) => {
   const router = useRouter()
   const { session_id } = router.query
   const orderNumber = session_id?.slice(-10)
-  const { cleanCart } = useCartStore()
+  const { cleanCart, itemsInCart } = useCartStore()
 
   useEffect(() => {
+    patchProductQuantity(itemsInCart)
+
     cleanCart()
   }, [])
 
@@ -111,8 +116,6 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async ({
   const sessionId = query.session_id as string
   const lineItems = await fetchStripeLineItems(sessionId)
   const customer = await fetchStripeCustomerDetails(sessionId)
-
-  console.log('customer', customer)
 
   return {
     props: {
