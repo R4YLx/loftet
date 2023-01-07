@@ -10,6 +10,10 @@
   cursor: pointer;
   color: inherit;
 
+  &:disabled {
+    background: $color-background-disabled;
+  }
+
   // Full width on prop isFluid
   &_fullWidth {
     width: 100%;

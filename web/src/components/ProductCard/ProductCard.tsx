@@ -17,9 +17,15 @@ const ProductCard = ({ product, ...rest }: ProductCardProps) => {
             {product.title} ({product.size})
           </Text>
 
-          <Text element="p" size="lg" className={styles.Root__price}>
-            {product.price} SEK
-          </Text>
+          {product.quantity <= 0 ? (
+            <Text element="p" size="lg" className={styles.Root__price}>
+              SOLD OUT
+            </Text>
+          ) : (
+            <Text element="p" size="lg" className={styles.Root__price}>
+              {product.price} SEK
+            </Text>
+          )}
         </div>
       </a>
     </Link>
