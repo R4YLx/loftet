@@ -27,7 +27,7 @@ const Footer = () => {
         <div className={styles.Root__topSection}>
           <Link href={'/'}>
             <a>
-              <img src="/logo.svg" alt="logo" className={styles.Root__logo} />
+              <img src="/logo.png" alt="logo" className={styles.Root__logo} />
             </a>
           </Link>
 
@@ -58,7 +58,7 @@ const Footer = () => {
           {/* List of pages */}
           <ul className={styles.Root__listWrapper}>
             {listItems.map((item, i) => (
-              <Link key={i} href={'#'}>
+              <Link key={i} href={'/'}>
                 <a>
                   <li className={styles.Root__listItem}>
                     <Text element="span" size="lg">

@@ -41,9 +41,9 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
 
         <div className={styles.Root__logoWrapper}>
           <Link href={'/'}>
-            <a>
+            <a className={styles.Root__logoLink}>
               <img
-                src="/logo.svg"
+                src="/logo.png"
                 alt="logo"
                 className={styles.Root__logo}
                 onClick={() => setMenuOpen(false)}
