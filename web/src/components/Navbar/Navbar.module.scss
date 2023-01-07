@@ -49,15 +49,17 @@
     grid-column-start: 3;
     grid-column-end: 5;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     @media screen and (min-width: $breakpoint-lg) {
       grid-column-start: 1;
       grid-column-end: 2;
       justify-content: flex-start;
     }
+  }
+
+  &__logoLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__logo {

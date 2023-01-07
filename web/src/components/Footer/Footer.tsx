@@ -27,7 +27,7 @@ const Footer = () => {
         <div className={styles.Root__topSection}>
           <Link href={'/'}>
             <a>
-              <img src="/logo.svg" alt="logo" className={styles.Root__logo} />
+              <img src="/logo.png" alt="logo" className={styles.Root__logo} />
             </a>
           </Link>
 

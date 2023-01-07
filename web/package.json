@@ -51,7 +51,6 @@
   "eslintIgnore": [
     "**/*.scss",
     "**/*.png",
-    "**/*.svg",
     "**/*.webmanifest",
     "**/*.xml",
     "**/*.ico",
