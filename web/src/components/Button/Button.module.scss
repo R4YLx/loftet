@@ -12,6 +12,7 @@
 
   &:disabled {
     background: $color-background-disabled;
+    cursor: inherit;
   }
 
   // Full width on prop isFluid
