@@ -7,13 +7,11 @@ const SelectMenu = ({
   options,
   handleOptions,
   className,
-  isFluid,
   sizeSelection
 }: SelectMenuProps) => {
   const selectStyles = clsx(
     styles.Root,
     className,
-    isFluid && styles.Root_isFluid,
     sizeSelection && styles.Root_sizeSelection
   )
 
