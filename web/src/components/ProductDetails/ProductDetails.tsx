@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify'
 import { urlFor } from '@lib/sanity.config'
+import { useCartStore } from '@store/store'
 import Button from '@components/Button'
 import Headline from '@components/Headline'
 import Image from '@components/Image'
@@ -8,7 +9,6 @@ import SelectMenu from '@components/SelectMenu'
 import ProductDetailsList from '@components/ProductDetailsList'
 import { ProductDetailsProps } from './ProductDetails.types'
 import styles from './ProductDetails.module.scss'
-import { useCartStore } from '@store/store'
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   const { addToCart } = useCartStore()

@@ -60,10 +60,6 @@ const CollectionPage = () => {
     )
   }
 
-  useEffect(() => {
-    console.log('option', option)
-  }, [option])
-
   return (
     <div className={styles.Root}>
       <Headline element="h2" size="lg" className={styles.Root__headline}>
