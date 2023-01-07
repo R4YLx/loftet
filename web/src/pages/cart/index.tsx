@@ -4,21 +4,26 @@ import { useEffect, useState } from 'react'
 import { Stripe } from 'stripe'
 import { getStripe } from '@utils/stripeAPI'
 import { fetchPostJSON } from '@utils/fetchPostJSON'
+import { useCartStore } from '@store/store'
 import Divider from '@components/Divider'
 import Headline from '@components/Headline'
 import Button from '@components/Button'
 import Text from '@components/Text'
 import CheckoutProductCard from '@components/CheckoutProductCard'
 import styles from './CartPage.module.scss'
-import { useCartStore } from '@store/store'
 
 const CartPage = () => {
   const router = useRouter()
   const { itemsInCart, cartTotalSum } = useCartStore()
-
   const [isLoading, setIsLoading] = useState(false)
   const [loadLS, setLoadLS] = useState(false)
 
+  // Groups same products as one object. For future use.
+  const [groupedItemsInCart, setGroupedItemsInCart] = useState(
+    {} as { [key: string]: IProduct[] }
+  )
+
+  // Creates Stripe checkout session
   const createCheckoutSession = async () => {
     setIsLoading(true)
 
@@ -40,10 +45,6 @@ const CartPage = () => {
     setIsLoading(false)
   }
 
-  const [groupedItemsInCart, setGroupedItemsInCart] = useState(
-    {} as { [key: string]: IProduct[] }
-  )
-
   useEffect(() => {
     setLoadLS(true)
 
@@ -63,6 +64,7 @@ const CartPage = () => {
 
       <Divider subtle />
 
+      {/* If cart is empty, this renders */}
       {loadLS && itemsInCart.length <= 0 && (
         <div className={styles.Root__emptyCartContainer}>
           <Headline element="h3" size="lg">
@@ -81,6 +83,7 @@ const CartPage = () => {
         </div>
       )}
 
+      {/* If there is something in cart, this renders */}
       {loadLS && itemsInCart.length > 0 && (
         <div className={styles.Root__contentWrapper}>
           <section className={styles.Root__productsWrapper}>

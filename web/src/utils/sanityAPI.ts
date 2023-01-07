@@ -93,7 +93,7 @@ export const patchProductQuantity = async (products: IProduct[]) => {
       body: JSON.stringify({ mutations })
     })
       .then((res) => res.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.error(error))
+      .then((result) => result)
+      .catch((error) => error)
   })
 }
