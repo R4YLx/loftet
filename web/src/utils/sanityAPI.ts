@@ -68,3 +68,32 @@ export const fetchProductsByCategory = async (
 
   return products
 }
+
+export const patchProductQuantity = async (products: IProduct[]) => {
+  const url = `${process.env.NEXT_PUBLIC_SANITY_PATCH_URL}`
+
+  products.forEach((product) => {
+    const mutations = [
+      {
+        patch: {
+          id: product._id,
+          set: {
+            quantity: product.quantity - 1
+          }
+        }
+      }
+    ]
+
+    fetch(url, {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json',
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_API_TOKEN}`
+      },
+      body: JSON.stringify({ mutations })
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error))
+  })
+}
