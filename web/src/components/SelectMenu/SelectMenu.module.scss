@@ -2,12 +2,19 @@
 @use '@styles/mixins/typography.scss' as *;
 
 .Root {
-  font-family: $font-family-sans;
   @include body-md();
 
+  font-family: inherit;
   cursor: pointer;
   background: transparent;
   border: none;
+  height: $spacing-125;
+
+  appearance: none;
+  background-image: url('/icons/chevronDown.png');
+  background-repeat: no-repeat;
+  background-position: right 0 top 50%;
+  background-size: $spacing-125 auto;
 
   &_isFluid {
     width: 100%;
@@ -19,14 +26,11 @@
     background-color: $color-background-light;
     padding-inline: $spacing-100;
 
-    appearance: none;
-    background-image: url('/icons/chevronDown.png');
-    background-repeat: no-repeat;
     background-position: right $spacing-125 top 50%;
     background-size: $spacing-125 auto;
-  }
 
-  @media screen and (min-width: $breakpoint-md) {
-    background-position: right $spacing-75 top 50%;
+    @media screen and (min-width: $breakpoint-md) {
+      background-position: right $spacing-75 top 50%;
+    }
   }
 }
