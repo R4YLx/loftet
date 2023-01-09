@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
+import { SearchFormProps } from './SearchForm.types'
 import styles from './SearchForm.module.scss'
 
-const SearchForm = () => {
+const SearchForm = ({ setShowSearchField }: SearchFormProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const router = useRouter()
@@ -20,6 +21,7 @@ const SearchForm = () => {
     })
 
     inputRef.current.value = ''
+    setShowSearchField(false)
   }
 
   return (
