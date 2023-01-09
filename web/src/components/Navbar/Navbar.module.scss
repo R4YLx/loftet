@@ -93,6 +93,10 @@
     gap: $spacing-50;
   }
 
+  &__searchButton {
+    padding-inline: 0;
+  }
+
   &__cartContainer {
     position: relative;
   }

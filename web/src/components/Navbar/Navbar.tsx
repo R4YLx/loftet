@@ -9,10 +9,12 @@ import { NavbarProps } from './Navbar.types'
 import styles from './Navbar.module.scss'
 import { useCartStore } from '@store/store'
 import { useEffect, useState } from 'react'
+import SearchForm from '@components/SearchForm'
 
 const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
   const { itemsInCart } = useCartStore()
   const [loadLS, setLoadLS] = useState(false)
+  const [showSearchField, setShowSearchField] = useState(false)
 
   useEffect(() => {
     setLoadLS(true)
@@ -65,11 +67,12 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
 
         {/* Search and cart icon*/}
         <div className={styles.Root__icons}>
-          <Link href={'/'}>
-            <a>
-              <CiSearch size={27} />
-            </a>
-          </Link>
+          <Button
+            className={styles.Root__searchButton}
+            onClick={() => setShowSearchField(!showSearchField)}
+          >
+            <CiSearch size={27} />
+          </Button>
 
           <Link href={'/cart'}>
             <a>
@@ -89,6 +92,8 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
           </Link>
         </div>
       </nav>
+
+      {showSearchField && <SearchForm />}
     </div>
   )
 }
