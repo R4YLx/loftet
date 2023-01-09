@@ -6,7 +6,7 @@ import { ProductCardProps } from './ProductCard.types'
 import styles from './ProductCard.module.scss'
 
 const ProductCard = ({ product, ...rest }: ProductCardProps) => {
-  const builtImg = urlFor(product.image).url()
+  const builtImg = urlFor(product.image[0]).url()
 
   return (
     <Link href={`/product/${product.slug.current}`}>
