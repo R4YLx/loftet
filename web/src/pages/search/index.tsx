@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { useSearchProducts } from 'hooks/useSearchProducts'
+import { options } from '@lib/options'
 import {
   setDefault,
   sortHighToLow,
@@ -13,13 +14,6 @@ import ProductCard from '@components/ProductCard'
 import Text from '@components/Text'
 import SelectMenu from '@components/SelectMenu'
 import styles from './SearchPage.module.scss'
-
-const options = [
-  { value: '', label: '' },
-  { value: 'low', label: 'Lowest to highest price' },
-  { value: 'high', label: 'Highest to lowest price' },
-  { value: 'new', label: 'Newest arrivals' }
-]
 
 const SearchPage = () => {
   const router = useRouter()

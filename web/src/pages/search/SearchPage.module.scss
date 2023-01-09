@@ -5,6 +5,14 @@
   margin-bottom: $spacing-400;
   min-height: 100vh;
 
+  @media screen and (min-width: $breakpoint-lg) {
+    margin-inline: 10%;
+  }
+
+  @media screen and (min-width: $breakpoint-xxl) {
+    margin-inline: 20%;
+  }
+
   &__header {
     text-align: center;
   }

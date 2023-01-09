@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { useProductsByCategory } from 'hooks/useProductsByCategory'
+import { options } from '@lib/options'
 import {
   setDefault,
   sortHighToLow,
@@ -14,13 +15,6 @@ import SelectMenu from '@components/SelectMenu'
 import Text from '@components/Text'
 import CategoryAccordion from '@components/CategoryAccordion'
 import styles from './CollectionPage.module.scss'
-
-const options = [
-  { value: '', label: '' },
-  { value: 'low', label: 'Lowest to highest price' },
-  { value: 'high', label: 'Highest to lowest price' },
-  { value: 'new', label: 'Newest arrivals' }
-]
 
 const CollectionPage = () => {
   const router = useRouter()
@@ -55,11 +49,7 @@ const CollectionPage = () => {
 
   // Handler for sorting
   const handleOrderBy = (option: string) => {
-    router.push(
-      { pathname: `/collection/${slug}`, query: { sort: option } },
-      undefined,
-      { shallow: true }
-    )
+    router.push({ pathname: `/collection/${slug}`, query: { sort: option } })
   }
 
   return (
