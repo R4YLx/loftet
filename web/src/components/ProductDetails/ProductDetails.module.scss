@@ -13,19 +13,6 @@
     gap: $spacing-100;
   }
 
-  &__image {
-    max-width: 100%;
-    object-fit: cover;
-
-    @media screen and (min-width: $breakpoint-md) {
-      max-width: 25rem;
-    }
-
-    @media screen and (min-width: $breakpoint-lg) {
-      max-width: 30rem;
-    }
-  }
-
   &__wrapper {
     margin-inline: $spacing-100;
   }

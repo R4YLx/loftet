@@ -11,7 +11,7 @@ import styles from './CheckoutProductCard.module.scss'
 
 const CheckoutProductCard = ({ products }: CheckoutProductCardProps) => {
   const product = products[0]
-  const builtImg = urlFor(product.image).url()
+  const builtImg = urlFor(product.image[0]).url()
   const { removeFromCart } = useCartStore()
 
   const removeItemFromCart = () => {

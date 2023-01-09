@@ -7,7 +7,7 @@ interface IProduct {
   categories: ICategory[]
   color: string
   condition: string
-  image: IImage
+  image: IImage[]
   item: string
   material: string
   measurements: string
