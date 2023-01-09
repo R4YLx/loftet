@@ -33,6 +33,12 @@
     }
   }
 
+  &__price {
+    &_sold {
+      color: $color-semantic-error;
+    }
+  }
+
   &__actionsWrapper {
     @media screen and (min-width: $breakpoint-md) {
       display: grid;
@@ -41,7 +47,7 @@
     }
 
     @media screen and (min-width: $breakpoint-lg) {
-      max-width: 60%;
+      max-width: $spacing-2000;
     }
   }
 

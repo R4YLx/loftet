@@ -3,15 +3,11 @@ export const fetchProducts = async (lastest?: string): Promise<IProduct[]> => {
     `*[_type == "products"] | order(_createdAt desc)${
       lastest ? '[0..11]' : ''
     }{...,
-        subcategory->{
+        categories[]->{
           slug,
-          title,
-          category[]->{
-            slug,
-            title
-          }
+          title
         }
-      }`
+    }`
   )
   const url = `${process.env.NEXT_PUBLIC_SANITY_API_URL}query=${query}`
   const data = await fetch(url).then((res) => res.json())
@@ -44,7 +40,7 @@ export const fetchSimilarProducts = async (
     `*[_type == "products" 
       && _id != "${productId}"
       && references(*[_type=="categories" 
-      && slug.current == "${category}"]._id)][0...9]`
+      && slug.current == "${category}"]._id)][0...11]`
   )
   const url = `${process.env.NEXT_PUBLIC_SANITY_API_URL}query=${query}`
   const data = await fetch(url).then((res) => res.json())

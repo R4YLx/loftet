@@ -71,10 +71,12 @@ $spacing-1100: 11rem;
 $spacing-1200: 12rem;
 $spacing-1300: 13rem;
 $spacing-1400: 14rem;
+$spacing-2000: 20rem;
 
 $color-static-black: #000000;
 $color-static-white: #ffffff;
 $color-static-grey: #dfdfdf;
+$color-static-red: #cc0000;
 
 $color-neutral-100: #f4f3ef;
 $color-neutral-200: #e9e8df;
@@ -98,3 +100,4 @@ $color-icon-base: $color-static-black;
 $color-border-subtle: $color-static-grey;
 $color-border-dark: $color-static-black;
 $color-border-light: $color-static-white;
+$color-semantic-error: $color-static-red;

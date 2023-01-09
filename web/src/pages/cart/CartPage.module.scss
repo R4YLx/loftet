@@ -2,7 +2,7 @@
 
 .Root {
   margin-inline: $spacing-100;
-  min-height: 100%;
+  min-height: 100vh;
 
   @media screen and (min-width: $breakpoint-lg) {
     margin-inline: 10%;

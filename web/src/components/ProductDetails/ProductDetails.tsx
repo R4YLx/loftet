@@ -32,8 +32,12 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           </Headline>
 
           {product.quantity <= 0 ? (
-            <Headline element="h3" size="md">
-              SOLD OUT
+            <Headline
+              element="h3"
+              size="md"
+              className={styles.Root__price_sold}
+            >
+              OUT OF STOCK
             </Headline>
           ) : (
             <Headline element="h3" size="md">
@@ -63,7 +67,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           >
             {product.quantity <= 0 ? (
               <Text element="p" size="xl" className={styles.Root__addText}>
-                Sold out
+                Out of stock
               </Text>
             ) : (
               <Text element="p" size="xl" className={styles.Root__addText}>

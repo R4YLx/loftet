@@ -18,8 +18,8 @@ const ProductCard = ({ product, ...rest }: ProductCardProps) => {
           </Text>
 
           {product.quantity <= 0 ? (
-            <Text element="p" size="lg" className={styles.Root__price}>
-              SOLD OUT
+            <Text element="p" size="lg" className={styles.Root__sold}>
+              Out of stock
             </Text>
           ) : (
             <Text element="p" size="lg" className={styles.Root__price}>

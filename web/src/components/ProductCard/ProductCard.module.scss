@@ -25,7 +25,14 @@
     text-transform: uppercase;
   }
 
-  &__price {
+  &__price,
+  %price {
     margin-top: auto;
+  }
+
+  &__sold {
+    @extend %price;
+    color: $color-semantic-error;
+    text-transform: uppercase;
   }
 }

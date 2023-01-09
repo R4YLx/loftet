@@ -20,8 +20,7 @@ export const categories = [
     subcategories: [
       { id: 1, title: 'All shirts', slug: 'shirts' },
       { id: 2, title: 'Military shirts', slug: 'military-shirts' },
-      { id: 3, title: 'Casual shirts', slug: 'casual-shirts' },
-      { id: 4, title: 'Workwear shirts', slug: 'workwear-shirts' }
+      { id: 3, title: 'Casual shirts', slug: 'casual-shirts' }
     ]
   },
   {

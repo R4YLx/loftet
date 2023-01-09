@@ -39,6 +39,7 @@
     @media screen and (min-width: $breakpoint-md) {
       display: block;
       margin-block: $spacing-100;
+      min-width: $spacing-2000;
     }
   }
 }
