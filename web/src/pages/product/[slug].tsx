@@ -6,7 +6,7 @@ import { fetchSimilarProducts } from '@utils/sanityAPI'
 import ProductDetails from '@components/ProductDetails'
 import Button from '@components/Button'
 import Text from '@components/Text'
-import ProductsCarousel from '@components/ProductsCarousel'
+import ProductsSlider from '@components/ProductsSlider'
 import styles from './ProductPage.module.scss'
 
 const ProductPage = ({ product, similarProducts }: PageProps) => {
@@ -28,7 +28,7 @@ const ProductPage = ({ product, similarProducts }: PageProps) => {
           <>
             <ProductDetails product={product}></ProductDetails>
 
-            <ProductsCarousel products={similarProducts} />
+            <ProductsSlider products={similarProducts} />
           </>
         )}
       </div>

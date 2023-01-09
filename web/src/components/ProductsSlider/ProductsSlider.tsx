@@ -1,9 +1,9 @@
 import ProductCard from '@components/ProductCard'
 import Headline from '@components/Headline'
-import { ProductsCarouselProps } from './ProductsCarousel.types'
-import styles from './ProductsCarousel.module.scss'
+import { ProductsSliderProps } from './ProductsSlider.types'
+import styles from './ProductsSlider.module.scss'
 
-const ProductsCarousel = ({ products }: ProductsCarouselProps) => {
+const ProductsSlider = ({ products }: ProductsSliderProps) => {
   return (
     <div className={styles.Root}>
       <Headline element="h5" size="sm">
@@ -19,4 +19,4 @@ const ProductsCarousel = ({ products }: ProductsCarouselProps) => {
   )
 }
 
-export default ProductsCarousel
+export default ProductsSlider
