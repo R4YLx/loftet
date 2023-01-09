@@ -28,7 +28,7 @@ const ProductPage = ({ product, similarProducts }: PageProps) => {
           <>
             <ProductDetails product={product}></ProductDetails>
 
-            {/* <ProductsCarousel products={similarProducts} /> */}
+            <ProductsCarousel products={similarProducts} />
           </>
         )}
       </div>

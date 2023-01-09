@@ -1,9 +1,7 @@
 import { toast } from 'react-toastify'
-import { urlFor } from '@lib/sanity.config'
 import { useCartStore } from '@store/store'
 import Button from '@components/Button'
 import Headline from '@components/Headline'
-import Image from '@components/Image'
 import Text from '@components/Text'
 import SelectMenu from '@components/SelectMenu'
 import ProductDetailsList from '@components/ProductDetailsList'
@@ -21,11 +19,6 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <div className={styles.Root}>
-      {/* <Image
-        src={urlFor(product.image[0]).url()}
-        className={styles.Root__image}
-      /> */}
-
       <ImageCarousel images={product.image} />
 
       <div className={styles.Root__wrapper}>
