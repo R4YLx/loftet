@@ -1,9 +1,11 @@
+import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
 import styles from './SearchForm.module.scss'
 
 const SearchForm = () => {
   const inputRef = useRef<HTMLInputElement>(null)
-  const [search, setSearch] = useState<string>('')
+
+  const router = useRouter()
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
@@ -12,11 +14,13 @@ const SearchForm = () => {
       return
     }
 
-    setSearch(inputRef.current.value)
+    router.push({
+      pathname: `/search`,
+      query: { result: inputRef.current.value }
+    })
+
     inputRef.current.value = ''
   }
-
-  console.log('search', search)
 
   return (
     <form className={styles.Root} onSubmit={handleSubmit}>
