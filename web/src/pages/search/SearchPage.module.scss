@@ -1,2 +1,17 @@
+@use '@styles/variables.scss' as *;
+
 .Root {
+  margin-top: $spacing-200;
+  margin-bottom: $spacing-400;
+  min-height: 100vh;
+
+  &__header {
+    text-align: center;
+  }
+
+  &__headline {
+    margin-top: 0;
+    text-transform: uppercase;
+    text-align: center;
+  }
 }
