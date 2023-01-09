@@ -9,6 +9,7 @@ import SelectMenu from '@components/SelectMenu'
 import ProductDetailsList from '@components/ProductDetailsList'
 import { ProductDetailsProps } from './ProductDetails.types'
 import styles from './ProductDetails.module.scss'
+import ImageCarousel from '@components/ImageCarousel'
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   const { addToCart } = useCartStore()
@@ -20,7 +21,12 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <div className={styles.Root}>
-      <Image src={urlFor(product.image).url()} className={styles.Root__image} />
+      {/* <Image
+        src={urlFor(product.image[0]).url()}
+        className={styles.Root__image}
+      /> */}
+
+      <ImageCarousel images={product.image} />
 
       <div className={styles.Root__wrapper}>
         <div className={styles.Root__titleAndPriceWrapper}>
