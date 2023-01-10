@@ -25,10 +25,13 @@ export const useCartStore = create<CartStore>()(
         })
       },
       removeFromCart: (product) => {
-        set({
-          itemsInCart: get().itemsInCart.filter(
-            (state) => state._id !== product._id
-          )
+        set((state) => {
+          return {
+            itemsInCart: get().itemsInCart.filter(
+              (state) => state._id !== product._id
+            ),
+            cartTotalSum: state.cartTotalSum - product.price
+          }
         })
       },
       cleanCart: () =>
