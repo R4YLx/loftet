@@ -28,3 +28,9 @@ interface IImage {
     url: string
   }
 }
+
+interface ISearchedProducts {
+  item: IProduct
+}
+
+type ProductsTypes = IProduct | ISearchedProducts
