@@ -45,6 +45,12 @@ function Component({ prop }: ComponentProps) {
 }
 ```
 
+# Imports
+
+Aliases have been created for shorter and easier imports.
+Use @ to import from specific folder, e.g. `@components/Headline`.
+Aliases can be configured in `tsconfig.json`.
+
 ### Styling
 
 `Root` is the first component element className.
