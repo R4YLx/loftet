@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { SearchFormProps } from './SearchForm.types'
 import styles from './SearchForm.module.scss'
 
-const SearchForm = ({ setShowSearchField }: SearchFormProps) => {
+const SearchForm = ({ setShowSearchField, ...rest }: SearchFormProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const router = useRouter()
@@ -21,11 +21,12 @@ const SearchForm = ({ setShowSearchField }: SearchFormProps) => {
     })
 
     inputRef.current.value = ''
+    if (!setShowSearchField) return
     setShowSearchField(false)
   }
 
   return (
-    <form className={styles.Root} onSubmit={handleSubmit}>
+    <form className={styles.Root} onSubmit={handleSubmit} {...rest}>
       <input
         className={styles.Root__inputField}
         required

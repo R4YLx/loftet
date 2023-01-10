@@ -94,7 +94,9 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
       </nav>
 
       {showSearchField && (
-        <SearchForm setShowSearchField={setShowSearchField} />
+        <div className={styles.Root__searchForm}>
+          <SearchForm setShowSearchField={setShowSearchField} />
+        </div>
       )}
     </div>
   )

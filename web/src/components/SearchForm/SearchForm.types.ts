@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
-export interface SearchFormProps {
-  setShowSearchField: Dispatch<SetStateAction<boolean>>
+export interface SearchFormProps extends React.HTMLAttributes<HTMLFormElement> {
+  setShowSearchField?: Dispatch<SetStateAction<boolean>>
 }

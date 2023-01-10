@@ -14,6 +14,7 @@ import ProductCard from '@components/ProductCard'
 import Text from '@components/Text'
 import SelectMenu from '@components/SelectMenu'
 import styles from './SearchPage.module.scss'
+import SearchForm from '@components/SearchForm'
 
 const SearchPage = () => {
   const router = useRouter()
@@ -54,6 +55,8 @@ const SearchPage = () => {
 
   return (
     <div className={styles.Root}>
+      <SearchForm className={styles.Root__searchForm} />
+
       <div className={styles.Root__header}>
         <Headline element="h2" size="lg" className={styles.Root__headline}>
           Search result
@@ -64,28 +67,29 @@ const SearchPage = () => {
         </Text>
       </div>
 
-      <main>
-        <div className={styles.Root__selectContainer}>
-          <Text element="p" size="md" className={styles.Root__selectLabel}>
-            Sort by:
-          </Text>
+      {sortedProducts && sortedProducts?.length > 0 && (
+        <main>
+          <div className={styles.Root__selectContainer}>
+            <Text element="p" size="md" className={styles.Root__selectLabel}>
+              Sort by:
+            </Text>
 
-          <div className={styles.Root__selectWrapper}>
-            <SelectMenu
-              options={options}
-              option={String(option)}
-              handleOptions={handleOrderBy}
-            />
+            <div className={styles.Root__selectWrapper}>
+              <SelectMenu
+                options={options}
+                option={String(option)}
+                handleOptions={handleOrderBy}
+              />
+            </div>
           </div>
-        </div>
 
-        <ProductsGrid>
-          {sortedProducts &&
-            sortedProducts.map((product) => (
+          <ProductsGrid>
+            {sortedProducts.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
-        </ProductsGrid>
-      </main>
+          </ProductsGrid>
+        </main>
+      )}
     </div>
   )
 }

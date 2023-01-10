@@ -15,12 +15,32 @@
 
   &__header {
     text-align: center;
+    margin-bottom: $spacing-200;
+
+    @media screen and (min-width: $breakpoint-md) {
+      margin-bottom: $spacing-300;
+    }
   }
 
   &__headline {
     margin-top: 0;
     text-transform: uppercase;
     text-align: center;
+  }
+
+  &__searchForm {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-md) {
+      display: block;
+      margin-inline: $spacing-100;
+      margin-block: $spacing-300;
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.347);
+
+      & > * {
+        padding-inline: $spacing-100;
+      }
+    }
   }
 
   &__selectContainer {
