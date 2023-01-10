@@ -1,4 +1,8 @@
-# Loftet - ecommerce
+# Loftet - Ecommerce for men's apparel
+
+[Next.js web app](/web/) that fetches products from [Sanity.io](/cms/).
+
+Loftet is a template for a simple ecommerce with a quick and easy CMS for anyone to work with. The CMS sets up products and categories for the project and the web app renders it on the front end. Payment is integrated through Stripe and user can pay with card and Klarna.
 
 ## Getting Started
 
@@ -27,3 +31,27 @@ $ npm run dev
 -   Next.js
 -   Typescript
 -   Sanity.io
+-   Stripe
+-   Zustand
+-   TanStack Query
+-   Fuse.js
+-   SCSS
+-   clsx
+
+## Printscreen
+
+#### Start page
+
+<img src="/web/public/print-screens/start-page.png" width=100%>
+
+#### Collection Page
+
+<img src="/web/public/print-screens/collection-page.png" width=100%>
+
+#### Cart Page
+
+<img src="/web/public/print-screens/cart-page.png" width=100%>
+
+#### Search Page
+
+<img src="/web/public/print-screens/search-page.png" width=100%>
