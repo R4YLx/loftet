@@ -42,16 +42,16 @@ $ npm run dev
 
 #### Start page
 
-<img src="/web/public/print-screens/start-page.png" width=100%>
+<img src="/web/public/images/print-screens/start-page.png" width=100%>
 
 #### Collection Page
 
-<img src="/web/public/print-screens/collection-page.png" width=100%>
+<img src="/web/public/images/print-screens/collection-page.png" width=100%>
 
 #### Cart Page
 
-<img src="/web/public/print-screens/cart-page.png" width=100%>
+<img src="/web/public/images/print-screens/cart-page.png" width=100%>
 
 #### Search Page
 
-<img src="/web/public/print-screens/search-page.png" width=100%>
+<img src="/web/public/images/print-screens/search-page.png" width=100%>
