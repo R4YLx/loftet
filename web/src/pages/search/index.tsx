@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useRouter } from 'next/router'
-import { useSearchProducts } from 'hooks/useSearchProducts'
+import Fuse from 'fuse.js'
 import { options } from '@lib/options'
 import {
   setDefault,
@@ -15,13 +15,31 @@ import Text from '@components/Text'
 import SelectMenu from '@components/SelectMenu'
 import styles from './SearchPage.module.scss'
 import SearchForm from '@components/SearchForm'
+import { GetServerSideProps } from 'next'
+import { fetchProducts } from '@utils/sanityAPI'
 
-const SearchPage = () => {
+const SearchPage = ({ products }: PageProps) => {
   const router = useRouter()
   const query = String(router.query.result)
   const option = router.query.sort
 
-  const { data: products } = useSearchProducts(query)
+  const searchOptions = {
+    threshold: 0.45,
+    includeScore: true,
+    keys: [
+      'item',
+      'title',
+      {
+        name: 'categories',
+        getFn: (product: IProduct) =>
+          product.categories.map((category) => category.title)
+      }
+    ]
+  }
+
+  const fuse = products ? new Fuse(products, searchOptions) : undefined
+
+  const result = fuse?.search(query).map((item) => item.item)
 
   // Handler for sorting
   const handleOrderBy = (option: string) => {
@@ -30,28 +48,28 @@ const SearchPage = () => {
 
   // Sorting collection
   const sortedProducts = useMemo(() => {
-    if (!products) return
+    if (!result) return null
 
     switch (option) {
       default: {
-        const copy = setDefault(products)
+        const copy = setDefault(result)
         return copy
       }
       case 'low': {
-        const copy = sortLowToHigh(products)
+        const copy = sortLowToHigh(result)
         return copy
       }
       case 'high': {
-        const copy = sortHighToLow(products)
+        const copy = sortHighToLow(result)
         return copy
       }
 
       case 'new': {
-        const copy = sortNewToOld(products)
+        const copy = sortNewToOld(result)
         return copy
       }
     }
-  }, [option, products, router.query.slug])
+  }, [option, result, router.query.slug])
 
   return (
     <div className={styles.Root}>
@@ -63,7 +81,7 @@ const SearchPage = () => {
         </Headline>
 
         <Text element="p" size="lg">
-          Found {`${products?.length} results of "${query}"`}
+          Found {`${result?.length} results of "${query}"`}
         </Text>
       </div>
 
@@ -95,3 +113,13 @@ const SearchPage = () => {
 }
 
 export default SearchPage
+
+export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
+  const products = await fetchProducts()
+
+  return {
+    props: {
+      products
+    }
+  }
+}
