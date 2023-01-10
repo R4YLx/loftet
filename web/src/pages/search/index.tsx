@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useRouter } from 'next/router'
-import { useProductsByCategory } from 'hooks/useProductsByCategory'
+import { useSearchProducts } from 'hooks/useSearchProducts'
 import { options } from '@lib/options'
 import {
   setDefault,
@@ -8,19 +8,25 @@ import {
   sortLowToHigh,
   sortNewToOld
 } from '@utils/helpers'
+import Headline from '@components/Headline'
 import ProductsGrid from '@components/ProductsGrid'
 import ProductCard from '@components/ProductCard'
-import Headline from '@components/Headline'
-import SelectMenu from '@components/SelectMenu'
 import Text from '@components/Text'
-import CategoryAccordion from '@components/CategoryAccordion'
-import styles from './CollectionPage.module.scss'
+import SelectMenu from '@components/SelectMenu'
+import styles from './SearchPage.module.scss'
+import SearchForm from '@components/SearchForm'
 
-const CollectionPage = () => {
+const SearchPage = () => {
   const router = useRouter()
-  const slug = String(router.query.slug)
+  const query = String(router.query.result)
   const option = router.query.sort
-  const { data: products } = useProductsByCategory(slug)
+
+  const { data: products } = useSearchProducts(query)
+
+  // Handler for sorting
+  const handleOrderBy = (option: string) => {
+    router.push({ pathname: '/search', query: { result: query, sort: option } })
+  }
 
   // Sorting collection
   const sortedProducts = useMemo(() => {
@@ -47,23 +53,22 @@ const CollectionPage = () => {
     }
   }, [option, products, router.query.slug])
 
-  // Handler for sorting
-  const handleOrderBy = (option: string) => {
-    router.push({ pathname: `/collection/${slug}`, query: { sort: option } })
-  }
-
   return (
     <div className={styles.Root}>
-      <Headline element="h2" size="lg" className={styles.Root__headline}>
-        {slug.replace('-', ' ')}
-      </Headline>
+      <SearchForm className={styles.Root__searchForm} />
 
-      <div className={styles.Root__wrapper}>
-        <aside className={styles.Root__sidebar}>
-          <CategoryAccordion />
-        </aside>
+      <div className={styles.Root__header}>
+        <Headline element="h2" size="lg" className={styles.Root__headline}>
+          Search result
+        </Headline>
 
-        <main className={styles.Root__main}>
+        <Text element="p" size="lg">
+          Found {`${products?.length} results of "${query}"`}
+        </Text>
+      </div>
+
+      {sortedProducts && sortedProducts?.length > 0 && (
+        <main>
           <div className={styles.Root__selectContainer}>
             <Text element="p" size="md" className={styles.Root__selectLabel}>
               Sort by:
@@ -79,15 +84,14 @@ const CollectionPage = () => {
           </div>
 
           <ProductsGrid>
-            {sortedProducts &&
-              sortedProducts.map((product) => (
-                <ProductCard key={product._id} product={product} />
-              ))}
+            {sortedProducts.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
           </ProductsGrid>
         </main>
-      </div>
+      )}
     </div>
   )
 }
 
-export default CollectionPage
+export default SearchPage

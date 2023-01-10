@@ -93,3 +93,16 @@ export const patchProductQuantity = async (products: IProduct[]) => {
       .catch((error) => error)
   })
 }
+
+export const fetchSearchedProducts = async (
+  searchQuery: string
+): Promise<IProduct[]> => {
+  const query = encodeURIComponent(
+    `*[_type == "products" && title || item match "${searchQuery}*"]`
+  )
+  const url = `${process.env.NEXT_PUBLIC_SANITY_API_URL}query=${query}`
+  const data = await fetch(url).then((res) => res.json())
+  const products: IProduct[] = data.result
+
+  return products
+}
