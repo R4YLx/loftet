@@ -1,8 +1,10 @@
-# Loftet - Ecommerce for men's apparel
+# LOFTET - Ecommerce for men's apparel
 
 [Next.js web app](/web/) that fetches products from [Sanity.io](/cms/).
 
-Loftet is a template for a simple ecommerce with a quick and easy CMS for anyone to work with. The CMS sets up products and categories for the project and the web app renders it on the front end. Payment is integrated through [Stripe](https://stripe.com/en-se) and user can pay with card and [Klarna](https://www.klarna.com/se/). The payment options are customized for Swedish consumers.
+LOFTET is a template for a simple ecommerce with a quick and easy CMS for anyone to work with. The CMS sets up products and categories for the project and the web app renders it on the front end. Payment is integrated through [Stripe](https://stripe.com/en-se) and user can pay with card and [Klarna](https://www.klarna.com/se/). The payment options are customized for Swedish consumers.
+
+Deployed version of [LOFTET](https://loftet.vercel.app/)
 
 ## Table of contents
 
