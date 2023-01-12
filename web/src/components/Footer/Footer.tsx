@@ -33,19 +33,19 @@ const Footer = () => {
 
           <div className={styles.Root__socialsContainer}>
             <Link href={'/'}>
-              <a>
+              <a aria-label="Facebook link">
                 <BsFacebook />
               </a>
             </Link>
 
             <Link href={'/'}>
-              <a>
+              <a aria-label="Instagram link">
                 <BsInstagram />
               </a>
             </Link>
 
             <Link href={'/'}>
-              <a>
+              <a aria-label="Twitter link">
                 <BsTwitter />
               </a>
             </Link>
@@ -58,15 +58,15 @@ const Footer = () => {
           {/* List of pages */}
           <ul className={styles.Root__listWrapper}>
             {listItems.map((item, i) => (
-              <Link key={i} href={'/'}>
-                <a>
-                  <li className={styles.Root__listItem}>
+              <li key={i} className={styles.Root__listItem}>
+                <Link href={'/'}>
+                  <a aria-label={`Link to ${item}`}>
                     <Text element="span" size="lg">
                       {item.toLocaleUpperCase()}
                     </Text>
-                  </li>
-                </a>
-              </Link>
+                  </a>
+                </Link>
+              </li>
             ))}
           </ul>
 

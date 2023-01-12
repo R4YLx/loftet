@@ -12,7 +12,7 @@ const HeroBlock = ({ className, imageSrc, btnText, slug }: HeroBlockProps) => {
   return (
     <div className={clsx(styles.Root, className)}>
       <div className={styles.Root__imageWrapper}>
-        <Image src={imageSrc} className={styles.Root__image} />
+        <Image src={imageSrc} alt="Hero image" className={styles.Root__image} />
 
         <div className={styles.Root__buttonWrapper}>
           <Button

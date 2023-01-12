@@ -11,7 +11,7 @@ const ProductCard = ({ product, ...rest }: ProductCardProps) => {
 
   return (
     <Link href={`/product/${product.slug.current}`}>
-      <a>
+      <a aria-label={`Check out ${product.title}`}>
         <div className={styles.Root} {...rest}>
           <div className={styles.Root__imageWrapper}>
             <Image
