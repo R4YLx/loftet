@@ -73,6 +73,8 @@ Keep in mind that this is just an example, you should adjust the detail and inst
 -   Fuse.js
 -   SCSS
 -   clsx
+-   Jest
+-   React Testing Library
 
 ## Printscreens
 
