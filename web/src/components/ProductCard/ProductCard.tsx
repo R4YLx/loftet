@@ -16,6 +16,7 @@ const ProductCard = ({ product, ...rest }: ProductCardProps) => {
           <div className={styles.Root__imageWrapper}>
             <Image
               src={builtImg}
+              alt={product.title}
               onMouseEnter={(e) => (e.currentTarget.src = builtImgHover)}
               onMouseLeave={(e) => (e.currentTarget.src = builtImg)}
               className={styles.Root__image}

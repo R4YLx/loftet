@@ -1,4 +1,4 @@
-export interface ImageProps extends React.HTMLAttributes<HTMLImageElement> {
+export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   isFluid?: boolean
   src: string
 }
