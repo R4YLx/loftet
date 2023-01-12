@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
 import ProductCard from './ProductCard'
 
 const product: IProduct = {

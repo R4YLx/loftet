@@ -22,7 +22,11 @@ const CheckoutProductCard = ({ products }: CheckoutProductCardProps) => {
 
   return (
     <div className={styles.Root}>
-      <Image src={builtImg} className={styles.Root__image} />
+      <Image
+        src={builtImg}
+        alt={product.title}
+        className={styles.Root__image}
+      />
 
       <div className={styles.Root__detailsContainer}>
         <Headline element="h3" size="sm" className={styles.Root__headline}>
