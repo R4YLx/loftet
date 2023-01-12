@@ -88,6 +88,5 @@ const unavailableProduct: IProduct = {
 }
 
 it('renders Add to cart in button', () => {
-  // render
   render(<ProductDetails product={availableProduct} />)
 })

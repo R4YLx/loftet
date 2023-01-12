@@ -9,9 +9,10 @@ jest.mock('next/router', () => ({
 }))
 
 const pushMock = jest.fn()
+const mockedUseRouter = useRouter as jest.Mock
 
 // mock a return value on useRouter
-useRouter.mockReturnValue({
+mockedUseRouter.mockReturnValue({
   query: {},
   push: pushMock
 })
