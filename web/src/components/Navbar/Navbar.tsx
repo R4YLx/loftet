@@ -43,7 +43,7 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
 
         <div className={styles.Root__logoWrapper}>
           <Link href={'/'}>
-            <a className={styles.Root__logoLink}>
+            <a className={styles.Root__logoLink} aria-label="Logo">
               <img
                 src="/logo.png"
                 alt="logo"
@@ -57,17 +57,18 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
         {/* List with collections */}
         <ul className={styles.Root__menuList}>
           {categories.map((category) => (
-            <Link key={category.id} href={`/collection/${category.slug}`}>
-              <a>
-                <li>{category.title}</li>
-              </a>
-            </Link>
+            <li key={category.id}>
+              <Link href={`/collection/${category.slug}`}>
+                <a>{category.title}</a>
+              </Link>
+            </li>
           ))}
         </ul>
 
         {/* Search and cart icon*/}
         <div className={styles.Root__icons}>
           <Button
+            aria-label="search button"
             className={styles.Root__searchButton}
             onClick={() => setShowSearchField(!showSearchField)}
           >
@@ -75,7 +76,7 @@ const Navbar = ({ menuOpen, setMenuOpen }: NavbarProps) => {
           </Button>
 
           <Link href={'/cart'}>
-            <a>
+            <a aria-label="Check out with your new items">
               <div className={styles.Root__cartContainer}>
                 {loadLS && itemsInCart.length > 0 && (
                   <Text
