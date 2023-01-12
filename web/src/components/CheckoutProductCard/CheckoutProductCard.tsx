@@ -45,7 +45,11 @@ const CheckoutProductCard = ({ products }: CheckoutProductCardProps) => {
           </Text>
         </div>
       </div>
-      <Button className={styles.Root__deleteBtn} onClick={removeItemFromCart}>
+      <Button
+        aria-label="Remove item"
+        className={styles.Root__deleteBtn}
+        onClick={removeItemFromCart}
+      >
         <RxTrash size={25} />
       </Button>
     </div>
