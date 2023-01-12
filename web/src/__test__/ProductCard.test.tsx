@@ -1,6 +1,5 @@
-import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import ProductCard from './ProductCard'
+import ProductCard from '@components/ProductCard'
 
 const product: IProduct = {
   _createdAt: '2023-01-02T10:43:43Z',
