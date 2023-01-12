@@ -9,7 +9,8 @@ const createJestConfig = nextJest({
 const customJestConfig = {
   moduleNameMapper: {
     '^@components/(.*)$': '<rootDir>/src/components/$1',
-    '^@lib/(.*)$': '<rootDir>/src/lib//$1'
+    '^@lib/(.*)$': '<rootDir>/src/lib//$1',
+    '^@store/(.*)$': '<rootDir>/src/store//$1'
   },
   testEnvironment: 'jest-environment-jsdom'
 }
