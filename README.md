@@ -68,8 +68,9 @@ React Testing Library is used for unit testing of the components.
 
 Cypress is used for end-to-end testing.
 
-Run `npm run test` to run the unit tests
-Run `npm run e2e` to run the end-to-end tests
+Run `npm run test` to run the unit tests.
+
+Run `npm run e2e` to run the end-to-end tests.
 
 ## Conclusion
 
