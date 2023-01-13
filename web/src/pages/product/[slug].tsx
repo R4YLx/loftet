@@ -14,7 +14,11 @@ const ProductPage = ({ product, similarProducts }: PageProps) => {
 
   return (
     <div className={styles.Root}>
-      <Button className={styles.Root__backButton} onClick={() => router.back()}>
+      <Button
+        aria-label="Back button"
+        className={styles.Root__backButton}
+        onClick={() => router.back()}
+      >
         <div className={styles.Root__chevronWrapper}>
           <RxChevronLeft size={20} aria-hidden />
         </div>

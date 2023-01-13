@@ -54,7 +54,7 @@ const CollectionPage = () => {
 
   return (
     <div className={styles.Root}>
-      <Headline element="h2" size="lg" className={styles.Root__headline}>
+      <Headline element="h1" size="lg" className={styles.Root__headline}>
         {slug.replace('-', ' ')}
       </Headline>
 

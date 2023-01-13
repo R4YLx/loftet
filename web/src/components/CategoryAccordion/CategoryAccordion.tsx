@@ -22,6 +22,7 @@ const CategoryAccordion = ({ isOpen, setIsOpen }: CategoryAccordionProps) => {
             <RxChevronDown
               size={20}
               aria-hidden
+              data-cy="chevron"
               className={styles.Root__button__chevron}
             />
           </Accordion.Trigger>
