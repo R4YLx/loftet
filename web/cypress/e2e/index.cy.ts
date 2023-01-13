@@ -1,85 +1,178 @@
-describe('E2E on larger screens', () => {
-  beforeEach(() => {
-    cy.viewport('macbook-16')
+const smallerScreensSizes: Cypress.ViewportPreset[] = [
+  'iphone-8',
+  'iphone-x',
+  'ipad-mini',
+  'ipad-2'
+]
+
+describe('E2E on smaller screens', () => {
+  smallerScreensSizes.forEach((size: Cypress.ViewportPreset) => {
+    // Setting viewport for every size and entering website
+    beforeEach(() => {
+      cy.viewport(size)
+      cy.visit('http://localhost:3000')
+    })
+
+    it(`Checking available products on device: "${size}"`, () => {
+      const product = `[aria-label="Check out Vtg Levi's Lined Denim Trucker Jacket"]`
+      const productTwo =
+        '[aria-label="Check out Vtg Santarossa Mosaic & Tile sports jacket"]'
+      const productThree =
+        '[aria-label="Check out Vtg 1940s Swedish Army Extreme Cold Weather Shearling Coat"]'
+
+      const logo = '[aria-label="Logo"]'
+      const addToCartBtn = '[aria-label="Add to cart"]'
+      const slider = '.ProductsSlider_Root__wrapper__CeOkH'
+      const backBtn = '[aria-label="Back button"]'
+
+      // testing click on product
+      cy.get(product).click()
+
+      // testing logo routes to home page
+      cy.get(logo).click()
+
+      // testing click on antoher product
+      cy.get(productTwo).click()
+
+      // asserting button is not disabled and has corrrect text
+      cy.get(addToCartBtn)
+        .should('contain', 'Add to cart')
+        .and('not.be.disabled')
+
+      // Scrolling down to slider
+      cy.scrollTo('0%', '50%', { duration: 2000 })
+
+      // testing slider to contain products and scroll to work
+      cy.get(slider)
+        .should('not.be.empty')
+        .scrollTo('right', { duration: 2000 })
+
+      // asserting there is products in slider
+      cy.get(slider).children().should('have.length', 11)
+
+      // asserting button is not disabled and has corrrect text
+      cy.get(addToCartBtn)
+        .should('contain', 'Add to cart')
+        .and('not.be.disabled')
+
+      // testing click on antoher product
+      cy.get(productThree).click()
+
+      // asserting button is not disabled and has corrrect text
+      cy.get(addToCartBtn)
+        .should('contain', 'Add to cart')
+        .and('not.be.disabled')
+
+      // testing back button
+      cy.get(backBtn).click()
+    })
+
+    it(`checking unavailable products on device: "${size}"`, () => {
+      const product =
+        '[aria-label="Check out Vtg Chevron Shipping Quality Nylon Jacket"]'
+      const productTwo = '[aria-label="Check out Vtg Iowa Sports Jacket"]'
+      const colorRed = 'rgb(204, 0, 0)' // rgb for #cc0000
+      const addToCartBtn = '[aria-label="Add to cart"]'
+
+      // testing click on product
+      cy.get(product).click()
+
+      // asserting product prize is out of stock and has color red
+      cy.get('h3')
+        .contains('OUT OF STOCK')
+        .should('have.css', 'color', colorRed)
+
+      // asserting button is disabled
+      cy.get(addToCartBtn).should('be.disabled')
+
+      // scrolling to slider
+      cy.scrollTo('0%', '50%', { duration: 2000 })
+
+      // testing click on another unavailable product
+      cy.get(productTwo).click()
+
+      // asserting product prize is out of stock and has color red
+      cy.get('h3')
+        .contains('OUT OF STOCK')
+        .should('have.css', 'color', colorRed)
+
+      // asserting button is disabled
+      cy.get(addToCartBtn).should('be.disabled')
+    })
+
+    it(`Testing hamburger menu on device: "${size}"`, () => {
+      const hamburgerBtn = '[aria-label="hamburger button"]'
+      const chevron = '[data-cy="chevron"]'
+
+      // testing clicking on hamburger menu
+      cy.get(hamburgerBtn).click().click().click()
+
+      // testing clicking on every chevron
+      cy.get(chevron).siblings().eq(0).click().click()
+      cy.get(chevron).siblings().eq(1).click().click()
+      cy.get(chevron).siblings().eq(2).click().click()
+      cy.get(chevron).siblings().eq(3).click().click()
+      cy.get(chevron).siblings().eq(4).click().click()
+      cy.get(chevron).siblings().eq(5).click().click().click()
+
+      // testing link works on click
+      cy.get('a').contains('All military').click()
+
+      // asserting path name is correct
+      cy.location('pathname').should('eq', '/collection/military')
+
+      // go back to previous page
+      cy.go('back')
+    })
+
+    it(`Adding products to cart, removing item from cart and checkout on device: "${size}"`, () => {
+      const product = `[aria-label="Check out Vtg Levi's Lined Denim Trucker Jacket"]`
+      const productTwo =
+        '[aria-label="Check out Vtg US Army Veteran Nylon Jacket"]'
+      const productThree =
+        '[aria-label="Check out Vtg 1970s US Army OG-107 Ripstop Jungle Jacket"]'
+      const carouselNextBtn = '[aria-label="next slide / item"]'
+      const carouselPrevBtn = '[aria-label="previous slide / item"]'
+      const addToCartBtn = '[aria-label="Add to cart"]'
+      const cartBtn = '[aria-label="Check out with your new items"]'
+      const itemsInCart = `${cartBtn} > div > span`
+      const removeItemBtn = '[aria-label="Remove item"]'
+      const checkoutBtn = '[aria-label="Check out"]'
+
+      // Click on product, testing carousel and add product to cart
+      cy.get(product).click()
+      cy.get(carouselNextBtn).click().click()
+      cy.get(carouselPrevBtn).click().click()
+      cy.get(addToCartBtn).click()
+
+      // Click on product, testing carousel and add second product to cart
+      cy.get(productTwo).click()
+      cy.get(carouselNextBtn).click().click()
+      cy.get(carouselPrevBtn).click().click()
+      cy.get(addToCartBtn).click()
+
+      // Click on product, testing carousel and add third product to cart
+      cy.get(productThree).click()
+      cy.get(carouselNextBtn).click().click()
+      cy.get(carouselPrevBtn).click().click()
+      cy.get(addToCartBtn).click()
+
+      // click on check out button to go to cart
+      cy.get(cartBtn).click()
+
+      // asserts span of items in cart is visible and contains three items
+      cy.get(itemsInCart).should('be.visible').contains('3')
+
+      // click to remove last item
+      cy.get(removeItemBtn).eq(2).click()
+
+      // testing if items reduced after removing one item
+      cy.get(itemsInCart).contains('2')
+
+      // testing if button is enabled
+      cy.get(checkoutBtn).should('be.enabled')
+    })
   })
-
-  it('Checking available products', () => {
-    const product = `[aria-label="Check out Vtg Levi's Lined Denim Trucker Jacket"]`
-    const productTwo =
-      '[aria-label="Check out Vtg Santarossa Mosaic & Tile sports jacket"]'
-    const productThree =
-      '[aria-label="Check out Vtg 1940s Swedish Army Extreme Cold Weather Shearling Coat"]'
-
-    const logo = '[aria-label="Logo"]'
-    const addToCartBtn = '[aria-label="Add to cart"]'
-    const slider = '.ProductsSlider_Root__wrapper__CeOkH'
-    const backBtn = '[aria-label="Back button"]'
-
-    cy.visit('http://localhost:3000')
-    cy.get(product).click()
-
-    cy.get(logo).click()
-
-    cy.get(productTwo).click()
-
-    cy.get(addToCartBtn).should('not.be.disabled')
-
-    cy.scrollTo('0%', '50%', { duration: 2000 })
-
-    cy.get(slider).should('not.be.empty').scrollTo('right', { duration: 2000 })
-
-    cy.get(slider).children().should('have.length', 11)
-
-    cy.get(addToCartBtn).should('not.be.disabled')
-
-    cy.get(productThree).click()
-    cy.get(addToCartBtn).should('not.be.disabled')
-
-    cy.get(backBtn).click()
-  })
-
-  it('checking unavailable products', () => {
-    const product =
-      '[aria-label="Check out Vtg Chevron Shipping Quality Nylon Jacket"]'
-    const productTwo = '[aria-label="Check out Vtg Iowa Sports Jacket"]'
-
-    const colorRed = 'rgb(204, 0, 0)' // rgb for #cc0000
-    const addToCartBtn = '[aria-label="Add to cart"]'
-
-    cy.visit('http://localhost:3000')
-
-    cy.get(product).click()
-
-    cy.get('h3').contains('OUT OF STOCK').should('have.css', 'color', colorRed)
-
-    cy.get(addToCartBtn).should('be.disabled')
-
-    cy.scrollTo('0%', '50%', { duration: 2000 })
-
-    cy.get(productTwo).click()
-
-    cy.get('h3').contains('OUT OF STOCK').should('have.css', 'color', colorRed)
-
-    cy.get(addToCartBtn).should('be.disabled')
-  })
-
-  // describe('Navigation', () => {
-  //   it('Testing hamburger menu', () => {
-  //     cy.visit('http://localhost:3000')
-  //   })
-  // })
-
-  // describe('Buy products', () => {
-  //   it('Adding products', () => {
-  //     cy.visit('http://localhost:3000')
-
-  //     const addToCartBtn = '[aria-label="Add to cart"]'
-  //     cy.get(addToCartBtn).click()
-
-  //     const checkoutBtn = '[aria-label="Check out with your new items"]'
-  //     cy.get(checkoutBtn).click()
-  //   })
-  // })
 })
 
 export {}

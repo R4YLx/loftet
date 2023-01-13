@@ -127,6 +127,7 @@ const CartPage = () => {
             <Button
               block
               bgDark
+              aria-label="Check out"
               className={styles.Root__checkOutBtn}
               onClick={createCheckoutSession}
               isLoading={isLoading}
