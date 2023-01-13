@@ -175,4 +175,42 @@ describe('E2E on smaller screens', () => {
   })
 })
 
+const largerScreenSizes = [
+  'macbook-13',
+  'macbook-15',
+  'macbook-16',
+  [1920, 1080],
+  [2560, 1440],
+  [3840, 2160]
+]
+
+describe('E2E on larger devices', () => {
+  largerScreenSizes.forEach((size) => {
+    // Setting viewport for every size and entering website
+    beforeEach(() => {
+      if (Cypress._.isArray(size)) {
+        cy.viewport(size[0], size[1])
+      } else {
+        cy.viewport(size as Cypress.ViewportPreset)
+      }
+
+      cy.visit('http://localhost:3000')
+    })
+
+    it(`Click all links on screen size: ${size}`, () => {
+      const menuList = '.Navbar_Root__menuList__xD3V_'
+
+      // asserts menu is visible on larger screens
+      cy.get(menuList).should('be.visible')
+
+      // asserts links to have href and redirects
+      cy.get(`${menuList} > li > a`)
+        .each(($el) => {
+          cy.wrap($el).should('have.attr', 'href')
+        })
+        .click({ multiple: true })
+    })
+  })
+})
+
 export {}
