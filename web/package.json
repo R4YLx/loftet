@@ -9,7 +9,7 @@
     "lint-staged": "lint-staged",
     "prepare": "cd .. && husky install web/.husky",
     "test": "jest --watch",
-    "cypress": "cypress open"
+    "e2e": "cypress open"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.0.1",

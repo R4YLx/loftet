@@ -62,6 +62,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             block
             bgDark
             isFluid
+            aria-label="Add to cart"
             disabled={product.quantity <= 0}
             onClick={addItemToCart}
           >
