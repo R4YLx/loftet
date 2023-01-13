@@ -11,6 +11,7 @@ Deployed version of [LOFTET](https://loftet.vercel.app/)
 -   [Overview](#overview)
 -   [Features](#features)
 -   [Getting Started](#getting-started)
+-   [Testing](#testing)
 -   [Conclusion](#conclusion)
 -   [Built with](#built-with)
 -   [Printscreens](#printscreens)
@@ -27,6 +28,8 @@ This project is an ecommerce platform built using Next.js, Sanity.io, and Stripe
 -   Product catalog, shopping cart, and checkout process
 -   Product sorting and search functionality
 -   Admin panel for managing orders through Stripe
+-   Unit and integration testing with Jest and React Testing Library
+-   End to end testing with Cypress
 
 ## Getting Started
 
@@ -56,6 +59,18 @@ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_STRIPE_KEY
 STRIPE_SECRET_KEY=YOUR_SECRET_STRIPE_KEY
 ```
 
+## Testing
+
+The application can be tested using React Testing Library and Cypress.
+
+Jest is used as the test runner.
+React Testing Library is used for unit testing of the components.
+
+Cypress is used for end-to-end testing.
+
+Run `npm run test` to run the unit tests
+Run `npm run e2e` to run the end-to-end tests
+
 ## Conclusion
 
 This project demonstrates how to build a server-rendered ecommerce platform using Next.js, Sanity.io, and Stripe. By following the instructions in this documentation, you should be able to set up the project on your local machine, customize it to your needs, and deploy it to a live environment.
@@ -75,6 +90,7 @@ Keep in mind that this is just an example, you should adjust the detail and inst
 -   clsx
 -   Jest
 -   React Testing Library
+-   Cypress E2E Testing
 
 ## Printscreens
 
