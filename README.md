@@ -75,12 +75,14 @@ STRIPE_SECRET_KEY=YOUR_SECRET_STRIPE_KEY
 
 ## Testing
 
-The application can be tested using React Testing Library and Cypress.
-Jest is used as the test runner.
-React Testing Library is used for unit testing of the components.
-Cypress is used for end-to-end testing.
+The application can be tested using Jest, React Testing Library and Cypress.
+
+-   Jest is used as the test runner.
+-   React Testing Library is used for unit testing of the components.
+-   Cypress is used for end-to-end testing.
 
 Run `npm run test` to run the unit tests.
+
 Run `npm run e2e` to run the end-to-end tests.
 
 ## Conclusion
