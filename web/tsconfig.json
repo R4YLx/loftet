@@ -21,7 +21,8 @@
       "@lib/*": ["lib/*"],
       "@utils/*": ["utils/*"],
       "@store/*": ["store/*"]
-    }
+    },
+    "types": ["jest", "node", "@types/testing-library__jest-dom"]
   },
   "include": [
     "next-env.d.ts",
@@ -29,5 +30,5 @@
     "**/**/*.tsx",
     "src/lib/sanity.config.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "cypress.config.ts", "cypress/**/*.ts"]
 }
