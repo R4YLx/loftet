@@ -9,16 +9,30 @@ Deployed version of [LOFTET](https://loftet.vercel.app/)
 ## Table of contents
 
 -   [Overview](#overview)
+-   [Built with](#built-with)
 -   [Features](#features)
 -   [Getting Started](#getting-started)
 -   [Testing](#testing)
 -   [Conclusion](#conclusion)
--   [Built with](#built-with)
 -   [Printscreens](#printscreens)
 
 ## Overview
 
 This project is an ecommerce platform built using Next.js, Sanity.io, and Stripe. Next.js is a framework for building server-rendered React applications, Sanity.io is a headless CMS, and Stripe is a payment processor. Together, these technologies allow for a fast, secure, and customizable shopping experience.
+
+## Built with
+
+-   Next.js
+-   Typescript
+-   Sanity.io
+-   Stripe
+-   Zustand
+-   TanStack Query
+-   Fuse.js
+-   SCSS
+-   Jest
+-   React Testing Library
+-   Cypress E2E Testing
 
 ## Features
 
@@ -62,10 +76,8 @@ STRIPE_SECRET_KEY=YOUR_SECRET_STRIPE_KEY
 ## Testing
 
 The application can be tested using React Testing Library and Cypress.
-
 Jest is used as the test runner.
 React Testing Library is used for unit testing of the components.
-
 Cypress is used for end-to-end testing.
 
 Run `npm run test` to run the unit tests.
@@ -76,20 +88,6 @@ Run `npm run e2e` to run the end-to-end tests.
 This project demonstrates how to build a server-rendered ecommerce platform using Next.js, Sanity.io, and Stripe. By following the instructions in this documentation, you should be able to set up the project on your local machine, customize it to your needs, and deploy it to a live environment.
 
 Keep in mind that this is just an example, you should adjust the detail and instruction to match your own project.
-
-## Built with
-
--   Next.js
--   Typescript
--   Sanity.io
--   Stripe
--   Zustand
--   TanStack Query
--   Fuse.js
--   SCSS
--   Jest
--   React Testing Library
--   Cypress E2E Testing
 
 ## Printscreens
 
