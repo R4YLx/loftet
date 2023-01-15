@@ -1,4 +1,4 @@
-import Image from '@components/Image/Image'
+import Image from 'next/image'
 import { urlFor } from '@lib/sanity.config'
 import { Carousel } from 'react-responsive-carousel'
 import { ImageCarouselProps } from './ImageCarousel.types'
@@ -18,7 +18,9 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
       showStatus={false}
     >
       {imageBuilds.map((image, i) => (
-        <Image key={i} src={image} className={styles.Root__image} />
+        <div key={i} className={styles.Root__imageWrapper}>
+          <Image layout="fill" objectFit="contain" src={image} />
+        </div>
       ))}
     </Carousel>
   )
