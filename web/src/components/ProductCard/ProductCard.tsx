@@ -32,6 +32,7 @@ const ProductCard = ({ product, ...rest }: ProductCardProps) => {
               <Image
                 layout="fill"
                 objectFit="cover"
+                priority
                 src={builtImg}
                 alt={product.title}
               />

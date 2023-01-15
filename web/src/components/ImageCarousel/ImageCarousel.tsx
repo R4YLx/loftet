@@ -19,7 +19,7 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
     >
       {imageBuilds.map((image, i) => (
         <div key={i} className={styles.Root__imageWrapper}>
-          <Image layout="fill" objectFit="contain" src={image} />
+          <Image layout="fill" objectFit="contain" src={image} priority />
         </div>
       ))}
     </Carousel>

@@ -11,9 +11,9 @@
     margin-block: $spacing-100;
   }
 
-  &__image {
-    max-width: $spacing-900;
-    object-fit: cover;
+  &__imageWrapper {
+    position: relative;
+    min-width: $spacing-900;
   }
 
   &__detailsContainer {
