@@ -84,7 +84,7 @@ export const patchProductQuantity = async (products: IProduct[]) => {
       method: 'post',
       headers: {
         'Content-type': 'application/json',
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_API_URL}`
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_API_TOKEN}`
       },
       body: JSON.stringify({ mutations })
     })
