@@ -143,30 +143,36 @@ describe('E2E on smaller screens', () => {
       cy.get(product).click()
       cy.get(carouselNextBtn).click().click()
       cy.get(carouselPrevBtn).click().click()
+      cy.wait(1000)
       cy.get(addToCartBtn).click()
 
       // Click on product, testing carousel and add second product to cart
       cy.get(productTwo).click()
       cy.get(carouselNextBtn).click().click()
       cy.get(carouselPrevBtn).click().click()
+      cy.wait(1000)
       cy.get(addToCartBtn).click()
 
       // Click on product, testing carousel and add third product to cart
       cy.get(productThree).click()
       cy.get(carouselNextBtn).click().click()
       cy.get(carouselPrevBtn).click().click()
+      cy.wait(1000)
       cy.get(addToCartBtn).click()
 
       // click on check out button to go to cart
+      cy.wait(1000)
       cy.get(cartBtn).click()
 
       // asserts span of items in cart is visible and contains three items
+      cy.wait(1000)
       cy.get(itemsInCart).should('be.visible').contains('3')
 
       // click to remove last item
       cy.get(removeItemBtn).eq(2).click()
 
       // testing if items reduced after removing one item
+      cy.wait(1000)
       cy.get(itemsInCart).contains('2')
 
       // testing if button is enabled

@@ -1,22 +1,21 @@
 import userEvent from '@testing-library/user-event'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import CheckoutProductCard from '@components/CheckoutProductCard'
 import { mockedProducts } from '@utils/mockProducts'
 
 describe('renders checkout products', () => {
-  it('renders image', () => {
+  it('renders image', async () => {
     render(<CheckoutProductCard products={mockedProducts} />)
 
-    const imageElement = document.querySelector('img') as HTMLImageElement
+    const imageElement = screen.getByRole('img') as HTMLImageElement
 
-    expect(imageElement).toHaveAttribute(
-      'src',
-      'https://cdn.sanity.io/images/testing/undefined/9cd112c12728d8ba6875d66b4492674d96b221d0-1134x1492.jpg'
-    )
-    expect(imageElement).toHaveAttribute(
-      'alt',
-      "Vtg Levi's Lined Denim Trucker Jacket"
-    )
+    await waitFor(() => {
+      expect(imageElement).toHaveAttribute(
+        'src',
+        '/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ftesting%2Fundefined%2FTb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000.jpg&w=3840&q=75'
+      )
+      expect(imageElement).toHaveAttribute('alt', mockedProducts[0].title)
+    })
   })
 
   it('renders title', () => {
