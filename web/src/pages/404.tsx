@@ -1,6 +1,6 @@
 import Button from '@components/Button'
 import Headline from '@components/Headline'
-import Image from '@components/Image'
+import Image from 'next/image'
 import Text from '@components/Text'
 import styles from '@styles/modules/ErrorPage.module.scss'
 import Link from 'next/link'
@@ -34,7 +34,12 @@ const ErrorPage = () => {
         </div>
 
         <div className={styles.Root__imageWrapper}>
-          <Image src="/images/404.png" className={styles.Root__image} />
+          <Image
+            layout="fill"
+            objectFit="contain"
+            priority
+            src="/images/404.png"
+          />
         </div>
       </div>
     </div>

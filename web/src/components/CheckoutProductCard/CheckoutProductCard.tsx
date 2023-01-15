@@ -3,7 +3,7 @@ import { urlFor } from '@lib/sanity.config'
 import { RxTrash } from 'react-icons/rx'
 import { useCartStore } from '@store/store'
 import Headline from '@components/Headline'
-import Image from '@components/Image'
+import Image from 'next/image'
 import Text from '@components/Text'
 import Button from '@components/Button'
 import { CheckoutProductCardProps } from './CheckoutProductCard.types'
@@ -22,11 +22,14 @@ const CheckoutProductCard = ({ products }: CheckoutProductCardProps) => {
 
   return (
     <div className={styles.Root}>
-      <Image
-        src={builtImg}
-        alt={product.title}
-        className={styles.Root__image}
-      />
+      <div className={styles.Root__imageWrapper}>
+        <Image
+          layout="fill"
+          objectFit="contain"
+          src={builtImg}
+          alt={product.title}
+        />
+      </div>
 
       <div className={styles.Root__detailsContainer}>
         <Headline element="h3" size="sm" className={styles.Root__headline}>

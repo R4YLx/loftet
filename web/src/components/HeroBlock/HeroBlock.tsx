@@ -1,7 +1,8 @@
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import Button from '@components/Button'
-import Image from '@components/Image'
+// import Image from '@components/Image'
+import Image from 'next/image'
 import Text from '@components/Text'
 import { HeroBlockProps } from './HeroBlock.types'
 import styles from './HeroBlock.module.scss'
@@ -12,7 +13,13 @@ const HeroBlock = ({ className, imageSrc, btnText, slug }: HeroBlockProps) => {
   return (
     <div className={clsx(styles.Root, className)}>
       <div className={styles.Root__imageWrapper}>
-        <Image src={imageSrc} alt="Hero image" className={styles.Root__image} />
+        <Image
+          layout="fill"
+          objectFit="cover"
+          priority
+          src={imageSrc}
+          alt="Hero image"
+        />
 
         <div className={styles.Root__buttonWrapper}>
           <Button

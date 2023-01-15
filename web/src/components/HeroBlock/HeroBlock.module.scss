@@ -8,12 +8,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  &__image {
     height: 40vh;
     width: 100%;
-    object-fit: cover;
+    aspect-ratio: 821/850;
+
+    @media screen and (min-width: $breakpoint-md) {
+      aspect-ratio: 1113/575;
+    }
 
     @media screen and (min-width: $breakpoint-xxl) {
       height: 45vh;

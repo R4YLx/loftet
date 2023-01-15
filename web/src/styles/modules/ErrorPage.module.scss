@@ -46,13 +46,16 @@
   }
 
   &__imageWrapper {
+    position: relative;
+    aspect-ratio: 1/1;
+    min-width: $spacing-500;
+
+    @media screen and (min-width: $breakpoint-md) {
+      min-width: 50%;
+    }
+
     @media screen and (min-width: $breakpoint-lg) {
       flex: 0 0 60%;
     }
-  }
-
-  &__image {
-    max-width: 100%;
-    object-fit: fill;
   }
 }
