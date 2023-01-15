@@ -11,9 +11,9 @@
     min-width: $spacing-900;
   }
 
-  &__image {
-    width: 100%;
-    object-fit: cover;
+  &__imageWrapper {
+    position: relative;
+    aspect-ratio: 601/801;
   }
 
   &__item {
