@@ -16,6 +16,7 @@ const HeroBlock = ({ className, imageSrc, btnText, slug }: HeroBlockProps) => {
         <Image
           layout="fill"
           objectFit="cover"
+          priority
           src={imageSrc}
           alt="Hero image"
         />
