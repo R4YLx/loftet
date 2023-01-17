@@ -1,11 +1,10 @@
+import { useState } from 'react'
 import Link from 'next/link'
-import { urlFor } from '@lib/sanity.config'
 import Image from 'next/image'
-
+import { urlFor } from '@lib/sanity.config'
 import Text from '@components/Text'
 import { ProductCardProps } from './ProductCard.types'
 import styles from './ProductCard.module.scss'
-import { useState } from 'react'
 
 const ProductCard = ({ product, ...rest }: ProductCardProps) => {
   const builtImg = urlFor(product.image[0]).url()
@@ -25,6 +24,7 @@ const ProductCard = ({ product, ...rest }: ProductCardProps) => {
               <Image
                 layout="fill"
                 objectFit="cover"
+                priority
                 src={builtImgHover}
                 alt={product.title}
               />
@@ -33,6 +33,8 @@ const ProductCard = ({ product, ...rest }: ProductCardProps) => {
                 layout="fill"
                 objectFit="cover"
                 priority
+                placeholder="blur"
+                blurDataURL={builtImg}
                 src={builtImg}
                 alt={product.title}
               />
