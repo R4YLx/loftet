@@ -8,7 +8,7 @@ import { CategoryAccordionProps } from './CategoryAccordion.types'
 
 const CategoryAccordion = ({ isOpen, setIsOpen }: CategoryAccordionProps) => {
   return (
-    <Accordion.Root type="multiple" className={styles.Root}>
+    <Accordion.Root type="single" className={styles.Root}>
       {categories.map((category) => (
         <Accordion.Item
           key={category.id}
