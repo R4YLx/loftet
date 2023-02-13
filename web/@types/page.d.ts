@@ -5,4 +5,6 @@ interface PageProps {
   similarProducts?: IProduct[]
   lineItems?: IStripeProduct[]
   customer?: IStripeCustomer
+  heroBlocks?: IHeroBlock[]
+  infoBlocks?: IInfoBlock[]
 }

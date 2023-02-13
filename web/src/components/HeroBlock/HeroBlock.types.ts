@@ -1,6 +1,6 @@
 export interface HeroBlockProps {
   btnText: string
   className: string
-  imageSrc: string
+  imageSrc: IImage
   slug: string
 }

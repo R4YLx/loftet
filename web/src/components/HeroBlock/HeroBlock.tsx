@@ -6,9 +6,11 @@ import Image from 'next/image'
 import Text from '@components/Text'
 import { HeroBlockProps } from './HeroBlock.types'
 import styles from './HeroBlock.module.scss'
+import { urlFor } from '@lib/sanity.config'
 
 const HeroBlock = ({ className, imageSrc, btnText, slug }: HeroBlockProps) => {
   const router = useRouter()
+  const builtImg = urlFor(imageSrc).url()
 
   return (
     <div className={clsx(styles.Root, className)}>
@@ -17,7 +19,7 @@ const HeroBlock = ({ className, imageSrc, btnText, slug }: HeroBlockProps) => {
           layout="fill"
           objectFit="cover"
           priority
-          src={imageSrc}
+          src={builtImg}
           alt="Hero image"
         />
 

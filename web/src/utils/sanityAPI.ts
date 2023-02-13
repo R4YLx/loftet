@@ -93,3 +93,12 @@ export const patchProductQuantity = async (products: IProduct[]) => {
       .catch((error) => error)
   })
 }
+
+export const fetchBlocks = async (type: string) => {
+  const query = encodeURIComponent(`*[_type == "${type}"]`)
+  const url = `${process.env.NEXT_PUBLIC_SANITY_API_URL}query=${query}`
+  const data = await fetch(url).then((res) => res.json())
+  const blocks: IHeroBlock[] | IInfoBlock[] = data.result
+
+  return blocks
+}
