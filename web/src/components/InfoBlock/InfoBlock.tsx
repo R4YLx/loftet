@@ -16,7 +16,7 @@ const InfoBlock = ({ buttonText, headline, text }: InfoBlockProps) => {
 
         <div className={styles.Root__textAndButtonWrapper}>
           <Text element="p" size="lg">
-            {text}
+            {text[0].children.map((span) => span.text)}
           </Text>
 
           <Button dark block>
